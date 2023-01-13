@@ -2,7 +2,7 @@
 This is a sub-repository of the [HADA](https://github.com/m2man/HADA) where we applied HADA on-the-top of [LAVIS library](https://github.com/salesforce/LAVIS).
 
 ## Introduction
-Our paper has been accepted at ECIR'23
+Our [paper](https://arxiv.org/abs/2301.04742) has been accepted at ECIR'23
 
 HADA is a framework that combines any pretrained SOTA models in image-text retrieval (ITR) to produce a better result. A special feature in HADA is that this framework only introduces a tiny number of additonal trainable parameters. Thus, it does not required multiple GPUs to train HADA or external large-scale dataset (although pretraining may further improve the performance).
 
