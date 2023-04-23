@@ -1,8 +1,9 @@
 *.pyc
 *.ipynb
 */*.pth.tar
-Output/
-Config/
+Output/mscoco/*/
+Output/flickr30k/*/
+Config/flickr30k/C1_cont_both.yml
 .ipynb_checkpoints/
 __pycache__/
 mlruns/
