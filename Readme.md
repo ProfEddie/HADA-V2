@@ -17,7 +17,7 @@ We used **mlflow-ui** to keep track the performance between configurations. Plea
 We uploaded the pretrained models [here](https://drive.google.com/drive/folders/17_AYT9wNiVNAgZdgClMRDewcmzZye66d?usp=share_link).
 
 ## Train and Evaluate
-Remember to update the path in the config files in **Config** folders. Then you can train or evaluate by the file `run_exp.py`
+Remember to update the path in the config files in **Config** folders. Then you can train or evaluate by the file `main.py`
 
 ```python
 # Train (2 steps, 1st step for initial learning and 2nd step for finetuning)
