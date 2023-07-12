@@ -5,14 +5,14 @@ import numpy as np
 from Retrieval_Utils import i2t, t2i, evaluate_recall
 from Utils import write_to_file
 import torch
-import mlflow
+# import mlflow
 import Utils as ut
 from Controller import Controller as Ctr
 from Controller_Both import Controller as Ctr_Both
 from lavis.models import load_model_and_preprocess, load_model, load_preprocess
 from lavis.datasets.builders import load_dataset
 
-mlflow.set_tracking_uri('http://localhost:1409')
+# mlflow.set_tracking_uri('http://localhost:1409')
 
 DATASET_NAME = 'flickr30k'
 if DATASET_NAME == 'flickr30k':
@@ -40,13 +40,11 @@ def run_train(args):
     config_path = args.config_path
     config_name = config_path.split('/')[-1][:-4]
     dataset_name = config_path.split('/')[-2]
-    
     config = ut.load_config(config_path)
     config['util_norm'] = False
     config['dataset_name'] = dataset_name
     config['config_path'] = config_path
     config['out_dir'] = f"{config['out_dir']}/{dataset_name}"
-    
     model_1_dict, model_2_dict = get_model_dict(config)
     
     train_dataset = ut.Retrieval_Dataset(config=config, dataset=itr_dataset, 

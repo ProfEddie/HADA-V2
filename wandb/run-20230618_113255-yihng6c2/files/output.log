@@ -1,0 +1,37 @@
+Trainable Paras: 9988097
+TRAIN FROM SCRATCH
+  0%|                                                                    | 0/100 [00:00<?, ?it/s]/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/processors/randaugment.py:40: RuntimeWarning: overflow encountered in scalar negative
+  offset = -low * scale
+/home/nmduy/HADA/chau/HADA-LAVIS/RandAugment.py:31: RuntimeWarning: overflow encountered in scalar negative
+  offset = -low * scale
+  0%|                                                                    | 0/100 [00:44<?, ?it/s]
+Traceback (most recent call last):
+  File "main.py", line 127, in <module>
+    run_train(args)
+  File "main.py", line 73, in run_train
+    controller.train(dataset_train=train_dataset,  dataset_val=val_dataset,
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller.py", line 452, in train
+    loss_tr_dict = self.train_epoch(dataloader_train, idx_epoch, writer)
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller.py", line 318, in train_epoch
+    for idx, batch in tqdm(enumerate(dataloader)):
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 633, in __next__
+    data = self._next_data()
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 677, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Utils.py", line 296, in __getitem__
+    text_output_2 = extract_features(self.model_2, sample_2, mode='text', is_clip='clip' in self.model_2_name)
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Utils.py", line 135, in extract_features
+    text_embeds = model.encode_text(text)
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/clip_models/model.py", line 560, in encode_text
+    x = self.transformer(x, attn_mask=self.attn_mask)
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/clip_models/model.py", line 303, in forward
+    for r in self.resblocks:
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/nn/modules/container.py", line 317, in __iter__
+    return iter(self._modules.values())
+KeyboardInterrupt

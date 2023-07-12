@@ -5,6 +5,7 @@ from Utils import MemoryEfficientSwish
 from torch_geometric.nn import GCNConv, GATv2Conv, TransformerConv
 from torch_geometric.nn.norm import BatchNorm, LayerNorm
 from torch_geometric.utils import dropout_adj
+from hyptorch.nn import HypLinear
 
 def get_activate_func(act_func=None):
     if act_func is None or act_func.lower() == 'id':
@@ -72,6 +73,51 @@ class SeqLinear(nn.Module):
                 x = self.norm[idx](x)
         return x  
     
+class HypSeqLinear(nn.Module):
+    def __init__(self, ft_in, ft_out=[128], dropout=0.5, batch_norm=True, act_func='relu'):
+        super(SeqLinear, self).__init__()
+        self.linear = []
+        self.norm = []
+        self.dropout = []
+        self.act = []
+        for idx in range(len(ft_out)):
+            if idx == 0:
+                self.linear.append(HypLinear(ft_in, ft_out[idx]))
+            else:
+                self.linear.append(HypLinear(ft_out[idx-1], ft_out[idx]))
+            if idx != len(ft_out)-1:
+                if batch_norm:
+                    # self.norm.append(nn.BatchNorm1d(ft_out[idx]))
+                    self.norm.append(nn.LayerNorm([ft_out[idx]]))
+                else:
+                    self.norm.append(nn.Identity())
+                self.act.append(get_activate_func(act_func))
+            self.dropout.append(nn.Dropout(p=dropout))
+            
+        self.linear = nn.ModuleList(self.linear)
+        for x in self.linear:
+            nn.init.kaiming_normal_(x.weight)
+        self.norm = nn.ModuleList(self.norm)
+        self.dropout = nn.ModuleList(self.dropout)
+        self.act = nn.ModuleList(self.act)
+        
+    def forward(self, x):
+        # x.shape (in_channel, ft_in)
+        for idx in range(len(self.linear)):
+            # x = self.linear[idx](x) 
+            # if idx != (len(self.linear)-1): # last layer not use relu
+            #     x = self.norm[idx](x)
+            #     x = self.act[idx](x)
+            # x = self.dropout[idx](x)
+            # C10
+            x = self.dropout[idx](x)
+            x = self.linear[idx](x)
+            if idx != (len(self.linear)-1): # last layer not use relu
+                x = self.act[idx](x)
+                x = self.norm[idx](x)
+        return x  
+    
+
     
 class GraphLayer(nn.Module):
     def __init__(self, in_channels, hidden_channels=[32], type_model='GCN', n_heads=4, 

@@ -1,0 +1,64 @@
+Trainable Paras: 9988097
+TRAIN FROM SCRATCH
+  0%|                                                                    | 0/100 [00:00<?, ?it/s]
+
+
+  offset = -low * scale
+                      /home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/processors/randaugment.py:40: RuntimeWarning: overflow encountered in scalar negative
+  offset = -low * scale
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  0%|                                                                    | 0/100 [00:54<?, ?it/s]
+Traceback (most recent call last):
+  File "main.py", line 127, in <module>
+    run_train(args)
+  File "main.py", line 73, in run_train
+    controller.train(dataset_train=train_dataset,  dataset_val=val_dataset,
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller.py", line 452, in train
+    loss_tr_dict = self.train_epoch(dataloader_train, idx_epoch, writer)
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller.py", line 318, in train_epoch
+    for idx, batch in tqdm(enumerate(dataloader)):
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/tqdm/std.py", line 1178, in __iter__
+    for obj in iterable:
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 633, in __next__
+    data = self._next_data()
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 677, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Utils.py", line 237, in __getitem__
+    image_input_1 = self.vis_processors_1[self.type_dataset](image_raw).unsqueeze(0).to(self.device) if image_raw is not None else None
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/processors/blip_processors.py", line 142, in __call__
+    return self.transform(item)
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torchvision/transforms/transforms.py", line 95, in __call__
+    img = t(img)
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torchvision/transforms/transforms.py", line 980, in forward
+    return F.resized_crop(img, i, j, h, w, self.size, self.interpolation, antialias=self.antialias)
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torchvision/transforms/functional.py", line 663, in resized_crop
+    img = resize(img, size, interpolation, antialias=antialias)
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torchvision/transforms/functional.py", line 490, in resize
+    return F_pil.resize(img, size=output_size, interpolation=pil_interpolation)
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torchvision/transforms/_functional_pil.py", line 250, in resize
+    return img.resize(tuple(size[::-1]), interpolation)
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/PIL/Image.py", line 2193, in resize
+    return self._new(self.im.resize(size, resample, box))
+KeyboardInterrupt

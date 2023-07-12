@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 from Comp_Basic import *
 import torch.nn.functional as F
+import hyptorch.nn as hypnn 
 
 def concat_node(x1, x2, n_x1, n_x2):
     x_concat = torch.tensor(()).to(x1.device)
@@ -56,6 +57,31 @@ class EnLiFu(nn.Module):
         x_enc = torch.cat((g_cls_1, x_cls_1, x_cls_2, g_cls_2),dim=1)
         x_enc = self.lin(x_enc)
         return x_enc
+        
+class HypEnLiFu(nn.Module):
+    def __init__(self, f1_in=768, f2_in=768, ft_trans=[768, 768], 
+                 ft_gcn=[768, 512], ft_com=[512, 512], f1_out=256, f2_out=768,
+                 n_heads=4, type_graph='GCN', skip=False, batch_norm=True, dropout=0.5, act_func='relu'):
+        super(EnLiFu, self).__init__()
+        self.gcn = LiFu(f1_in=f1_in, f2_in=f2_in, ft_trans=ft_trans, ft_gcn=ft_gcn, 
+                        n_heads=n_heads, type_graph=type_graph, 
+                        skip=skip, batch_norm=batch_norm, dropout=dropout, act_func=act_func)
+        self.to_poincare = hypnn.ToPoincare(
+            c=0.1,
+            ball_dim=ft_gcn[-1],
+            riemannian=False,
+            clip_r=2.3,
+        )
+        self.lin = HypSeqLinear(2*ft_gcn[-1]+f1_out+f2_out, ft_out=ft_com, batch_norm=batch_norm, 
+                             dropout=dropout, act_func=act_func)
+    def forward(self, x_1, x_2, n_1, n_2, edge_index, edge_attr, batch_index, x_cls_1, x_cls_2):
+        g_cls_1, g_cls_2 = self.gcn(x_1, x_1, n_1, n_2, edge_index, edge_attr, batch_index)
+        
+        # x_cls = torch.cat((x_cls_albef, x_cls_dot), dim=1)
+        x_enc = torch.cat((g_cls_1, x_cls_1, x_cls_2, g_cls_2),dim=1)
+        x_enc = self.lin(x_enc)
+        return x_enc
+
 
 # class EnLiFuEx(nn.Module):
 #     def __init__(self, ft_trans=[768, 768], ft_gcn=[768, 512], ft_com=[512, 512], 

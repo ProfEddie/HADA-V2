@@ -1,0 +1,342 @@
+2023-06-18 12:13:36,148 INFO    StreamThr :462088 [internal.py:wandb_internal():86] W&B internal server running at pid: 462088, started at: 2023-06-18 12:13:36.147896
+2023-06-18 12:13:36,150 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status
+2023-06-18 12:13:36,151 INFO    WriterThread:462088 [datastore.py:open_for_write():85] open: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/run-2hgecefg.wandb
+2023-06-18 12:13:36,151 DEBUG   SenderThread:462088 [sender.py:send():369] send: header
+2023-06-18 12:13:36,214 DEBUG   SenderThread:462088 [sender.py:send():369] send: run
+2023-06-18 12:13:36,563 INFO    SenderThread:462088 [dir_watcher.py:__init__():211] watching files in: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files
+2023-06-18 12:13:36,563 INFO    SenderThread:462088 [sender.py:_start_run_threads():1100] run started: 2hgecefg with start time 1687086816.147122
+2023-06-18 12:13:36,563 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: summary_record
+2023-06-18 12:13:36,563 INFO    SenderThread:462088 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-18 12:13:36,565 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: check_version
+2023-06-18 12:13:36,566 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: check_version
+2023-06-18 12:13:36,643 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: run_start
+2023-06-18 12:13:36,645 DEBUG   HandlerThread:462088 [system_info.py:__init__():31] System info init
+2023-06-18 12:13:36,645 DEBUG   HandlerThread:462088 [system_info.py:__init__():46] System info init done
+2023-06-18 12:13:36,645 INFO    HandlerThread:462088 [system_monitor.py:start():181] Starting system monitor
+2023-06-18 12:13:36,645 INFO    SystemMonitor:462088 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-06-18 12:13:36,646 INFO    HandlerThread:462088 [system_monitor.py:probe():201] Collecting system info
+2023-06-18 12:13:36,646 INFO    SystemMonitor:462088 [interfaces.py:start():190] Started cpu monitoring
+2023-06-18 12:13:36,646 INFO    SystemMonitor:462088 [interfaces.py:start():190] Started disk monitoring
+2023-06-18 12:13:36,647 INFO    SystemMonitor:462088 [interfaces.py:start():190] Started gpu monitoring
+2023-06-18 12:13:36,648 INFO    SystemMonitor:462088 [interfaces.py:start():190] Started memory monitoring
+2023-06-18 12:13:36,648 INFO    SystemMonitor:462088 [interfaces.py:start():190] Started network monitoring
+2023-06-18 12:13:36,672 DEBUG   HandlerThread:462088 [system_info.py:probe():195] Probing system
+2023-06-18 12:13:36,675 DEBUG   HandlerThread:462088 [system_info.py:_probe_git():180] Probing git
+2023-06-18 12:13:36,681 DEBUG   HandlerThread:462088 [system_info.py:_probe_git():188] Probing git done
+2023-06-18 12:13:36,681 DEBUG   HandlerThread:462088 [system_info.py:probe():240] Probing system done
+2023-06-18 12:13:36,682 DEBUG   HandlerThread:462088 [system_monitor.py:probe():210] {'os': 'Linux-5.15.0-69-generic-x86_64-with-glibc2.17', 'python': '3.8.16', 'heartbeatAt': '2023-06-18T11:13:36.672994', 'startedAt': '2023-06-18T11:13:36.128599', 'docker': None, 'cuda': None, 'args': ('-cp', 'Config/flickr30k/C1.yml', '-rm', 'train'), 'state': 'running', 'program': 'main.py', 'codePath': 'main.py', 'git': {'remote': 'https://github.com/m2man/HADA-LAVIS.git', 'commit': '49498ca711ea51b86dc3132088ce333d43860874'}, 'email': 'nmduy881994@gmail.com', 'root': '/home/nmduy/HADA/chau/HADA-LAVIS', 'host': 'jarvis', 'username': 'nmduy', 'executable': '/home/jarvis/anaconda3/envs/chau/bin/python', 'cpu_count': 8, 'cpu_count_logical': 16, 'cpu_freq': {'current': 3.488000000000001, 'min': 800.0, 'max': 5000.0}, 'cpu_freq_per_core': [{'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 1.808, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}], 'disk': {'total': 903.6142044067383, 'used': 825.0467414855957}, 'gpu': 'NVIDIA GeForce RTX 3080 Ti', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 3080 Ti', 'memory_total': 12639338496}], 'memory': {'total': 62.71501541137695}}
+2023-06-18 12:13:36,682 INFO    HandlerThread:462088 [system_monitor.py:probe():211] Finished collecting system info
+2023-06-18 12:13:36,682 INFO    HandlerThread:462088 [system_monitor.py:probe():214] Publishing system info
+2023-06-18 12:13:36,682 DEBUG   HandlerThread:462088 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-06-18 12:13:36,682 DEBUG   HandlerThread:462088 [system_info.py:_save_pip():67] Saving pip packages done
+2023-06-18 12:13:36,682 DEBUG   HandlerThread:462088 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-06-18 12:13:37,564 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_created():272] file/dir created: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/conda-environment.yaml
+2023-06-18 12:13:37,564 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_created():272] file/dir created: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/wandb-summary.json
+2023-06-18 12:13:37,564 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_created():272] file/dir created: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/requirements.txt
+2023-06-18 12:13:39,172 DEBUG   HandlerThread:462088 [system_info.py:_save_conda():86] Saving conda packages done
+2023-06-18 12:13:39,173 INFO    HandlerThread:462088 [system_monitor.py:probe():216] Finished publishing system info
+2023-06-18 12:13:39,174 DEBUG   SenderThread:462088 [sender.py:send():369] send: files
+2023-06-18 12:13:39,175 INFO    SenderThread:462088 [sender.py:_save_file():1354] saving file wandb-metadata.json with policy now
+2023-06-18 12:13:39,178 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:13:39,178 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:13:39,347 DEBUG   SenderThread:462088 [sender.py:send():369] send: telemetry
+2023-06-18 12:13:39,349 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: log_artifact
+2023-06-18 12:13:39,351 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: log_artifact
+2023-06-18 12:13:39,356 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-18 12:13:39,563 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/conda-environment.yaml
+2023-06-18 12:13:39,564 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_created():272] file/dir created: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/wandb-metadata.json
+2023-06-18 12:13:39,564 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_created():272] file/dir created: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:13:39,652 INFO    wandb-upload_0:462088 [upload_job.py:push():133] Uploaded file /tmp/tmpyztm7gj7wandb/i3vfn8je-wandb-metadata.json
+2023-06-18 12:13:40,502 INFO    wandb-upload_0:462088 [upload_job.py:push():91] Uploaded file /home/nmduy/.local/share/wandb/artifacts/staging/tmp4jwv8hvf
+2023-06-18 12:13:41,199 INFO    SenderThread:462088 [sender.py:send_request_log_artifact():1414] logged artifact run-2hgecefg-C1.yml - {'id': 'QXJ0aWZhY3Q6NDkxNDU5MDM2', 'digest': '3b678893986d1a18dc0e4720cc7f6b04', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjc3NjQxMTE2', 'latestArtifact': None}, 'version': 'latest'}
+2023-06-18 12:13:41,199 DEBUG   SenderThread:462088 [sender.py:send():369] send: history
+2023-06-18 12:13:41,199 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: summary_record
+2023-06-18 12:13:41,199 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:13:41,200 INFO    SenderThread:462088 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-18 12:13:41,564 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/wandb-summary.json
+2023-06-18 12:13:41,564 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:13:43,564 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:13:45,565 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:13:46,434 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:13:47,565 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:13:49,566 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:13:51,519 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:13:51,566 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:13:54,179 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:13:54,179 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:13:55,567 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:13:56,669 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:13:57,568 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:13:59,568 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:14:01,733 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:14:03,569 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:14:05,569 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:14:06,961 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:14:07,570 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/config.yaml
+2023-06-18 12:14:07,570 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:14:09,181 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:14:09,182 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:14:09,570 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:14:11,571 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:14:12,116 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:14:15,572 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:14:17,362 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:14:17,572 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:14:19,573 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:14:22,497 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:14:23,574 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:14:24,182 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:14:24,182 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:14:25,574 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:14:27,574 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:14:27,583 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:14:31,575 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:14:32,830 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:14:33,576 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:14:35,576 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:14:36,649 DEBUG   SystemMonitor:462088 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-06-18 12:14:36,649 DEBUG   SenderThread:462088 [sender.py:send():369] send: stats
+2023-06-18 12:14:37,577 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:14:37,925 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:14:39,184 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:14:39,185 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:14:41,578 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:14:43,005 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:14:43,578 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:14:45,579 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:14:47,579 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:14:48,140 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:14:51,580 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:14:53,405 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:14:53,581 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:14:54,185 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:14:54,185 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:14:55,581 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:14:58,630 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:14:59,582 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:15:01,582 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:15:03,583 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:15:03,796 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:15:06,650 DEBUG   SenderThread:462088 [sender.py:send():369] send: stats
+2023-06-18 12:15:07,584 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:15:08,982 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:15:09,185 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:15:09,185 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:15:09,584 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:15:11,585 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:15:14,298 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:15:15,586 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:15:17,586 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:15:19,418 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:15:19,587 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:15:21,587 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:15:24,185 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:15:24,185 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:15:25,403 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:15:25,588 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:15:27,589 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:15:29,589 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:15:30,529 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:15:31,590 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:15:35,590 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:15:35,624 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:15:36,651 DEBUG   SenderThread:462088 [sender.py:send():369] send: stats
+2023-06-18 12:15:37,591 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:15:39,185 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:15:39,185 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:15:39,591 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:15:41,314 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:15:41,592 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:15:45,593 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:15:46,456 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:15:47,593 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:15:49,594 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:15:51,501 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:15:53,595 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:15:54,185 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:15:54,185 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:15:55,595 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:15:56,598 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:15:57,596 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:15:59,596 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:16:01,706 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:16:03,597 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:16:05,598 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:16:06,651 DEBUG   SenderThread:462088 [sender.py:send():369] send: stats
+2023-06-18 12:16:06,798 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:16:07,598 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:16:09,185 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:16:09,185 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:16:11,599 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:16:12,012 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:16:13,600 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:16:15,600 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:16:17,260 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:16:19,601 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:16:21,602 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:16:22,749 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:16:23,602 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:16:24,187 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:16:24,187 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:16:27,603 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:16:27,891 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:16:29,603 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:16:31,604 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:16:33,004 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:16:35,605 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:16:36,652 DEBUG   SenderThread:462088 [sender.py:send():369] send: stats
+2023-06-18 12:16:37,605 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:16:38,254 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:16:39,188 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:16:39,188 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:16:39,606 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:16:43,607 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:16:43,662 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:16:45,607 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:16:47,608 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:16:49,058 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:16:51,609 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:16:53,609 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:16:54,118 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:16:54,187 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:16:54,188 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:16:55,610 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:16:57,610 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:16:59,272 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:17:01,611 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:17:03,612 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:17:04,596 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:17:05,612 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:17:06,652 DEBUG   SenderThread:462088 [sender.py:send():369] send: stats
+2023-06-18 12:17:06,982 DEBUG   SenderThread:462088 [sender.py:send():369] send: exit
+2023-06-18 12:17:06,982 INFO    SenderThread:462088 [sender.py:send_exit():574] handling exit code: 255
+2023-06-18 12:17:06,982 INFO    SenderThread:462088 [sender.py:send_exit():576] handling runtime: 210
+2023-06-18 12:17:06,983 INFO    SenderThread:462088 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-18 12:17:06,983 INFO    SenderThread:462088 [sender.py:send_exit():582] send defer
+2023-06-18 12:17:06,983 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:17:06,983 INFO    HandlerThread:462088 [handler.py:handle_request_defer():170] handle defer: 0
+2023-06-18 12:17:06,983 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:17:06,983 INFO    SenderThread:462088 [sender.py:send_request_defer():598] handle sender defer: 0
+2023-06-18 12:17:06,983 INFO    SenderThread:462088 [sender.py:transition_state():602] send defer: 1
+2023-06-18 12:17:06,983 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:17:06,983 INFO    HandlerThread:462088 [handler.py:handle_request_defer():170] handle defer: 1
+2023-06-18 12:17:06,984 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:17:06,984 INFO    SenderThread:462088 [sender.py:send_request_defer():598] handle sender defer: 1
+2023-06-18 12:17:06,984 INFO    SenderThread:462088 [sender.py:transition_state():602] send defer: 2
+2023-06-18 12:17:06,984 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:17:06,984 INFO    HandlerThread:462088 [handler.py:handle_request_defer():170] handle defer: 2
+2023-06-18 12:17:06,984 INFO    HandlerThread:462088 [system_monitor.py:finish():190] Stopping system monitor
+2023-06-18 12:17:06,984 INFO    HandlerThread:462088 [interfaces.py:finish():202] Joined cpu monitor
+2023-06-18 12:17:06,984 INFO    HandlerThread:462088 [interfaces.py:finish():202] Joined disk monitor
+2023-06-18 12:17:06,984 DEBUG   SystemMonitor:462088 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-06-18 12:17:06,984 DEBUG   SystemMonitor:462088 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-06-18 12:17:07,024 INFO    HandlerThread:462088 [interfaces.py:finish():202] Joined gpu monitor
+2023-06-18 12:17:07,024 INFO    HandlerThread:462088 [interfaces.py:finish():202] Joined memory monitor
+2023-06-18 12:17:07,024 INFO    HandlerThread:462088 [interfaces.py:finish():202] Joined network monitor
+2023-06-18 12:17:07,025 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:17:07,025 INFO    SenderThread:462088 [sender.py:send_request_defer():598] handle sender defer: 2
+2023-06-18 12:17:07,025 INFO    SenderThread:462088 [sender.py:transition_state():602] send defer: 3
+2023-06-18 12:17:07,025 DEBUG   SenderThread:462088 [sender.py:send():369] send: stats
+2023-06-18 12:17:07,025 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:17:07,025 INFO    HandlerThread:462088 [handler.py:handle_request_defer():170] handle defer: 3
+2023-06-18 12:17:07,025 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:17:07,025 INFO    SenderThread:462088 [sender.py:send_request_defer():598] handle sender defer: 3
+2023-06-18 12:17:07,025 INFO    SenderThread:462088 [sender.py:transition_state():602] send defer: 4
+2023-06-18 12:17:07,026 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:17:07,026 INFO    HandlerThread:462088 [handler.py:handle_request_defer():170] handle defer: 4
+2023-06-18 12:17:07,026 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:17:07,026 INFO    SenderThread:462088 [sender.py:send_request_defer():598] handle sender defer: 4
+2023-06-18 12:17:07,026 INFO    SenderThread:462088 [sender.py:transition_state():602] send defer: 5
+2023-06-18 12:17:07,026 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:17:07,026 INFO    HandlerThread:462088 [handler.py:handle_request_defer():170] handle defer: 5
+2023-06-18 12:17:07,026 DEBUG   SenderThread:462088 [sender.py:send():369] send: summary
+2023-06-18 12:17:07,027 INFO    SenderThread:462088 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-18 12:17:07,027 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:17:07,027 INFO    SenderThread:462088 [sender.py:send_request_defer():598] handle sender defer: 5
+2023-06-18 12:17:07,027 INFO    SenderThread:462088 [sender.py:transition_state():602] send defer: 6
+2023-06-18 12:17:07,027 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:17:07,027 INFO    HandlerThread:462088 [handler.py:handle_request_defer():170] handle defer: 6
+2023-06-18 12:17:07,027 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:17:07,027 INFO    SenderThread:462088 [sender.py:send_request_defer():598] handle sender defer: 6
+2023-06-18 12:17:07,027 INFO    SenderThread:462088 [sender.py:transition_state():602] send defer: 7
+2023-06-18 12:17:07,027 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:17:07,027 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:17:07,027 INFO    HandlerThread:462088 [handler.py:handle_request_defer():170] handle defer: 7
+2023-06-18 12:17:07,028 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:17:07,028 INFO    SenderThread:462088 [sender.py:send_request_defer():598] handle sender defer: 7
+2023-06-18 12:17:07,613 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/wandb-summary.json
+2023-06-18 12:17:07,980 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: poll_exit
+2023-06-18 12:17:09,444 INFO    SenderThread:462088 [sender.py:transition_state():602] send defer: 8
+2023-06-18 12:17:09,445 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: poll_exit
+2023-06-18 12:17:09,445 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:17:09,445 INFO    HandlerThread:462088 [handler.py:handle_request_defer():170] handle defer: 8
+2023-06-18 12:17:09,445 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:17:09,445 INFO    SenderThread:462088 [sender.py:send_request_defer():598] handle sender defer: 8
+2023-06-18 12:17:09,445 INFO    SenderThread:462088 [job_builder.py:build():232] Attempting to build job artifact
+2023-06-18 12:17:09,445 INFO    SenderThread:462088 [job_builder.py:build():256] is repo sourced job
+2023-06-18 12:17:09,446 INFO    SenderThread:462088 [job_builder.py:build():297] adding wandb-job metadata file
+2023-06-18 12:17:09,449 INFO    SenderThread:462088 [sender.py:transition_state():602] send defer: 9
+2023-06-18 12:17:09,449 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:17:09,449 DEBUG   SenderThread:462088 [sender.py:send():369] send: artifact
+2023-06-18 12:17:09,449 INFO    HandlerThread:462088 [handler.py:handle_request_defer():170] handle defer: 9
+2023-06-18 12:17:09,614 INFO    Thread-12 :462088 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:17:10,052 INFO    SenderThread:462088 [sender.py:send_artifact():1450] sent artifact job-https___github.com_m2man_HADA-LAVIS.git_main.py - {'id': 'QXJ0aWZhY3Q6NDkxNDM2Mjcw', 'digest': 'f13edda019c4e049381211b13e5451ae', 'state': 'COMMITTED', 'aliases': [{'artifactCollectionName': 'job-https___github.com_m2man_HADA-LAVIS.git_main.py', 'alias': 'latest'}, {'artifactCollectionName': 'job-https___github.com_m2man_HADA-LAVIS.git_main.py', 'alias': 'v0'}], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjc3NjM2Mjgx', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NDkxNDM2Mjcw', 'versionIndex': 0}}, 'version': 'v0'}
+2023-06-18 12:17:10,052 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:17:10,052 INFO    SenderThread:462088 [sender.py:send_request_defer():598] handle sender defer: 9
+2023-06-18 12:17:10,052 INFO    SenderThread:462088 [dir_watcher.py:finish():359] shutting down directory watcher
+2023-06-18 12:17:10,616 INFO    SenderThread:462088 [dir_watcher.py:finish():389] scan: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files
+2023-06-18 12:17:10,616 INFO    SenderThread:462088 [dir_watcher.py:finish():403] scan save: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/conda-environment.yaml conda-environment.yaml
+2023-06-18 12:17:10,617 INFO    SenderThread:462088 [dir_watcher.py:finish():403] scan save: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log output.log
+2023-06-18 12:17:10,623 INFO    SenderThread:462088 [dir_watcher.py:finish():403] scan save: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/wandb-summary.json wandb-summary.json
+2023-06-18 12:17:10,623 INFO    SenderThread:462088 [dir_watcher.py:finish():403] scan save: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/requirements.txt requirements.txt
+2023-06-18 12:17:10,623 INFO    SenderThread:462088 [dir_watcher.py:finish():403] scan save: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/config.yaml config.yaml
+2023-06-18 12:17:10,623 INFO    SenderThread:462088 [dir_watcher.py:finish():403] scan save: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/wandb-metadata.json wandb-metadata.json
+2023-06-18 12:17:10,623 INFO    SenderThread:462088 [sender.py:transition_state():602] send defer: 10
+2023-06-18 12:17:10,623 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:17:10,624 INFO    HandlerThread:462088 [handler.py:handle_request_defer():170] handle defer: 10
+2023-06-18 12:17:10,628 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:17:10,629 INFO    SenderThread:462088 [sender.py:send_request_defer():598] handle sender defer: 10
+2023-06-18 12:17:10,629 INFO    SenderThread:462088 [file_pusher.py:finish():159] shutting down file pusher
+2023-06-18 12:17:11,437 INFO    wandb-upload_4:462088 [upload_job.py:push():133] Uploaded file /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/config.yaml
+2023-06-18 12:17:11,443 INFO    wandb-upload_2:462088 [upload_job.py:push():133] Uploaded file /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/wandb-summary.json
+2023-06-18 12:17:11,784 INFO    wandb-upload_1:462088 [upload_job.py:push():133] Uploaded file /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/output.log
+2023-06-18 12:17:11,785 INFO    wandb-upload_0:462088 [upload_job.py:push():133] Uploaded file /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/conda-environment.yaml
+2023-06-18 12:17:11,788 INFO    wandb-upload_3:462088 [upload_job.py:push():133] Uploaded file /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/files/requirements.txt
+2023-06-18 12:17:11,989 INFO    Thread-11 :462088 [sender.py:transition_state():602] send defer: 11
+2023-06-18 12:17:11,990 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:17:11,990 INFO    HandlerThread:462088 [handler.py:handle_request_defer():170] handle defer: 11
+2023-06-18 12:17:11,991 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:17:11,991 INFO    SenderThread:462088 [sender.py:send_request_defer():598] handle sender defer: 11
+2023-06-18 12:17:11,992 INFO    SenderThread:462088 [file_pusher.py:join():164] waiting for file pusher
+2023-06-18 12:17:11,992 INFO    SenderThread:462088 [sender.py:transition_state():602] send defer: 12
+2023-06-18 12:17:11,992 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:17:11,992 INFO    HandlerThread:462088 [handler.py:handle_request_defer():170] handle defer: 12
+2023-06-18 12:17:11,993 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:17:11,993 INFO    SenderThread:462088 [sender.py:send_request_defer():598] handle sender defer: 12
+2023-06-18 12:17:12,150 INFO    SenderThread:462088 [sender.py:transition_state():602] send defer: 13
+2023-06-18 12:17:12,150 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:17:12,150 INFO    HandlerThread:462088 [handler.py:handle_request_defer():170] handle defer: 13
+2023-06-18 12:17:12,151 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:17:12,151 INFO    SenderThread:462088 [sender.py:send_request_defer():598] handle sender defer: 13
+2023-06-18 12:17:12,152 INFO    SenderThread:462088 [sender.py:transition_state():602] send defer: 14
+2023-06-18 12:17:12,152 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:17:12,152 INFO    HandlerThread:462088 [handler.py:handle_request_defer():170] handle defer: 14
+2023-06-18 12:17:12,154 DEBUG   SenderThread:462088 [sender.py:send():369] send: final
+2023-06-18 12:17:12,154 DEBUG   SenderThread:462088 [sender.py:send():369] send: footer
+2023-06-18 12:17:12,154 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:17:12,154 INFO    SenderThread:462088 [sender.py:send_request_defer():598] handle sender defer: 14
+2023-06-18 12:17:12,156 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: poll_exit
+2023-06-18 12:17:12,157 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: server_info
+2023-06-18 12:17:12,157 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: poll_exit
+2023-06-18 12:17:12,159 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: get_summary
+2023-06-18 12:17:12,159 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: sampled_history
+2023-06-18 12:17:12,161 DEBUG   SenderThread:462088 [sender.py:send_request():396] send_request: server_info
+2023-06-18 12:17:12,289 INFO    MainThread:462088 [wandb_run.py:_footer_history_summary_info():3467] rendering history
+2023-06-18 12:17:12,290 INFO    MainThread:462088 [wandb_run.py:_footer_history_summary_info():3499] rendering summary
+2023-06-18 12:17:12,290 INFO    MainThread:462088 [wandb_run.py:_footer_sync_info():3426] logging synced files
+2023-06-18 12:17:12,291 DEBUG   HandlerThread:462088 [handler.py:handle_request():144] handle_request: shutdown
+2023-06-18 12:17:12,291 INFO    HandlerThread:462088 [handler.py:finish():854] shutting down handler
+2023-06-18 12:17:13,161 INFO    WriterThread:462088 [datastore.py:close():298] close: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_121336-2hgecefg/run-2hgecefg.wandb
+2023-06-18 12:17:13,289 INFO    SenderThread:462088 [sender.py:finish():1526] shutting down sender
+2023-06-18 12:17:13,289 INFO    SenderThread:462088 [file_pusher.py:finish():159] shutting down file pusher
+2023-06-18 12:17:13,289 INFO    SenderThread:462088 [file_pusher.py:join():164] waiting for file pusher

@@ -1,4 +1,5 @@
 import torch.optim as optim
+from xformers.ops
 from tensorboardX import SummaryWriter
 import time
 from Models import *
@@ -11,8 +12,8 @@ import torch.nn as nn
 import itertools
 import random
 import os
-import mlflow
-
+import wandb
+from tqdm import tqdm
 class Controller(nn.Module):
     def __init__(self, config):
         super(Controller, self).__init__()
@@ -138,15 +139,20 @@ class Controller(nn.Module):
         self.image_queue_ori_1 = F.normalize(self.image_queue_ori_1, dim=0).to(self.device)
         self.text_queue_ori_1 = F.normalize(self.text_queue_ori_1, dim=0).to(self.device)
         
-        ## Add MLFLOW
+        ## Add wandb 
         self.dataset_name = config['dataset_name']
         self.config_path = config['config_path']
         self.config_name = self.config_path.split('/')[-1]
-        experiment = mlflow.get_experiment_by_name(self.dataset_name)
-        if experiment is None:
-            self.experiment_id = mlflow.create_experiment(name = self.dataset_name)
-        else: 
-            self.experiment_id = experiment.experiment_id
+        wandb.init(
+            project='HADA-V2',  
+            config={
+                "dataset": self.dataset_name
+            }
+        )
+        # if experiment is None:
+            # self.experiment_id = mlflow.create_experiment(name = self.dataset_name)
+        # else: 
+            # self.experiment_id = experiment.experiment_id
             
     def train_mode(self):
         self.img_encoder.train()
@@ -310,7 +316,9 @@ class Controller(nn.Module):
         loss_nll_report = 0
         loss_itm_report = 0
         numb_iter = len(dataloader)
+        progress_bar = tqdm(range(numb_iter))
         for idx, batch in enumerate(dataloader):
+            print(idx/numb_iter)
             # if idx > 10: # DEBUG
             #     break
             # Forward
@@ -328,6 +336,8 @@ class Controller(nn.Module):
             br = self.forward_batch(batch)
             loss_nll, loss_itm = br['loss_nll'], br['loss_itm']
             all_loss = self.weight_nll_loss*loss_nll + self.weight_itm_loss*loss_itm
+            wandb.log({'current loss': all_loss.item()})
+            # print(f'current loss: {all_loss.item()}')
             
             # Update
             self.optimizer.zero_grad()
@@ -372,6 +382,7 @@ class Controller(nn.Module):
                 self.scheduler.step()
             if self.T0 > 0: # cosine scheduler
                 self.scheduler.step(epochID + idx / self.n_iters)       
+            progress_bar.update(1)
         loss_all_report = round(loss_all_report/(idx+1), 6)
         loss_nll_report = round(loss_nll_report/(idx+1), 6)
         loss_itm_report = round(loss_itm_report/(idx+1), 6)
@@ -436,109 +447,111 @@ class Controller(nn.Module):
         elif self.T0 <=0:
             self.scheduler = CosineAnnealingLR(self.optimizer, T_max=self.Tmax, eta_min=self.min_lr) 
         
-        with mlflow.start_run(experiment_id = self.experiment_id, 
-                              run_name = self.config_name):
-            mlflow.log_artifact(self.config_path)
-            params = {'Numb_Para': self.count_parameters()}
-            mlflow.log_params(params)
-            best_epoch = 0
-            
-            for idx_epoch in range(num_epoch):
-                loss_tr_dict = self.train_epoch(dataloader_train, idx_epoch, writer)
-                loss_tr_all, loss_tr_nll, loss_tr_itm = loss_tr_dict['all'], loss_tr_dict['nll'], loss_tr_dict['itm']
+        # with mlflow.start_run(experiment_id = self.experiment_id, 
+                            #   run_name = self.config_name):
+        wandb.log_artifact(self.config_path)
+        params = {'Numb_Para': self.count_parameters()}
+        wandb.log(params)
+        best_epoch = 0
+        
+        for idx_epoch in tqdm(range(num_epoch)):
+            loss_tr_dict = self.train_epoch(dataloader_train, idx_epoch, writer)
+            wandb.log(loss_tr_dict)
+            loss_tr_all, loss_tr_nll, loss_tr_itm = loss_tr_dict['all'], loss_tr_dict['nll'], loss_tr_dict['itm']
 
-                with torch.no_grad():
-                    timestampTime = time.strftime("%H%M%S")
-                    timestampDate = time.strftime("%d%m%Y")
-                    timestampEND = timestampDate + '-' + timestampTime
-                    apply_temp = True if self.temp > 0 else False
+            with torch.no_grad():
+                timestampTime = time.strftime("%H%M%S")
+                timestampDate = time.strftime("%d%m%Y")
+                timestampEND = timestampDate + '-' + timestampTime
+                apply_temp = True if self.temp > 0 else False
 
-                    if dataset_val is not None: 
-                        r, loss_rall = self.evaluate_multimodal(dataset_val, apply_temp, return_sim=False)
-                        r1i, r5i, r10i, r1t, r5t, r10t = r
-                        loss_update = loss_rall
-                    else:
-                        loss_update = loss_tr_all
-
-                if self.T0 <= 0 and self.Tmax <= 0:
-                    self.scheduler.step(loss_update)
-
-                if loss_update <= (loss_best-self.thres_loss):
-                    best_epoch = idx_epoch
-                    count_change_loss = 0
-                    print(f"[SAVE MODEL]")
-                    self.save_model(loss=loss_rall, epochID=idx_epoch, save_path=f"{save_dir}/best.pth.tar", optimizer=False)
-                    loss_best = loss_update
-                    info_txt = f"Epoch {idx_epoch}/{num_epoch-1} [{timestampEND} --- SAVE MODEL]\n"
-                    metrics = {'temp_para': self.temp_para.item(),
-                               'best_epoch':best_epoch, 
-                               'current_epoch':idx_epoch, 
-                               'Ri': np.round(r1i+r5i+r10i, 6),
-                               'Rt': np.round(r1t+r5t+r10t, 6),
-                               'Rall': np.round(r1i+r5i+r10i+r1t+r5t+r10t, 6),
-                               'Ctemp_para': self.temp_para.item(),
-                               }
-                    if self.use_weighted_retrieval:
-                        metrics['weight_1'] = self.weight_1.item()
-                    else:
-                        metrics['weight_1'] = self.weight_1
-                    mlflow.log_metrics(metrics)
+                if dataset_val is not None: 
+                    r, loss_rall = self.evaluate_multimodal(dataset_val, apply_temp, return_sim=False)
+                    r1i, r5i, r10i, r1t, r5t, r10t = r
+                    loss_update = loss_rall
                 else:
-                    self.save_model(loss=loss_update, epochID=idx_epoch, save_path=f"{save_dir}/current.pth.tar", optimizer=False)
-                    metrics = {'Ctemp_para': self.temp_para.item(),
-                               'current_epoch':idx_epoch,
-                               }
-                    if self.use_weighted_retrieval:
-                        metrics['Cweight_1'] = self.weight_1.item()
-                    else:
-                        metrics['Cweight_1'] = self.weight_1
-                    mlflow.log_metrics(metrics)
-                    
-                    # if idx_epoch < 5:
-                    #     print(f"[SAVE MODEL < 5]")
-                    #     info_txt = f"Epoch {idx_epoch}/{num_epoch-1} [{timestampEND} --- SAVE MODEL]\n"
-                    #     metrics = {'temp_para': self.temp_para.item(),
-                    #                'best_epoch':best_epoch, 
-                    #                'current_epoch':idx_epoch, 
-                    #                'Ri': np.round(r1i+r5i+r10i, 6),
-                    #                'Rt': np.round(r1t+r5t+r10t, 6),
-                    #                'Rall': np.round(r1i+r5i+r10i+r1t+r5t+r10t, 6),
-                    #                'Ctemp_para': self.temp_para.item(),
-                    #                }
-                    #     if self.use_weighted_retrieval:
-                    #         metrics['Cweight_1'] = self.weight_1.item()
-                    #     else:
-                    #         metrics['Cweight_1'] = self.weight_1
-                    
-                    count_change_loss += 1
-                    info_txt = f"Epoch {idx_epoch}/{num_epoch-1} [{timestampEND}]\n"
+                    loss_update = loss_tr_all
 
-                info_txt += f"Loss Train: {loss_tr_all}\nLoss Train Nll: {loss_tr_nll}\nLoss Train Itm: {loss_tr_itm}\n"
+            if self.T0 <= 0 and self.Tmax <= 0:
+                self.scheduler.step(loss_update)
+
+            if loss_update <= (loss_best-self.thres_loss):
+                best_epoch = idx_epoch
+                count_change_loss = 0
+                print(f"[SAVE MODEL]")
+                self.save_model(loss=loss_rall, epochID=idx_epoch, save_path=f"{save_dir}/best.pth.tar", optimizer=False)
+                loss_best = loss_update
+                info_txt = f"Epoch {idx_epoch}/{num_epoch-1} [{timestampEND} --- SAVE MODEL]\n"
+                metrics = {'temp_para': self.temp_para.item(),
+                            'best_epoch':best_epoch, 
+                            'current_epoch':idx_epoch, 
+                            'Ri': np.round(r1i+r5i+r10i, 6),
+                            'Rt': np.round(r1t+r5t+r10t, 6),
+                            'Rall': np.round(r1i+r5i+r10i+r1t+r5t+r10t, 6),
+                            'Ctemp_para': self.temp_para.item(),
+                            }
+                if self.use_weighted_retrieval:
+                    metrics['weight_1'] = self.weight_1.item()
+                else:
+                    metrics['weight_1'] = self.weight_1
+                wandb.log(metrics)
+            else:
+                self.save_model(loss=loss_update, epochID=idx_epoch, save_path=f"{save_dir}/current.pth.tar", optimizer=False)
+                metrics = {'Ctemp_para': self.temp_para.item(),
+                            'current_epoch':idx_epoch,
+                            }
+                if self.use_weighted_retrieval:
+                    metrics['Cweight_1'] = self.weight_1.item()
+                else:
+                    metrics['Cweight_1'] = self.weight_1
+                wandb.log(metrics)
+
                 
-                info_txt += f"R1i: {np.round(r1i,6)}\nR5i: {np.round(r5i,6)}\nR10i: {np.round(r10i,6)}\n"
-                info_txt += f"R1t: {np.round(r1t,6)}\nR5t: {np.round(r5t,6)}\nR10t: {np.round(r10t,6)}\n"
-                info_txt += f"Ri: {np.round(r1i+r5i+r10i,6)}\nRt: {np.round(r1t+r5t+r10t,6)}\n"
-                info_txt += f"Rall: {np.round(r1i+r5i+r10i+r1t+r5t+r10t,6)}\n"
-                writer.add_scalars('Recall Epoch', {'R1i': r1i}, idx_epoch)
-                writer.add_scalars('Recall Epoch', {'R5i': r5i}, idx_epoch)
-                writer.add_scalars('Recall Epoch', {'R10i': r10i}, idx_epoch)
-                writer.add_scalars('Recall Epoch', {'R1t': r1t}, idx_epoch)
-                writer.add_scalars('Recall Epoch', {'R5t': r5t}, idx_epoch)
-                writer.add_scalars('Recall Epoch', {'R10t': r10t}, idx_epoch)
-                writer.add_scalars('Recall Epoch', {'LoRe': loss_rall}, idx_epoch)
+                # if idx_epoch < 5:
+                #     print(f"[SAVE MODEL < 5]")
+                #     info_txt = f"Epoch {idx_epoch}/{num_epoch-1} [{timestampEND} --- SAVE MODEL]\n"
+                #     metrics = {'temp_para': self.temp_para.item(),
+                #                'best_epoch':best_epoch, 
+                #                'current_epoch':idx_epoch, 
+                #                'Ri': np.round(r1i+r5i+r10i, 6),
+                #                'Rt': np.round(r1t+r5t+r10t, 6),
+                #                'Rall': np.round(r1i+r5i+r10i+r1t+r5t+r10t, 6),
+                #                'Ctemp_para': self.temp_para.item(),
+                #                }
+                #     if self.use_weighted_retrieval:
+                #         metrics['Cweight_1'] = self.weight_1.item()
+                #     else:
+                #         metrics['Cweight_1'] = self.weight_1
+                
+                count_change_loss += 1
+                info_txt = f"Epoch {idx_epoch}/{num_epoch-1} [{timestampEND}]\n"
 
-                info_txt += f"--------\n"
+            info_txt += f"Loss Train: {loss_tr_all}\nLoss Train Nll: {loss_tr_nll}\nLoss Train Itm: {loss_tr_itm}\n"
+            
+            info_txt += f"R1i: {np.round(r1i,6)}\nR5i: {np.round(r5i,6)}\nR10i: {np.round(r10i,6)}\n"
+            info_txt += f"R1t: {np.round(r1t,6)}\nR5t: {np.round(r5t,6)}\nR10t: {np.round(r10t,6)}\n"
+            info_txt += f"Ri: {np.round(r1i+r5i+r10i,6)}\nRt: {np.round(r1t+r5t+r10t,6)}\n"
+            info_txt += f"Rall: {np.round(r1i+r5i+r10i+r1t+r5t+r10t,6)}\n"
+            writer.add_scalars('Recall Epoch', {'R1i': r1i}, idx_epoch)
+            writer.add_scalars('Recall Epoch', {'R5i': r5i}, idx_epoch)
+            writer.add_scalars('Recall Epoch', {'R10i': r10i}, idx_epoch)
+            writer.add_scalars('Recall Epoch', {'R1t': r1t}, idx_epoch)
+            writer.add_scalars('Recall Epoch', {'R5t': r5t}, idx_epoch)
+            writer.add_scalars('Recall Epoch', {'R10t': r10t}, idx_epoch)
+            writer.add_scalars('Recall Epoch', {'LoRe': loss_rall}, idx_epoch)
 
-                writer.add_scalars('Loss Epoch', {'TrAll': loss_tr_all}, idx_epoch)
-                writer.add_scalars('Loss Epoch', {'TrNLL': loss_tr_nll}, idx_epoch)
-                writer.add_scalars('Loss Epoch', {'TrITM': loss_tr_itm}, idx_epoch)
+            info_txt += f"--------\n"
 
-                if count_change_loss >= self.early_stop:
-                    print(f'Early stopping: {count_change_loss} epoch not decrease the loss')
-                    info_txt += "[EARLY STOPPING]\n"
-                    break
-                write_to_file(f"{save_dir}/TrainReport.log", info_txt)
-                print(info_txt)
+            writer.add_scalars('Loss Epoch', {'TrAll': loss_tr_all}, idx_epoch)
+            writer.add_scalars('Loss Epoch', {'TrNLL': loss_tr_nll}, idx_epoch)
+            writer.add_scalars('Loss Epoch', {'TrITM': loss_tr_itm}, idx_epoch)
+
+            if count_change_loss >= self.early_stop:
+                print(f'Early stopping: {count_change_loss} epoch not decrease the loss')
+                info_txt += "[EARLY STOPPING]\n"
+                break
+            write_to_file(f"{save_dir}/TrainReport.log", info_txt)
+            print(info_txt)
             
         writer.close()
         

@@ -1,0 +1,61 @@
+Trainable Paras: 9988097
+TRAIN FROM SCRATCH
+0.0
+current loss: 11.859623908996582
+  0%|                                                                    | 0/100 [00:00<?, ?it/s]
+  0%|                                                         | 1/3625 [00:03<3:33:49,  3.54s/it]
+
+  0%|                                                         | 2/3625 [00:06<2:58:18,  2.95s/it]
+
+  offset = -low * scale                                       | 2/3625 [00:06<2:58:18,  2.95s/it]
+0.0005517241379310345
+current loss: 11.233487129211426
+  0%|                                                         | 3/3625 [00:08<2:48:03,  2.78s/it]
+0.0008275862068965517
+
+
+  0%|                                                         | 5/3625 [00:13<2:40:27,  2.66s/it]
+0.001103448275862069
+current loss: 10.562877655029297
+0.001379310344827586
+
+  0%|                                                         | 6/3625 [00:16<2:39:07,  2.64s/it]
+0.0016551724137931034
+
+Traceback (most recent call last):                            | 7/3625 [00:19<2:38:42,  2.63s/it]
+  File "main.py", line 127, in <module>
+    run_train(args)
+  File "main.py", line 73, in run_train
+    controller.train(dataset_train=train_dataset,  dataset_val=val_dataset,
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller.py", line 457, in train
+    loss_tr_dict = self.train_epoch(dataloader_train, idx_epoch, writer)
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller.py", line 319, in train_epoch
+    for idx, batch in enumerate(dataloader):
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 633, in __next__
+    data = self._next_data()
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 677, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Utils.py", line 295, in __getitem__
+    text_output_1 = extract_features(self.model_1, sample_1, mode='text', is_clip='clip' in self.model_1_name)
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Utils.py", line 111, in extract_features
+    model.eval()
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/nn/modules/module.py", line 2307, in eval
+    return self.train(False)
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/nn/modules/module.py", line 2288, in train
+    module.train(mode)
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/nn/modules/module.py", line 2288, in train
+    module.train(mode)
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/nn/modules/module.py", line 2288, in train
+    module.train(mode)
+  [Previous line repeated 3 more times]
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/nn/modules/module.py", line 2287, in train
+    for module in self.children():
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/nn/modules/module.py", line 2173, in children
+    for name, module in self.named_children():
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/nn/modules/module.py", line 2192, in named_children
+    for name, module in self._modules.items():
+KeyboardInterrupt

@@ -1,4 +1,4 @@
-from Comp_Branch import EnLiFu
+from Comp_Branch import EnLiFu, HypEnLiFu 
 from Comp_Basic import SeqLinear
 import torch
 import torch.nn as nn
@@ -9,6 +9,21 @@ class MH(nn.Module):
                  n_heads=4, type_gcn='GCN', skip=False, batch_norm=True, dropout=0.5, act_func='relu'):
         super(MH, self).__init__()
         self.enc = EnLiFu(f1_in=f1_in, f2_in=f2_in, f1_out=f1_out, f2_out=f2_out,
+                          ft_trans=ft_trans, ft_gcn=ft_gcn, ft_com=ft_com, n_heads=n_heads,
+                          type_graph=type_gcn, skip=skip, batch_norm=batch_norm, dropout=dropout, act_func=act_func)
+    def forward(self, data):
+        x = self.enc(x_1=data['ft_1'], x_2=data['ft_2'],
+                     n_1=data['n_node_1'], n_2=data['n_node_2'],
+                     edge_index=data['edge_index'], edge_attr=data['edge_attr'], 
+                     batch_index=data['batch_index'], 
+                     x_cls_1=data['ft_proj_1'], x_cls_2=data['ft_proj_2']) # (batch, ft_com[-1])
+        return x
+        
+class MH_V2(nn.Module):
+    def __init__(self, f1_in=768, f2_in=768, ft_trans=[768], ft_gcn=[768, 512], ft_com=[512, 512], f1_out=256, f2_out=768,
+                 n_heads=4, type_gcn='GCN', skip=False, batch_norm=True, dropout=0.5, act_func='relu'):
+        super(MH, self).__init__()
+        self.enc = HypEnLiFu(f1_in=f1_in, f2_in=f2_in, f1_out=f1_out, f2_out=f2_out,
                           ft_trans=ft_trans, ft_gcn=ft_gcn, ft_com=ft_com, n_heads=n_heads,
                           type_graph=type_gcn, skip=skip, batch_norm=batch_norm, dropout=dropout, act_func=act_func)
     def forward(self, data):

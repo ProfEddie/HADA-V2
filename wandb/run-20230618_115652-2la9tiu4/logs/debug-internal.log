@@ -1,0 +1,903 @@
+2023-06-18 11:56:52,588 INFO    StreamThr :449933 [internal.py:wandb_internal():86] W&B internal server running at pid: 449933, started at: 2023-06-18 11:56:52.587949
+2023-06-18 11:56:52,590 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status
+2023-06-18 11:56:52,590 INFO    WriterThread:449933 [datastore.py:open_for_write():85] open: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/run-2la9tiu4.wandb
+2023-06-18 11:56:52,591 DEBUG   SenderThread:449933 [sender.py:send():369] send: header
+2023-06-18 11:56:52,663 DEBUG   SenderThread:449933 [sender.py:send():369] send: run
+2023-06-18 11:56:53,007 INFO    SenderThread:449933 [dir_watcher.py:__init__():211] watching files in: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files
+2023-06-18 11:56:53,007 INFO    SenderThread:449933 [sender.py:_start_run_threads():1100] run started: 2la9tiu4 with start time 1687085812.587501
+2023-06-18 11:56:53,007 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: summary_record
+2023-06-18 11:56:53,007 INFO    SenderThread:449933 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-18 11:56:53,009 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: check_version
+2023-06-18 11:56:53,009 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: check_version
+2023-06-18 11:56:53,059 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: run_start
+2023-06-18 11:56:53,060 DEBUG   HandlerThread:449933 [system_info.py:__init__():31] System info init
+2023-06-18 11:56:53,060 DEBUG   HandlerThread:449933 [system_info.py:__init__():46] System info init done
+2023-06-18 11:56:53,060 INFO    HandlerThread:449933 [system_monitor.py:start():181] Starting system monitor
+2023-06-18 11:56:53,060 INFO    SystemMonitor:449933 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-06-18 11:56:53,061 INFO    SystemMonitor:449933 [interfaces.py:start():190] Started cpu monitoring
+2023-06-18 11:56:53,061 INFO    HandlerThread:449933 [system_monitor.py:probe():201] Collecting system info
+2023-06-18 11:56:53,061 INFO    SystemMonitor:449933 [interfaces.py:start():190] Started disk monitoring
+2023-06-18 11:56:53,062 INFO    SystemMonitor:449933 [interfaces.py:start():190] Started gpu monitoring
+2023-06-18 11:56:53,062 INFO    SystemMonitor:449933 [interfaces.py:start():190] Started memory monitoring
+2023-06-18 11:56:53,063 INFO    SystemMonitor:449933 [interfaces.py:start():190] Started network monitoring
+2023-06-18 11:56:53,092 DEBUG   HandlerThread:449933 [system_info.py:probe():195] Probing system
+2023-06-18 11:56:53,095 DEBUG   HandlerThread:449933 [system_info.py:_probe_git():180] Probing git
+2023-06-18 11:56:53,104 DEBUG   HandlerThread:449933 [system_info.py:_probe_git():188] Probing git done
+2023-06-18 11:56:53,104 DEBUG   HandlerThread:449933 [system_info.py:probe():240] Probing system done
+2023-06-18 11:56:53,105 DEBUG   HandlerThread:449933 [system_monitor.py:probe():210] {'os': 'Linux-5.15.0-69-generic-x86_64-with-glibc2.17', 'python': '3.8.16', 'heartbeatAt': '2023-06-18T10:56:53.092082', 'startedAt': '2023-06-18T10:56:52.569252', 'docker': None, 'cuda': None, 'args': ('-cp', 'Config/flickr30k/C1.yml', '-rm', 'train'), 'state': 'running', 'program': 'main.py', 'codePath': 'main.py', 'git': {'remote': 'https://github.com/m2man/HADA-LAVIS.git', 'commit': '49498ca711ea51b86dc3132088ce333d43860874'}, 'email': 'nmduy881994@gmail.com', 'root': '/home/nmduy/HADA/chau/HADA-LAVIS', 'host': 'jarvis', 'username': 'nmduy', 'executable': '/home/jarvis/anaconda3/envs/chau/bin/python', 'cpu_count': 8, 'cpu_count_logical': 16, 'cpu_freq': {'current': 3.605687500000001, 'min': 800.0, 'max': 5000.0}, 'cpu_freq_per_core': [{'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.691, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}], 'disk': {'total': 903.6142044067383, 'used': 825.0459060668945}, 'gpu': 'NVIDIA GeForce RTX 3080 Ti', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 3080 Ti', 'memory_total': 12639338496}], 'memory': {'total': 62.71501541137695}}
+2023-06-18 11:56:53,105 INFO    HandlerThread:449933 [system_monitor.py:probe():211] Finished collecting system info
+2023-06-18 11:56:53,105 INFO    HandlerThread:449933 [system_monitor.py:probe():214] Publishing system info
+2023-06-18 11:56:53,105 DEBUG   HandlerThread:449933 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-06-18 11:56:53,105 DEBUG   HandlerThread:449933 [system_info.py:_save_pip():67] Saving pip packages done
+2023-06-18 11:56:53,105 DEBUG   HandlerThread:449933 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-06-18 11:56:54,008 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_created():272] file/dir created: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/requirements.txt
+2023-06-18 11:56:54,008 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_created():272] file/dir created: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/conda-environment.yaml
+2023-06-18 11:56:54,008 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_created():272] file/dir created: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/wandb-summary.json
+2023-06-18 11:56:55,722 DEBUG   HandlerThread:449933 [system_info.py:_save_conda():86] Saving conda packages done
+2023-06-18 11:56:55,723 INFO    HandlerThread:449933 [system_monitor.py:probe():216] Finished publishing system info
+2023-06-18 11:56:55,724 DEBUG   SenderThread:449933 [sender.py:send():369] send: files
+2023-06-18 11:56:55,724 INFO    SenderThread:449933 [sender.py:_save_file():1354] saving file wandb-metadata.json with policy now
+2023-06-18 11:56:55,728 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 11:56:55,728 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 11:56:55,881 DEBUG   SenderThread:449933 [sender.py:send():369] send: telemetry
+2023-06-18 11:56:55,901 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: log_artifact
+2023-06-18 11:56:55,901 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: log_artifact
+2023-06-18 11:56:55,903 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: partial_history
+2023-06-18 11:56:56,009 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/conda-environment.yaml
+2023-06-18 11:56:56,009 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_created():272] file/dir created: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:56:56,009 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_created():272] file/dir created: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/wandb-metadata.json
+2023-06-18 11:56:56,753 INFO    wandb-upload_0:449933 [upload_job.py:push():133] Uploaded file /tmp/tmpk26vz2mzwandb/4gabv3bo-wandb-metadata.json
+2023-06-18 11:56:57,206 INFO    wandb-upload_1:449933 [upload_job.py:push():91] Uploaded file /home/nmduy/.local/share/wandb/artifacts/staging/tmpt75kqeln
+2023-06-18 11:56:57,910 INFO    SenderThread:449933 [sender.py:send_request_log_artifact():1414] logged artifact run-2la9tiu4-C1.yml - {'id': 'QXJ0aWZhY3Q6NDkxNDUxMDA1', 'digest': '3b678893986d1a18dc0e4720cc7f6b04', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjc3NjM5NzM1', 'latestArtifact': None}, 'version': 'latest'}
+2023-06-18 11:56:57,910 DEBUG   SenderThread:449933 [sender.py:send():369] send: history
+2023-06-18 11:56:57,910 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: summary_record
+2023-06-18 11:56:57,910 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:56:57,911 INFO    SenderThread:449933 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-18 11:56:58,009 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:56:58,010 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/wandb-summary.json
+2023-06-18 11:57:00,010 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:57:02,010 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:57:03,002 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:57:04,011 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:57:06,011 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:57:08,012 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:57:08,116 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:57:10,012 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:57:10,728 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 11:57:10,728 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 11:57:13,194 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:57:14,013 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:57:16,014 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:57:18,014 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:57:18,373 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:57:22,015 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:57:23,529 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:57:24,016 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:57:24,016 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/config.yaml
+2023-06-18 11:57:25,728 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 11:57:25,729 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 11:57:26,016 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:57:28,016 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:57:29,623 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:57:32,017 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:57:34,018 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:57:34,763 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:57:36,019 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:57:38,019 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:57:39,851 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:57:40,729 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 11:57:40,729 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 11:57:42,020 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:57:44,020 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:57:45,011 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:57:46,021 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:57:50,022 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:57:50,110 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:57:52,022 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:57:53,063 DEBUG   SystemMonitor:449933 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-06-18 11:57:53,064 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 11:57:54,023 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:57:55,177 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:57:55,730 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 11:57:55,730 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 11:57:56,023 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:58:00,024 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:58:00,299 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:58:02,024 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:58:04,025 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:58:05,354 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:58:06,025 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:58:10,026 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:58:10,459 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:58:10,729 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 11:58:10,730 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 11:58:12,027 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:58:14,027 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:58:15,608 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:58:18,028 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:58:20,028 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:58:20,732 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:58:22,029 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:58:23,064 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 11:58:24,029 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:58:25,731 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 11:58:25,731 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 11:58:25,868 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:58:28,030 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:58:30,030 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:58:30,949 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:58:32,031 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:58:36,032 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:58:36,042 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:58:38,032 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:58:40,032 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:58:40,731 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 11:58:40,731 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 11:58:41,659 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:58:42,034 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:58:46,756 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:58:47,034 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:58:49,035 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:58:51,035 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:58:51,824 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:58:53,035 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:58:53,065 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 11:58:55,731 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 11:58:55,732 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 11:58:56,856 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:58:57,036 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:58:59,037 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:59:01,037 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:59:02,018 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:59:03,038 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:59:07,038 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:59:07,137 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:59:09,039 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:59:10,731 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 11:59:10,732 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 11:59:11,040 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:59:12,266 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:59:15,040 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:59:17,041 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:59:17,357 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:59:19,041 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:59:21,042 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:59:22,483 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:59:23,065 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 11:59:25,043 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:59:25,731 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 11:59:25,732 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 11:59:27,043 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:59:27,525 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:59:29,043 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:59:31,044 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:59:32,599 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:59:35,045 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:59:37,045 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:59:37,691 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:59:39,046 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:59:40,732 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 11:59:40,732 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 11:59:42,788 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:59:43,047 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:59:45,047 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:59:47,047 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:59:47,895 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:59:49,048 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:59:53,005 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:59:53,049 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:59:53,066 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 11:59:55,049 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:59:55,732 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 11:59:55,732 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 11:59:57,050 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 11:59:58,101 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 11:59:59,050 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:00:03,051 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:00:03,233 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:00:05,052 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:00:07,052 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:00:08,330 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:00:10,732 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:00:10,732 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:00:11,053 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:00:13,053 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:00:13,416 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:00:15,054 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:00:17,054 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:00:18,547 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:00:21,055 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:00:23,056 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:00:23,066 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 12:00:23,628 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:00:25,056 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:00:25,732 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:00:25,732 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:00:28,709 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:00:29,057 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:00:31,058 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:00:33,058 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:00:33,802 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:00:35,058 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:00:38,844 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:00:39,059 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:00:40,732 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:00:40,732 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:00:41,060 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:00:43,060 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:00:43,939 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:00:45,061 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:00:49,044 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:00:49,062 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:00:51,062 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:00:53,063 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:00:53,067 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 12:00:54,067 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:00:55,732 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:00:55,732 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:00:57,063 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:00:59,064 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:00:59,239 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:01:01,064 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:01:04,334 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:01:05,065 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:01:07,066 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:01:09,066 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:01:09,410 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:01:10,735 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:01:10,735 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:01:11,067 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:01:14,505 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:01:15,068 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:01:17,068 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:01:19,068 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:01:19,589 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:01:21,069 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:01:23,067 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 12:01:24,693 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:01:25,070 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:01:25,735 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:01:25,735 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:01:27,070 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:01:29,071 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:01:29,808 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:01:33,072 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:01:34,874 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:01:35,072 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:01:37,073 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:01:39,073 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:01:39,940 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:01:40,735 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:01:40,735 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:01:43,074 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:01:45,019 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:01:45,074 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:01:47,075 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:01:49,075 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:01:50,086 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:01:53,068 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 12:01:53,076 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:01:55,077 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:01:55,169 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:01:55,735 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:01:55,735 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:01:57,077 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:01:59,077 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:02:00,275 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:02:03,078 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:02:05,079 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:02:05,382 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:02:07,079 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:02:10,464 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:02:10,735 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:02:10,735 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:02:11,080 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:02:13,081 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:02:15,081 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:02:15,555 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:02:17,081 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:02:20,606 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:02:21,082 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:02:23,068 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 12:02:23,083 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:02:25,083 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:02:25,674 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:02:25,735 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:02:25,735 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:02:27,084 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:02:30,733 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:02:31,084 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:02:33,085 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:02:35,085 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:02:35,826 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:02:39,086 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:02:40,735 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:02:40,735 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:02:41,063 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:02:41,087 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:02:43,087 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:02:45,088 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:02:46,993 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:02:49,088 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:02:51,089 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:02:52,084 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:02:53,069 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 12:02:53,089 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:02:55,090 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:02:55,735 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:02:55,736 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:02:57,124 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:02:59,091 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:03:01,091 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:03:02,180 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:03:03,092 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:03:05,092 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:03:07,268 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:03:09,093 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:03:10,735 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:03:10,736 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:03:11,094 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:03:12,337 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:03:13,094 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:03:17,095 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:03:17,416 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:03:19,095 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:03:21,096 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:03:22,512 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:03:23,069 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 12:03:23,096 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:03:25,735 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:03:25,736 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:03:27,097 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:03:27,687 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:03:29,098 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:03:31,098 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:03:32,728 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:03:33,098 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:03:37,099 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:03:37,789 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:03:39,100 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:03:40,735 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:03:40,736 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:03:41,100 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:03:42,838 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:03:43,101 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:03:47,101 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:03:47,969 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:03:49,102 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:03:51,102 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:03:53,040 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:03:53,070 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 12:03:55,103 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:03:55,736 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:03:55,736 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:03:57,104 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:03:58,102 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:03:59,104 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:04:01,105 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:04:03,159 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:04:05,105 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:04:07,106 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:04:08,209 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:04:09,106 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:04:10,736 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:04:10,737 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:04:11,107 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:04:13,107 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:04:13,300 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:04:17,108 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:04:18,356 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:04:19,108 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:04:21,109 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:04:23,071 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 12:04:24,072 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:04:25,110 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:04:25,737 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:04:25,737 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:04:27,110 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:04:29,111 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:04:29,607 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:04:33,112 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:04:34,668 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:04:35,112 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:04:37,113 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:04:39,113 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:04:39,780 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:04:40,736 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:04:40,737 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:04:43,114 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:04:44,823 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:04:45,114 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:04:47,115 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:04:49,115 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:04:49,863 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:04:53,072 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 12:04:53,116 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:04:55,072 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:04:55,117 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:04:55,737 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:04:55,737 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:04:57,117 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:05:00,504 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:05:01,118 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:05:03,119 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:05:05,119 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:05:05,555 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:05:07,120 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:05:10,667 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:05:10,737 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:05:10,738 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:05:11,120 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:05:13,121 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:05:15,121 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:05:15,735 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:05:17,122 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:05:20,778 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:05:21,123 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:05:23,072 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 12:05:23,123 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:05:25,124 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:05:25,737 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:05:25,737 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:05:25,861 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:05:27,124 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:05:30,896 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:05:31,125 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:05:33,126 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:05:35,126 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:05:35,978 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:05:39,127 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:05:40,737 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:05:40,738 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:05:41,074 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:05:41,127 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:05:43,128 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:05:45,128 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:05:46,127 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:05:49,129 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:05:51,130 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:05:51,230 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:05:53,072 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 12:05:53,130 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:05:55,131 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:05:55,737 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:05:55,737 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:05:56,332 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:05:59,132 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:06:01,132 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:06:01,422 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:06:03,132 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:06:05,133 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:06:06,478 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:06:09,134 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:06:10,737 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:06:10,738 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:06:11,134 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:06:11,587 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:06:13,134 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:06:16,599 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:06:17,135 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:06:19,136 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:06:21,136 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:06:21,637 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:06:23,073 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 12:06:23,137 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:06:25,737 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:06:25,738 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:06:26,691 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:06:27,137 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:06:29,138 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:06:31,138 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:06:31,733 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:06:33,139 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:06:36,765 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:06:37,140 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:06:39,140 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:06:40,737 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:06:40,738 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:06:41,140 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:06:42,909 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:06:45,141 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:06:47,142 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:06:47,953 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:06:49,142 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:06:51,143 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:06:53,031 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:06:53,074 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 12:06:53,143 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:06:55,738 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:06:55,738 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:06:57,144 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:06:58,110 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:06:59,144 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:07:01,145 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:07:03,216 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:07:05,146 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:07:07,146 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:07:08,324 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:07:09,147 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:07:10,738 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:07:10,738 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:07:11,147 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:07:13,398 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:07:15,148 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:07:17,148 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:07:18,508 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:07:19,149 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:07:21,149 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:07:23,074 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 12:07:24,075 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:07:25,150 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:07:25,738 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:07:25,738 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:07:27,150 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:07:29,151 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:07:29,714 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:07:33,152 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:07:34,767 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:07:35,153 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:07:37,153 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:07:39,153 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:07:39,818 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:07:40,741 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:07:40,741 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:07:43,154 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:07:44,888 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:07:45,155 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:07:47,155 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:07:49,155 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:07:49,932 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:07:53,075 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 12:07:53,156 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:07:55,076 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:07:55,157 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:07:55,744 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:07:55,744 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:07:57,157 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:07:59,158 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:08:00,107 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:08:03,159 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:08:05,159 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:08:05,193 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:08:07,159 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:08:10,257 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:08:10,744 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:08:10,744 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:08:11,160 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:08:13,161 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:08:15,161 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:08:15,338 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:08:17,162 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:08:20,418 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:08:21,162 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:08:23,081 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 12:08:23,163 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:08:25,164 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:08:25,485 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:08:25,744 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:08:25,744 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:08:27,164 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:08:30,588 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:08:31,165 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:08:33,165 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:08:35,166 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:08:35,625 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:08:37,166 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:08:40,733 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:08:40,744 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:08:40,744 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:08:41,167 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:08:43,167 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:08:45,168 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:08:45,831 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:08:49,169 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:08:50,870 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:08:51,169 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:08:53,076 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 12:08:53,169 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:08:55,170 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:08:55,744 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:08:55,744 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:08:56,486 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:08:59,171 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:09:01,171 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:09:01,560 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:09:03,172 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:09:05,172 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:09:06,620 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:09:09,173 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:09:10,744 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:09:10,744 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:09:11,174 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:09:11,699 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:09:13,174 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:09:16,774 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:09:17,175 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:09:19,175 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:09:21,176 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:09:21,899 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:09:23,077 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 12:09:23,176 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:09:25,744 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:09:25,744 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:09:27,013 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:09:27,177 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:09:29,177 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:09:31,178 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:09:32,163 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:09:33,178 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:09:37,179 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:09:37,218 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:09:39,179 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:09:40,744 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:09:40,744 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:09:41,180 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:09:42,303 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:09:45,181 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:09:47,181 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:09:47,366 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:09:49,182 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:09:51,182 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:09:52,421 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:09:53,077 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 12:09:55,183 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:09:55,744 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:09:55,745 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:09:57,183 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:09:57,469 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:09:59,184 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:10:01,184 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:10:02,563 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:10:05,185 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:10:07,185 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:10:07,650 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:10:09,186 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:10:10,744 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:10:10,745 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:10:11,186 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:10:12,742 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:10:15,187 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:10:17,188 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:10:17,800 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:10:19,188 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:10:22,879 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:10:23,078 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 12:10:23,189 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:10:25,189 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:10:25,744 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:10:25,745 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:10:27,190 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:10:27,879 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:10:29,190 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:10:33,078 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:10:33,191 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:10:35,191 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:10:37,192 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:10:38,134 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:10:39,192 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:10:40,745 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:10:40,745 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:10:43,193 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:10:43,218 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:10:45,193 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:10:47,194 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:10:48,289 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:10:49,194 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:10:53,078 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 12:10:53,195 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:10:53,356 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:10:55,196 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:10:55,745 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:10:55,745 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:10:57,196 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:10:58,605 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:11:01,197 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:11:03,198 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:11:04,254 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:11:05,198 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:11:09,199 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:11:09,450 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:11:10,745 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:11:10,745 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:11:11,200 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:11:13,200 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:11:14,532 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:11:17,201 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:11:19,202 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:11:19,618 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:11:21,202 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:11:23,079 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 12:11:23,203 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:11:24,722 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:11:25,745 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:11:25,745 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:11:27,203 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:11:29,204 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:11:29,829 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:11:31,204 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:11:34,976 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:11:35,205 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:11:37,206 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:11:39,206 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:11:40,374 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:11:40,745 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:11:40,745 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:11:43,207 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:11:45,207 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:11:45,709 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:11:47,208 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:11:49,208 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:11:50,813 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:11:53,079 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 12:11:53,209 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:11:55,210 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:11:55,745 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:11:55,745 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:11:55,880 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:11:57,210 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:12:01,120 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:12:01,211 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:12:03,212 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:12:05,212 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:12:06,237 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:12:07,212 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:12:10,745 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:12:10,746 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:12:11,213 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:12:11,321 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:12:13,214 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:12:15,214 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:12:16,434 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:12:19,215 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:12:21,216 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:12:21,637 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:12:23,080 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 12:12:23,216 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:12:25,217 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:12:25,745 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:12:25,746 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:12:26,822 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:12:29,218 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:12:31,218 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:12:32,588 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:12:35,219 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:12:37,220 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:12:37,973 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:12:39,220 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:12:40,745 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-18 12:12:40,746 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: stop_status
+2023-06-18 12:12:43,221 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:12:43,390 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:12:44,660 DEBUG   SenderThread:449933 [sender.py:send():369] send: exit
+2023-06-18 12:12:44,660 INFO    SenderThread:449933 [sender.py:send_exit():574] handling exit code: 255
+2023-06-18 12:12:44,660 INFO    SenderThread:449933 [sender.py:send_exit():576] handling runtime: 951
+2023-06-18 12:12:44,660 INFO    SenderThread:449933 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-18 12:12:44,660 INFO    SenderThread:449933 [sender.py:send_exit():582] send defer
+2023-06-18 12:12:44,660 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:12:44,661 INFO    HandlerThread:449933 [handler.py:handle_request_defer():170] handle defer: 0
+2023-06-18 12:12:44,661 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:12:44,661 INFO    SenderThread:449933 [sender.py:send_request_defer():598] handle sender defer: 0
+2023-06-18 12:12:44,661 INFO    SenderThread:449933 [sender.py:transition_state():602] send defer: 1
+2023-06-18 12:12:44,661 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:12:44,661 INFO    HandlerThread:449933 [handler.py:handle_request_defer():170] handle defer: 1
+2023-06-18 12:12:44,661 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:12:44,661 INFO    SenderThread:449933 [sender.py:send_request_defer():598] handle sender defer: 1
+2023-06-18 12:12:44,661 INFO    SenderThread:449933 [sender.py:transition_state():602] send defer: 2
+2023-06-18 12:12:44,661 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:12:44,661 INFO    HandlerThread:449933 [handler.py:handle_request_defer():170] handle defer: 2
+2023-06-18 12:12:44,661 INFO    HandlerThread:449933 [system_monitor.py:finish():190] Stopping system monitor
+2023-06-18 12:12:44,661 DEBUG   SystemMonitor:449933 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-06-18 12:12:44,661 DEBUG   SystemMonitor:449933 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-06-18 12:12:44,662 INFO    HandlerThread:449933 [interfaces.py:finish():202] Joined cpu monitor
+2023-06-18 12:12:44,663 INFO    HandlerThread:449933 [interfaces.py:finish():202] Joined disk monitor
+2023-06-18 12:12:44,697 INFO    HandlerThread:449933 [interfaces.py:finish():202] Joined gpu monitor
+2023-06-18 12:12:44,697 INFO    HandlerThread:449933 [interfaces.py:finish():202] Joined memory monitor
+2023-06-18 12:12:44,697 INFO    HandlerThread:449933 [interfaces.py:finish():202] Joined network monitor
+2023-06-18 12:12:44,697 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:12:44,697 INFO    SenderThread:449933 [sender.py:send_request_defer():598] handle sender defer: 2
+2023-06-18 12:12:44,697 INFO    SenderThread:449933 [sender.py:transition_state():602] send defer: 3
+2023-06-18 12:12:44,697 DEBUG   SenderThread:449933 [sender.py:send():369] send: stats
+2023-06-18 12:12:44,697 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:12:44,697 INFO    HandlerThread:449933 [handler.py:handle_request_defer():170] handle defer: 3
+2023-06-18 12:12:44,698 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:12:44,698 INFO    SenderThread:449933 [sender.py:send_request_defer():598] handle sender defer: 3
+2023-06-18 12:12:44,698 INFO    SenderThread:449933 [sender.py:transition_state():602] send defer: 4
+2023-06-18 12:12:44,698 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:12:44,698 INFO    HandlerThread:449933 [handler.py:handle_request_defer():170] handle defer: 4
+2023-06-18 12:12:44,698 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:12:44,698 INFO    SenderThread:449933 [sender.py:send_request_defer():598] handle sender defer: 4
+2023-06-18 12:12:44,698 INFO    SenderThread:449933 [sender.py:transition_state():602] send defer: 5
+2023-06-18 12:12:44,698 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:12:44,698 INFO    HandlerThread:449933 [handler.py:handle_request_defer():170] handle defer: 5
+2023-06-18 12:12:44,698 DEBUG   SenderThread:449933 [sender.py:send():369] send: summary
+2023-06-18 12:12:44,699 INFO    SenderThread:449933 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-06-18 12:12:44,699 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:12:44,699 INFO    SenderThread:449933 [sender.py:send_request_defer():598] handle sender defer: 5
+2023-06-18 12:12:44,699 INFO    SenderThread:449933 [sender.py:transition_state():602] send defer: 6
+2023-06-18 12:12:44,699 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:12:44,699 INFO    HandlerThread:449933 [handler.py:handle_request_defer():170] handle defer: 6
+2023-06-18 12:12:44,699 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:12:44,699 INFO    SenderThread:449933 [sender.py:send_request_defer():598] handle sender defer: 6
+2023-06-18 12:12:44,699 INFO    SenderThread:449933 [sender.py:transition_state():602] send defer: 7
+2023-06-18 12:12:44,699 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: status_report
+2023-06-18 12:12:44,699 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:12:44,699 INFO    HandlerThread:449933 [handler.py:handle_request_defer():170] handle defer: 7
+2023-06-18 12:12:44,700 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:12:44,700 INFO    SenderThread:449933 [sender.py:send_request_defer():598] handle sender defer: 7
+2023-06-18 12:12:45,222 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:12:45,223 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/wandb-summary.json
+2023-06-18 12:12:45,660 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: poll_exit
+2023-06-18 12:12:46,931 INFO    SenderThread:449933 [sender.py:transition_state():602] send defer: 8
+2023-06-18 12:12:46,932 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: poll_exit
+2023-06-18 12:12:46,933 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:12:46,933 INFO    HandlerThread:449933 [handler.py:handle_request_defer():170] handle defer: 8
+2023-06-18 12:12:46,934 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:12:46,934 INFO    SenderThread:449933 [sender.py:send_request_defer():598] handle sender defer: 8
+2023-06-18 12:12:46,934 INFO    SenderThread:449933 [job_builder.py:build():232] Attempting to build job artifact
+2023-06-18 12:12:46,935 INFO    SenderThread:449933 [job_builder.py:build():256] is repo sourced job
+2023-06-18 12:12:46,939 INFO    SenderThread:449933 [job_builder.py:build():297] adding wandb-job metadata file
+2023-06-18 12:12:46,949 INFO    SenderThread:449933 [sender.py:transition_state():602] send defer: 9
+2023-06-18 12:12:46,950 DEBUG   SenderThread:449933 [sender.py:send():369] send: artifact
+2023-06-18 12:12:46,950 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:12:46,956 INFO    HandlerThread:449933 [handler.py:handle_request_defer():170] handle defer: 9
+2023-06-18 12:12:47,223 INFO    Thread-12 :449933 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:12:47,566 INFO    SenderThread:449933 [sender.py:send_artifact():1450] sent artifact job-https___github.com_m2man_HADA-LAVIS.git_main.py - {'id': 'QXJ0aWZhY3Q6NDkxNDM2Mjcw', 'digest': 'f13edda019c4e049381211b13e5451ae', 'state': 'COMMITTED', 'aliases': [{'artifactCollectionName': 'job-https___github.com_m2man_HADA-LAVIS.git_main.py', 'alias': 'latest'}, {'artifactCollectionName': 'job-https___github.com_m2man_HADA-LAVIS.git_main.py', 'alias': 'v0'}], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjc3NjM2Mjgx', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NDkxNDM2Mjcw', 'versionIndex': 0}}, 'version': 'v0'}
+2023-06-18 12:12:47,566 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:12:47,566 INFO    SenderThread:449933 [sender.py:send_request_defer():598] handle sender defer: 9
+2023-06-18 12:12:47,566 INFO    SenderThread:449933 [dir_watcher.py:finish():359] shutting down directory watcher
+2023-06-18 12:12:48,225 INFO    SenderThread:449933 [dir_watcher.py:finish():389] scan: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files
+2023-06-18 12:12:48,225 INFO    SenderThread:449933 [dir_watcher.py:finish():403] scan save: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/conda-environment.yaml conda-environment.yaml
+2023-06-18 12:12:48,226 INFO    SenderThread:449933 [dir_watcher.py:finish():403] scan save: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log output.log
+2023-06-18 12:12:48,226 INFO    SenderThread:449933 [dir_watcher.py:finish():403] scan save: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/wandb-summary.json wandb-summary.json
+2023-06-18 12:12:48,227 INFO    SenderThread:449933 [dir_watcher.py:finish():403] scan save: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/requirements.txt requirements.txt
+2023-06-18 12:12:48,228 INFO    SenderThread:449933 [dir_watcher.py:finish():403] scan save: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/config.yaml config.yaml
+2023-06-18 12:12:48,236 INFO    SenderThread:449933 [dir_watcher.py:finish():403] scan save: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/wandb-metadata.json wandb-metadata.json
+2023-06-18 12:12:48,237 INFO    SenderThread:449933 [sender.py:transition_state():602] send defer: 10
+2023-06-18 12:12:48,245 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:12:48,245 INFO    HandlerThread:449933 [handler.py:handle_request_defer():170] handle defer: 10
+2023-06-18 12:12:48,245 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:12:48,245 INFO    SenderThread:449933 [sender.py:send_request_defer():598] handle sender defer: 10
+2023-06-18 12:12:48,246 INFO    SenderThread:449933 [file_pusher.py:finish():159] shutting down file pusher
+2023-06-18 12:12:48,828 INFO    wandb-upload_0:449933 [upload_job.py:push():133] Uploaded file /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/conda-environment.yaml
+2023-06-18 12:12:48,951 INFO    wandb-upload_2:449933 [upload_job.py:push():133] Uploaded file /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/output.log
+2023-06-18 12:12:48,968 INFO    wandb-upload_4:449933 [upload_job.py:push():133] Uploaded file /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/config.yaml
+2023-06-18 12:12:49,042 INFO    wandb-upload_3:449933 [upload_job.py:push():133] Uploaded file /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/requirements.txt
+2023-06-18 12:12:49,512 INFO    wandb-upload_1:449933 [upload_job.py:push():133] Uploaded file /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/files/wandb-summary.json
+2023-06-18 12:12:49,712 INFO    Thread-11 :449933 [sender.py:transition_state():602] send defer: 11
+2023-06-18 12:12:49,713 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:12:49,713 INFO    HandlerThread:449933 [handler.py:handle_request_defer():170] handle defer: 11
+2023-06-18 12:12:49,714 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:12:49,715 INFO    SenderThread:449933 [sender.py:send_request_defer():598] handle sender defer: 11
+2023-06-18 12:12:49,715 INFO    SenderThread:449933 [file_pusher.py:join():164] waiting for file pusher
+2023-06-18 12:12:49,715 INFO    SenderThread:449933 [sender.py:transition_state():602] send defer: 12
+2023-06-18 12:12:49,715 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:12:49,715 INFO    HandlerThread:449933 [handler.py:handle_request_defer():170] handle defer: 12
+2023-06-18 12:12:49,716 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:12:49,716 INFO    SenderThread:449933 [sender.py:send_request_defer():598] handle sender defer: 12
+2023-06-18 12:12:50,345 INFO    SenderThread:449933 [sender.py:transition_state():602] send defer: 13
+2023-06-18 12:12:50,345 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:12:50,345 INFO    HandlerThread:449933 [handler.py:handle_request_defer():170] handle defer: 13
+2023-06-18 12:12:50,346 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:12:50,346 INFO    SenderThread:449933 [sender.py:send_request_defer():598] handle sender defer: 13
+2023-06-18 12:12:50,347 INFO    SenderThread:449933 [sender.py:transition_state():602] send defer: 14
+2023-06-18 12:12:50,347 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: defer
+2023-06-18 12:12:50,347 INFO    HandlerThread:449933 [handler.py:handle_request_defer():170] handle defer: 14
+2023-06-18 12:12:50,349 DEBUG   SenderThread:449933 [sender.py:send():369] send: final
+2023-06-18 12:12:50,349 DEBUG   SenderThread:449933 [sender.py:send():369] send: footer
+2023-06-18 12:12:50,349 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: defer
+2023-06-18 12:12:50,349 INFO    SenderThread:449933 [sender.py:send_request_defer():598] handle sender defer: 14
+2023-06-18 12:12:50,351 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: poll_exit
+2023-06-18 12:12:50,352 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: server_info
+2023-06-18 12:12:50,352 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: poll_exit
+2023-06-18 12:12:50,354 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: get_summary
+2023-06-18 12:12:50,355 DEBUG   SenderThread:449933 [sender.py:send_request():396] send_request: server_info
+2023-06-18 12:12:50,355 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: sampled_history
+2023-06-18 12:12:50,486 INFO    MainThread:449933 [wandb_run.py:_footer_history_summary_info():3467] rendering history
+2023-06-18 12:12:50,486 INFO    MainThread:449933 [wandb_run.py:_footer_history_summary_info():3499] rendering summary
+2023-06-18 12:12:50,487 INFO    MainThread:449933 [wandb_run.py:_footer_sync_info():3426] logging synced files
+2023-06-18 12:12:50,487 DEBUG   HandlerThread:449933 [handler.py:handle_request():144] handle_request: shutdown
+2023-06-18 12:12:50,487 INFO    HandlerThread:449933 [handler.py:finish():854] shutting down handler
+2023-06-18 12:12:51,354 INFO    WriterThread:449933 [datastore.py:close():298] close: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230618_115652-2la9tiu4/run-2la9tiu4.wandb
+2023-06-18 12:12:51,486 INFO    SenderThread:449933 [sender.py:finish():1526] shutting down sender
+2023-06-18 12:12:51,486 INFO    SenderThread:449933 [file_pusher.py:finish():159] shutting down file pusher
+2023-06-18 12:12:51,486 INFO    SenderThread:449933 [file_pusher.py:join():164] waiting for file pusher
