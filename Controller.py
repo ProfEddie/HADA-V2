@@ -1,5 +1,4 @@
 import torch.optim as optim
-from xformers.ops
 from tensorboardX import SummaryWriter
 import time
 from Models import *

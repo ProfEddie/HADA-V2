@@ -151,7 +151,6 @@ class Controller(nn.Module):
         self.dataset_name = config['dataset_name']
         self.config_path = config['config_path']
         self.config_name = self.config_path.split('/')[-1]
-        # experiment = mlflow.get_experiment_by_name(self.dataset_name)
         wandb.init(
             project='HADA-V2',  
             config={

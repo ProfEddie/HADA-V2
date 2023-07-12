@@ -1,5 +1,4 @@
 import torch.optim as optim
-from xformers.ops
 from tensorboardX import SummaryWriter
 import time
 from Models import *
@@ -144,16 +143,23 @@ class Controller(nn.Module):
         self.dataset_name = config['dataset_name']
         self.config_path = config['config_path']
         self.config_name = self.config_path.split('/')[-1]
-        wandb.init(
-            project='HADA-V2',  
-            config={
-                "dataset": self.dataset_name
-            }
-        )
+        self.log_enable = False
+        if self.log_enable:
+            wandb.init(
+                name='HADA-Hyp-v1',
+                project='HADA-V2',  
+                config={
+                    "dataset": self.dataset_name,
+                    "manifold": 'hyperbolic'
+                }
+            )
         # if experiment is None:
             # self.experiment_id = mlflow.create_experiment(name = self.dataset_name)
         # else: 
             # self.experiment_id = experiment.experiment_id
+    def log(self, stat:dict):
+        if self.log_enable:
+            wandb.log(stat)
             
     def train_mode(self):
         self.img_encoder.train()
@@ -281,6 +287,7 @@ class Controller(nn.Module):
             img_enc_ori_1_all = torch.cat([img_enc_ori_1.t(),self.image_queue_ori_1.clone().detach()],dim=1) 
             cap_enc_ori_1_all = torch.cat([cap_enc_ori_1.t(),self.text_queue_ori_1.clone().detach()],dim=1)
             dist_f = lambda x, y: -dist_matrix(x, y, c=0.1)
+            # dist_f = lambda x, y: x @ y 
 
             if self.distill:               
 
@@ -289,6 +296,10 @@ class Controller(nn.Module):
 
                 sim_i2t_targets = self.alpha*F.softmax(sim_i2t_m, dim=1)+(1-self.alpha)*sim_targets
                 sim_t2i_targets = self.alpha*F.softmax(sim_t2i_m, dim=1)+(1-self.alpha)*sim_targets 
+        # print(img_enc.shape)
+        # print(cap_enc.shape)
+        # print(img_enc_all.shape)
+        # print(cap_enc_all.shape)
         
         sim_i2t = dist_f(img_enc, cap_enc_all) / self.temp_para
         sim_t2i = dist_f(cap_enc, img_enc_all) / self.temp_para 
@@ -340,52 +351,22 @@ class Controller(nn.Module):
             br = self.forward_batch(batch)
             loss_nll, loss_itm = br['loss_nll'], br['loss_itm']
             all_loss = self.weight_nll_loss*loss_nll + self.weight_itm_loss*loss_itm
-            wandb.log({'current loss': all_loss.item()})
-            # print(f'current loss: {all_loss.item()}')
+            self.log({'current loss': all_loss.item()})
+            print(f'current loss: {all_loss.item()}')
             
             # Update
             self.optimizer.zero_grad()
             all_loss.backward()
-            
-            # Plot Gradient
-            ie_l, ie_mi, ie_av, ie_ma = plot_grad_flow(self.img_encoder.named_parameters())
-            ce_l, ce_mi, ce_av, ce_ma = plot_grad_flow(self.cap_encoder.named_parameters())
-            dc_l, dc_mi, dc_av, dc_ma = plot_grad_flow(self.discriminator.named_parameters())
-            
             self.optimizer.step()
             
             loss_all_report += all_loss.item()
             loss_nll_report += loss_nll.item()
             loss_itm_report += loss_itm.item()
-            
-            if writer is not None:
-                wit = int(self.n_iters / 100)
-                if (idx+1) % wit == 0 or idx == 0:
-                    if self.use_weighted_retrieval:
-                        writer.add_scalars('LearnPara', {'wa': self.weight_1.item()}, epochID * np.floor(numb_iter/wit) + np.floor((idx+1)/wit))
-                    if self.temp > 0:
-                        writer.add_scalars('LearnPara', {'temp': self.temp_para.item()}, epochID * np.floor(numb_iter/wit) + np.floor((idx+1)/wit))
-                    writer.add_scalars('Training Iter', {'All': loss_all_report/(idx+1)}, epochID * np.floor(numb_iter/wit) + np.floor((idx+1)/wit))
-                    writer.add_scalars('Training Iter', {'NLL': loss_nll_report/(idx+1)}, epochID * np.floor(numb_iter/wit) + np.floor((idx+1)/wit))
-                    writer.add_scalars('Training Iter', {'ITM': loss_itm_report/(idx+1)}, epochID * np.floor(numb_iter/wit) + np.floor((idx+1)/wit))
-                    writer.add_scalars('Training Iter', {'CNLL': loss_nll.item()}, epochID * np.floor(numb_iter/wit) + np.floor((idx+1)/wit))
-                    writer.add_scalars('Training Iter', {'CITM': loss_itm.item()}, epochID * np.floor(numb_iter/wit) + np.floor((idx+1)/wit))
-
-                    for inn, n in enumerate(ie_l):
-                        writer.add_scalars('GF-AvgIMG', {n: ie_av[inn]}, epochID * np.floor(numb_iter/wit) + np.floor((idx+1)/wit))
-                    for inn, n in enumerate(ce_l):
-                        writer.add_scalars('GF-AvgCAP', {n: ce_av[inn]}, epochID * np.floor(numb_iter/wit) + np.floor((idx+1)/wit))
-                    for inn, n in enumerate(dc_l):
-                        writer.add_scalars('GF-AvgDC', {n: dc_av[inn]}, epochID * np.floor(numb_iter/wit) + np.floor((idx+1)/wit))
-            
-                if self.Tmax > 0 or self.T0 > 0:
-                    current_lr = self.scheduler.get_last_lr()
-                    writer.add_scalars('Learning Rate', {'lr': current_lr}, epochID * np.floor(numb_iter/wit) + np.floor((idx+1)/wit))
-                    
             if self.Tmax > 0: 
                 self.scheduler.step()
             if self.T0 > 0: # cosine scheduler
                 self.scheduler.step(epochID + idx / self.n_iters)       
+
             progress_bar.update(1)
         loss_all_report = round(loss_all_report/(idx+1), 6)
         loss_nll_report = round(loss_nll_report/(idx+1), 6)
@@ -453,14 +434,16 @@ class Controller(nn.Module):
         
         # with mlflow.start_run(experiment_id = self.experiment_id, 
                             #   run_name = self.config_name):
-        wandb.log_artifact(self.config_path)
+        if self.log_enable:
+            wandb.log_artifact(self.config_path)
         params = {'Numb_Para': self.count_parameters()}
-        wandb.log(params)
+        
+        self.log(params)
         best_epoch = 0
         
         for idx_epoch in tqdm(range(num_epoch)):
             loss_tr_dict = self.train_epoch(dataloader_train, idx_epoch, writer)
-            wandb.log(loss_tr_dict)
+            self.log(loss_tr_dict)
             loss_tr_all, loss_tr_nll, loss_tr_itm = loss_tr_dict['all'], loss_tr_dict['nll'], loss_tr_dict['itm']
 
             with torch.no_grad():
@@ -498,7 +481,7 @@ class Controller(nn.Module):
                     metrics['weight_1'] = self.weight_1.item()
                 else:
                     metrics['weight_1'] = self.weight_1
-                wandb.log(metrics)
+                self.log(metrics)
             else:
                 self.save_model(loss=loss_update, epochID=idx_epoch, save_path=f"{save_dir}/current.pth.tar", optimizer=False)
                 metrics = {'Ctemp_para': self.temp_para.item(),
@@ -508,7 +491,7 @@ class Controller(nn.Module):
                     metrics['Cweight_1'] = self.weight_1.item()
                 else:
                     metrics['Cweight_1'] = self.weight_1
-                wandb.log(metrics)
+                self.log(metrics)
 
                 
                 # if idx_epoch < 5:

@@ -1,0 +1,47 @@
+Trainable Paras: 9988097
+TRAIN FROM SCRATCH
+  0%|                                                                                                                                                                                 | 0/100 [00:00<?, ?it/s]
+Traceback (most recent call last):                                                                                                                                                   | 0/3625 [00:00<?, ?it/s]
+  File "main.py", line 125, in <module>
+    run_train(args)
+  File "main.py", line 71, in run_train
+    controller.train(dataset_train=train_dataset,  dataset_val=val_dataset,
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller.py", line 457, in train
+    loss_tr_dict = self.train_epoch(dataloader_train, idx_epoch, writer)
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller.py", line 319, in train_epoch
+    for idx, batch in enumerate(dataloader):
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 633, in __next__
+    data = self._next_data()
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 677, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Utils.py", line 252, in __getitem__
+    image_output_2 = extract_features(self.model_2, sample_2, mode='image', is_clip='clip' in self.model_2_name)
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Utils.py", line 120, in extract_features
+    image_embeds = model.encode_image(image)
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/clip_models/model.py", line 553, in encode_image
+    return self.visual(image)
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/clip_models/model.py", line 367, in forward
+    x = self.transformer(x)
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/clip_models/model.py", line 304, in forward
+    x = r(x, attn_mask=attn_mask)
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/clip_models/model.py", line 284, in forward
+    x = x + self.mlp(self.ln_2(x))
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/jarvis/anaconda3/envs/chau/lib/python3.8/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+KeyboardInterrupt

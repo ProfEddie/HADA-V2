@@ -7,8 +7,8 @@ from Utils import write_to_file
 import torch
 # import mlflow
 import Utils as ut
-from Controller import Controller as Ctr
-from Controller_Both import Controller as Ctr_Both
+from Controller_Hyp import Controller as Ctr
+from Controller_Hyp import Controller as Ctr_Both
 from lavis.models import load_model_and_preprocess, load_model, load_preprocess
 from lavis.datasets.builders import load_dataset
 
@@ -60,6 +60,7 @@ def run_train(args):
         config['Tmax'] = config['Tmax'] * niters
     
     if 'both' in config_path.lower():
+        
         print("Using both backbones to fuse")
         controller = Ctr_Both(config)
     else:

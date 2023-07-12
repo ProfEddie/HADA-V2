@@ -27,7 +27,7 @@ wcsl: 1
 directed_graph: True
 # Optimizer
 optimizer_choice: adamw
-learning_rate: 0.0001
+learning_rate: 0.0001 
 batch_norm: True
 dropout: 0.4
 grad_clip: -1
@@ -57,6 +57,7 @@ Tmax: -1
 weight_nll_loss: 1
 weight_itm_loss: 1
 use_weighted_retrieval: False
-device: cuda
+device: cpu 
+# device: cuda 
 # Other
 out_dir: Output

@@ -405,14 +405,19 @@ def _mobius_matvec(m, x, c):
 
 
 def _tensor_dot(x, y):
+    # print(x.shape, y.shape)
+    # res = x @ y 
     res = torch.einsum("ij,kj->ik", (x, y))
     return res
 
 
 def _mobius_addition_batch(x, y, c):
+    y = y.T
     xy = _tensor_dot(x, y)  # B x C
     x2 = x.pow(2).sum(-1, keepdim=True)  # B x 1
+    # print(x2.shape)
     y2 = y.pow(2).sum(-1, keepdim=True)  # C x 1
+    # print(y2.shape)
     num = 1 + 2 * c * xy + c * y2.permute(1, 0)  # B x C
     num = num.unsqueeze(2) * x.unsqueeze(1)
     num = num + (1 - c * x2).unsqueeze(2) * y  # B x C x D
@@ -485,6 +490,9 @@ def _dist_matrix(x, y, c):
 
 
 def dist_matrix(x, y, c=1.0):
+    # print(x.shape, y.shape)
+    # print(x)
+    # print(y)
     c = torch.as_tensor(c).type_as(x)
     return _dist_matrix(x, y, c)
 

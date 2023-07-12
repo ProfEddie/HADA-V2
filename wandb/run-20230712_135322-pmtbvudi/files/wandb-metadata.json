@@ -1,0 +1,122 @@
+{
+    "os": "Linux-5.15.0-69-generic-x86_64-with-glibc2.17",
+    "python": "3.8.16",
+    "heartbeatAt": "2023-07-12T12:53:23.499699",
+    "startedAt": "2023-07-12T12:53:22.780386",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "-cp",
+        "Config/flickr30k/C1.yml",
+        "-rm",
+        "train"
+    ],
+    "state": "running",
+    "program": "main.py",
+    "codePath": "main.py",
+    "git": {
+        "remote": "https://github.com/m2man/HADA-LAVIS.git",
+        "commit": "42edc37e7ac8bd7eea794738beb2d833ee862dd1"
+    },
+    "email": "nmduy881994@gmail.com",
+    "root": "/home/nmduy/HADA/chau/HADA-LAVIS",
+    "host": "jarvis",
+    "username": "nmduy",
+    "executable": "/home/jarvis/anaconda3/envs/chau/bin/python",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 3.5986250000000006,
+        "min": 800.0,
+        "max": 5000.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.578,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        }
+    ],
+    "disk": {
+        "total": 903.6142044067383,
+        "used": 838.874324798584
+    },
+    "memory": {
+        "total": 62.71501541137695
+    }
+}
