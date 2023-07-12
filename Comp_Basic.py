@@ -74,17 +74,17 @@ class SeqLinear(nn.Module):
         return x  
     
 class HypSeqLinear(nn.Module):
-    def __init__(self, ft_in, ft_out=[128], dropout=0.5, batch_norm=True, act_func='relu'):
-        super(SeqLinear, self).__init__()
+    def __init__(self, ft_in, ft_out=[128], dropout=0.5, batch_norm=True, act_func='relu', c=0.1):
+        super(HypSeqLinear, self).__init__()
         self.linear = []
         self.norm = []
         self.dropout = []
         self.act = []
         for idx in range(len(ft_out)):
             if idx == 0:
-                self.linear.append(HypLinear(ft_in, ft_out[idx]))
+                self.linear.append(HypLinear(ft_in, ft_out[idx], c=c))
             else:
-                self.linear.append(HypLinear(ft_out[idx-1], ft_out[idx]))
+                self.linear.append(HypLinear(ft_out[idx-1], ft_out[idx], c=c))
             if idx != len(ft_out)-1:
                 if batch_norm:
                     # self.norm.append(nn.BatchNorm1d(ft_out[idx]))

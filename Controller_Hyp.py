@@ -76,22 +76,22 @@ class Controller(nn.Module):
             self.weight_1 = 0
             
         # MODEL
-        self.img_encoder = MH(f1_in=self.f1_in, f2_in=self.f2_in, f1_out=self.f1_out, f2_out=self.f2_out,
+        self.img_encoder = MH_V2(f1_in=self.f1_in, f2_in=self.f2_in, f1_out=self.f1_out, f2_out=self.f2_out,
                               ft_trans=self.ft_trans, ft_gcn=self.ft_gcn, ft_com=self.ft_com,
                               n_heads=self.n_heads, type_gcn=self.type_gcn, skip=self.skip,
                               batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func)
-        self.cap_encoder = MH(f1_in=self.f1_in, f2_in=self.f2_in, f1_out=self.f1_out, f2_out=self.f2_out,
+        self.cap_encoder = MH_V2(f1_in=self.f1_in, f2_in=self.f2_in, f1_out=self.f1_out, f2_out=self.f2_out,
                               ft_trans=self.ft_trans, ft_gcn=self.ft_gcn, ft_com=self.ft_com,
                               n_heads=self.n_heads, type_gcn=self.type_gcn, skip=self.skip,
                               batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func)
         self.discriminator = Discriminator(ft_in=self.ft_com[-1], ft_out=self.ft_itm,
                                            batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func)
         # self.discriminator = Discriminator_2(ft_in=self.ft_com[-1])
-        self.img_encoder_m = MH(f1_in=self.f1_in, f2_in=self.f2_in, f1_out=self.f1_out, f2_out=self.f2_out,
+        self.img_encoder_m = MH_V2(f1_in=self.f1_in, f2_in=self.f2_in, f1_out=self.f1_out, f2_out=self.f2_out,
                                 ft_trans=self.ft_trans, ft_gcn=self.ft_gcn, ft_com=self.ft_com,
                                 n_heads=self.n_heads, type_gcn=self.type_gcn, skip=self.skip,
                                 batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func)
-        self.cap_encoder_m = MH(f1_in=self.f1_in, f2_in=self.f2_in, f1_out=self.f1_out, f2_out=self.f2_out,
+        self.cap_encoder_m = MH_V2(f1_in=self.f1_in, f2_in=self.f2_in, f1_out=self.f1_out, f2_out=self.f2_out,
                                 ft_trans=self.ft_trans, ft_gcn=self.ft_gcn, ft_com=self.ft_com,
                                 n_heads=self.n_heads, type_gcn=self.type_gcn, skip=self.skip,
                                 batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func)

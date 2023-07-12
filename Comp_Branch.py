@@ -62,7 +62,7 @@ class HypEnLiFu(nn.Module):
     def __init__(self, f1_in=768, f2_in=768, ft_trans=[768, 768], 
                  ft_gcn=[768, 512], ft_com=[512, 512], f1_out=256, f2_out=768,
                  n_heads=4, type_graph='GCN', skip=False, batch_norm=True, dropout=0.5, act_func='relu'):
-        super(EnLiFu, self).__init__()
+        super(HypEnLiFu, self).__init__()
         self.gcn = LiFu(f1_in=f1_in, f2_in=f2_in, ft_trans=ft_trans, ft_gcn=ft_gcn, 
                         n_heads=n_heads, type_graph=type_graph, 
                         skip=skip, batch_norm=batch_norm, dropout=dropout, act_func=act_func)
