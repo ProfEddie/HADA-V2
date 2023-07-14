@@ -1,0 +1,21 @@
+Trainable Paras: 9988097
+TRAIN FROM SCRATCH
+0.0
+  0%|                                                                  | 0/100 [00:00<?, ?it/s]/home/nmduy/HADA/chau/HADA-LAVIS/hyptorch/math.py:403: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:493.)
+  res = torch.where(cond, res_0, res_c)                              | 0/72500 [00:00<?, ?it/s]
+  0%|                                                                  | 0/100 [00:01<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/main_hyp.py", line 127, in <module>
+    run_train(args)
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/main_hyp.py", line 73, in run_train
+    controller.train(dataset_train=train_dataset,  dataset_val=val_dataset,
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller_Hyp.py", line 440, in train
+    loss_tr_dict = self.train_epoch(dataloader_train, idx_epoch)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller_Hyp.py", line 347, in train_epoch
+    br = self.forward_batch(batch)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller_Hyp.py", line 284, in forward_batch
+    cap_enc_ori_1_all = torch.cat([cap_enc_ori_1.t(),self.text_queue_ori_1.clone().detach()],dim=1)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 64.00 MiB (GPU 0; 11.77 GiB total capacity; 4.30 GiB already allocated; 4.81 MiB free; 4.51 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

@@ -1,0 +1,273 @@
+Trainable Paras: 9988097
+TRAIN FROM SCRATCH
+  0%|                                                                  | 0/100 [00:00<?, ?it/s]/home/nmduy/HADA/chau/HADA-LAVIS/hyptorch/math.py:403: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:493.)
+  res = torch.where(cond, res_0, res_c)                               | 0/3625 [00:00<?, ?it/s]
+  0%|                                                       | 2/3625 [00:05<2:53:46,  2.88s/it]
+0.0
+current loss: 9.055445671081543
+0.00027586206896551725
+
+  0%|                                                       | 3/3625 [00:08<2:45:24,  2.74s/it]
+0.0005517241379310345
+  offset = -low * scale                                     | 3/3625 [00:08<2:45:24,  2.74s/it]
+  0%|                                                       | 4/3625 [00:11<2:41:46,  2.68s/it]
+0.0008275862068965517
+
+  offset = -low * scale                                     | 4/3625 [00:11<2:41:46,  2.68s/it]
+0.001103448275862069
+current loss: 7.70477294921875
+
+  0%|                                                       | 6/3625 [00:16<2:36:26,  2.59s/it]
+0.001379310344827586
+
+  0%|                                                       | 7/3625 [00:18<2:35:06,  2.57s/it]
+0.0016551724137931034
+current loss: 7.314189910888672
+0.0019310344827586207
+
+
+  0%|▏                                                      | 9/3625 [00:23<2:34:11,  2.56s/it]
+0.002206896551724138
+
+  0%|▏                                                     | 10/3625 [00:26<2:34:15,  2.56s/it]
+0.0024827586206896553
+
+  0%|▏                                                     | 11/3625 [00:28<2:34:35,  2.57s/it]
+0.002758620689655172
+current loss: 7.191727638244629
+0.0030344827586206895
+
+
+  0%|▏                                                     | 13/3625 [00:33<2:33:53,  2.56s/it]
+0.003310344827586207
+
+  0%|▏                                                     | 14/3625 [00:36<2:33:19,  2.55s/it]
+0.003586206896551724
+
+  0%|▏                                                     | 15/3625 [00:39<2:33:17,  2.55s/it]
+0.0038620689655172414
+current loss: 7.217738151550293
+0.004137931034482759
+
+
+  0%|▎                                                     | 17/3625 [00:44<2:33:38,  2.56s/it]
+0.004413793103448276
+
+  0%|▎                                                     | 18/3625 [00:46<2:33:29,  2.55s/it]
+0.004689655172413793
+current loss: 7.3717217445373535
+0.004965517241379311
+
+
+  1%|▎                                                     | 20/3625 [00:51<2:34:09,  2.57s/it]
+0.005241379310344828
+
+  1%|▎                                                     | 21/3625 [00:54<2:34:06,  2.57s/it]
+0.005517241379310344
+
+  1%|▎                                                     | 22/3625 [00:57<2:34:42,  2.58s/it]
+0.005793103448275862
+current loss: 7.53537654876709
+0.006068965517241379
+
+
+  1%|▎                                                     | 24/3625 [01:02<2:35:15,  2.59s/it]
+0.006344827586206896
+
+  1%|▎                                                     | 25/3625 [01:04<2:34:40,  2.58s/it]
+0.006620689655172414
+current loss: 7.57626485824585
+0.006896551724137931
+
+
+  1%|▍                                                     | 27/3625 [01:09<2:34:24,  2.57s/it]
+0.007172413793103448
+
+  1%|▍                                                     | 28/3625 [01:12<2:33:41,  2.56s/it]
+0.0074482758620689656
+
+  1%|▍                                                     | 29/3625 [01:14<2:33:07,  2.55s/it]
+0.007724137931034483
+current loss: 7.587612152099609
+0.008
+
+
+  1%|▍                                                     | 31/3625 [01:20<2:33:20,  2.56s/it]
+0.008275862068965517
+
+  1%|▍                                                     | 32/3625 [01:22<2:33:12,  2.56s/it]
+0.008551724137931035
+
+  1%|▍                                                     | 33/3625 [01:25<2:33:07,  2.56s/it]
+0.008827586206896552
+
+  1%|▌                                                     | 34/3625 [01:27<2:32:42,  2.55s/it]
+0.00910344827586207
+
+  1%|▌                                                     | 35/3625 [01:30<2:32:28,  2.55s/it]
+0.009379310344827587
+
+  1%|▌                                                     | 36/3625 [01:32<2:32:39,  2.55s/it]
+0.009655172413793104
+current loss: 7.837590217590332
+0.009931034482758621
+
+
+  1%|▌                                                     | 38/3625 [01:38<2:32:57,  2.56s/it]
+0.010206896551724139
+
+  1%|▌                                                     | 39/3625 [01:40<2:33:10,  2.56s/it]
+0.010482758620689656
+
+  1%|▌                                                     | 40/3625 [01:43<2:32:49,  2.56s/it]
+0.010758620689655173
+current loss: 7.503333568572998
+
+  1%|▌                                                     | 41/3625 [01:45<2:32:28,  2.55s/it]
+
+  1%|▋                                                     | 42/3625 [01:48<2:32:29,  2.55s/it]
+0.011310344827586206
+
+  1%|▋                                                     | 43/3625 [01:50<2:33:25,  2.57s/it]
+0.011586206896551723
+current loss: 7.7766642570495605
+0.01186206896551724
+
+
+  1%|▋                                                     | 47/3625 [02:01<2:33:06,  2.57s/it]
+0.012137931034482758
+current loss: 7.76751708984375
+0.012413793103448275
+current loss: 7.908714294433594
+0.012689655172413793
+current loss: 7.700822830200195
+0.01296551724137931
+
+
+  1%|▋                                                     | 49/3625 [02:06<2:33:06,  2.57s/it]
+0.013241379310344827
+
+  1%|▋                                                     | 50/3625 [02:08<2:32:53,  2.57s/it]
+0.013517241379310345
+current loss: 7.672786712646484
+0.013793103448275862
+
+
+  1%|▊                                                     | 52/3625 [02:13<2:32:52,  2.57s/it]
+0.01406896551724138
+
+  1%|▊                                                     | 53/3625 [02:16<2:32:43,  2.57s/it]
+0.014344827586206896
+
+  1%|▊                                                     | 54/3625 [02:19<2:32:28,  2.56s/it]
+0.014620689655172414
+current loss: 7.928226947784424
+0.014896551724137931
+
+
+  2%|▊                                                     | 56/3625 [02:24<2:32:32,  2.56s/it]
+0.015172413793103448
+
+  2%|▊                                                     | 57/3625 [02:26<2:32:17,  2.56s/it]
+0.015448275862068966
+current loss: 7.829288959503174
+0.01572413793103448
+
+
+  2%|▉                                                     | 59/3625 [02:31<2:31:38,  2.55s/it]
+0.016
+
+  2%|▉                                                     | 60/3625 [02:34<2:31:05,  2.54s/it]
+0.016275862068965516
+
+  2%|▉                                                     | 61/3625 [02:36<2:30:57,  2.54s/it]
+0.016551724137931035
+current loss: 7.732253074645996
+0.01682758620689655
+
+
+  2%|▉                                                     | 63/3625 [02:41<2:31:05,  2.55s/it]
+0.01710344827586207
+
+  2%|▉                                                     | 64/3625 [02:44<2:31:19,  2.55s/it]
+0.017379310344827585
+
+  2%|▉                                                     | 65/3625 [02:47<2:31:12,  2.55s/it]
+0.017655172413793104
+current loss: 7.912327766418457
+0.01793103448275862
+
+
+  2%|▉                                                     | 67/3625 [02:52<2:30:53,  2.54s/it]
+0.01820689655172414
+
+  2%|█                                                     | 68/3625 [02:54<2:31:27,  2.55s/it]
+0.018482758620689654
+current loss: 7.686582565307617
+0.018758620689655173
+
+Traceback (most recent call last):                         | 69/3625 [02:57<2:31:23,  2.55s/it]
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/main_hyp.py", line 127, in <module>
+    run_train(args)
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/main_hyp.py", line 73, in run_train
+    controller.train(dataset_train=train_dataset,  dataset_val=val_dataset,
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller_Hyp.py", line 440, in train
+    loss_tr_dict = self.train_epoch(dataloader_train, idx_epoch)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller_Hyp.py", line 331, in train_epoch
+    for idx, batch in enumerate(dataloader):
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 633, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 677, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Utils.py", line 295, in __getitem__
+    text_output_1 = extract_features(self.model_1, sample_1, mode='text', is_clip='clip' in self.model_1_name)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Utils.py", line 142, in extract_features
+    text_output = model.text_encoder(
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/med.py", line 974, in forward
+    encoder_outputs = self.encoder(
+                      ^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/med.py", line 592, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/med.py", line 487, in forward
+    layer_output = apply_chunking_to_forward(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/transformers/pytorch_utils.py", line 246, in apply_chunking_to_forward
+    return forward_fn(*input_tensors)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/med.py", line 500, in feed_forward_chunk
+    intermediate_output = self.intermediate(attention_output)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/med.py", line 373, in forward
+    hidden_states = self.intermediate_act_fn(hidden_states)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/transformers/activations.py", line 57, in forward
+    return self.act(input)
+           ^^^^^^^^^^^^^^^
+KeyboardInterrupt

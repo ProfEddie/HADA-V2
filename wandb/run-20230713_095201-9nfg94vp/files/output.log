@@ -1,0 +1,56 @@
+Trainable Paras: 9988097
+TRAIN FROM SCRATCH
+  0%|                                                                   | 0/100 [00:00<?, ?it/s]/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/processors/randaugment.py:40: RuntimeWarning: overflow encountered in scalar negative
+  offset = -low * scale                                    | 17/72500 [00:03<2:53:54,  6.95it/s]
+
+
+
+
+
+  offset = -low * scale                                    | 98/72500 [00:15<3:03:33,  6.57it/s]
+
+
+
+
+
+
+
+
+
+
+Traceback (most recent call last):                        | 242/72500 [00:37<2:57:24,  6.79it/s]
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/main.py", line 127, in <module>
+    run_train(args)
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/main.py", line 73, in run_train
+    controller.train(dataset_train=train_dataset,  dataset_val=val_dataset,
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller.py", line 456, in train
+    loss_tr_dict = self.train_epoch(dataloader_train, idx_epoch)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller.py", line 335, in train_epoch
+    br = self.forward_batch(batch)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller.py", line 256, in forward_batch
+    img_enc = self.img_encoder(img_dict)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Models.py", line 15, in forward
+    x = self.enc(x_1=data['ft_1'], x_2=data['ft_2'],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Comp_Branch.py", line 55, in forward
+    g_cls_1, g_cls_2 = self.gcn(x_1, x_1, n_1, n_2, edge_index, edge_attr, batch_index)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Comp_Branch.py", line 39, in forward
+    x_concat = concat_node(x_1, x_2, n_1, n_2)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Comp_Branch.py", line 12, in concat_node
+    x_concat = torch.cat((x_concat, x1[count1:count1+n_x1[idx]], x2[count2:count2+n_x2[idx]]), dim=0)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

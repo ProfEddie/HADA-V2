@@ -34,7 +34,7 @@ grad_clip: -1
 weight_decay: 0.02
 # Train
 mode_train: both
-batch_size: 40
+batch_size: 40 
 num_epoch: 100
 early_stop: 5
 thres_loss: 0.001
@@ -42,7 +42,7 @@ temp: 0.07
 # momentum
 alpha: 0.4
 distill: False
-queue_size: 64000
+queue_size: 4000
 momentum: 0.995
 # plateau scheduler
 min_lr: 0.00001

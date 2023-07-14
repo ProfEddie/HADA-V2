@@ -1,5 +1,4 @@
 import torch.optim as optim
-from tensorboardX import SummaryWriter
 import time
 from Models import *
 from Utils import *
@@ -142,16 +141,22 @@ class Controller(nn.Module):
         self.dataset_name = config['dataset_name']
         self.config_path = config['config_path']
         self.config_name = self.config_path.split('/')[-1]
-        wandb.init(
-            project='HADA-V2',  
-            config={
-                "dataset": self.dataset_name
-            }
-        )
+        self.log_enable = False
+        if self.log_enable:
+            wandb.init(
+                name='Euclid',
+                project='HADA-V2',  
+                config={
+                    "dataset": self.dataset_name
+                }
+            )
         # if experiment is None:
             # self.experiment_id = mlflow.create_experiment(name = self.dataset_name)
         # else: 
             # self.experiment_id = experiment.experiment_id
+    def log(self, stat):
+        if self.log_enable:
+            wandb.log(stat)
             
     def train_mode(self):
         self.img_encoder.train()
@@ -317,7 +322,7 @@ class Controller(nn.Module):
         numb_iter = len(dataloader)
         progress_bar = tqdm(range(numb_iter))
         for idx, batch in enumerate(dataloader):
-            print(idx/numb_iter)
+            # print(idx/numb_iter)
             # if idx > 10: # DEBUG
             #     break
             # Forward
@@ -335,7 +340,7 @@ class Controller(nn.Module):
             br = self.forward_batch(batch)
             loss_nll, loss_itm = br['loss_nll'], br['loss_itm']
             all_loss = self.weight_nll_loss*loss_nll + self.weight_itm_loss*loss_itm
-            wandb.log({'current loss': all_loss.item()})
+            self.log({'current loss': all_loss.item()})
             # print(f'current loss: {all_loss.item()}')
             
             # Update
@@ -433,7 +438,6 @@ class Controller(nn.Module):
         timestampTime = time.strftime("%H%M%S")
         timestampDate = time.strftime("%d%m%Y")
         timestampLaunch = timestampDate + '-' + timestampTime
-        writer = SummaryWriter(f"{save_dir}/{timestampLaunch}/")
         
         count_change_loss = 0
         
@@ -448,14 +452,15 @@ class Controller(nn.Module):
         
         # with mlflow.start_run(experiment_id = self.experiment_id, 
                             #   run_name = self.config_name):
-        wandb.log_artifact(self.config_path)
+        if self.log_enable:
+            wandb.log_artifact(self.config_path)
         params = {'Numb_Para': self.count_parameters()}
-        wandb.log(params)
+        self.log(params)
         best_epoch = 0
         
         for idx_epoch in tqdm(range(num_epoch)):
-            loss_tr_dict = self.train_epoch(dataloader_train, idx_epoch, writer)
-            wandb.log(loss_tr_dict)
+            loss_tr_dict = self.train_epoch(dataloader_train, idx_epoch)
+            self.log(loss_tr_dict)
             loss_tr_all, loss_tr_nll, loss_tr_itm = loss_tr_dict['all'], loss_tr_dict['nll'], loss_tr_dict['itm']
 
             with torch.no_grad():
@@ -493,7 +498,7 @@ class Controller(nn.Module):
                     metrics['weight_1'] = self.weight_1.item()
                 else:
                     metrics['weight_1'] = self.weight_1
-                wandb.log(metrics)
+                self.log(metrics)
             else:
                 self.save_model(loss=loss_update, epochID=idx_epoch, save_path=f"{save_dir}/current.pth.tar", optimizer=False)
                 metrics = {'Ctemp_para': self.temp_para.item(),
@@ -503,7 +508,7 @@ class Controller(nn.Module):
                     metrics['Cweight_1'] = self.weight_1.item()
                 else:
                     metrics['Cweight_1'] = self.weight_1
-                wandb.log(metrics)
+                self.log(metrics)
 
                 
                 # if idx_epoch < 5:
@@ -531,19 +536,10 @@ class Controller(nn.Module):
             info_txt += f"R1t: {np.round(r1t,6)}\nR5t: {np.round(r5t,6)}\nR10t: {np.round(r10t,6)}\n"
             info_txt += f"Ri: {np.round(r1i+r5i+r10i,6)}\nRt: {np.round(r1t+r5t+r10t,6)}\n"
             info_txt += f"Rall: {np.round(r1i+r5i+r10i+r1t+r5t+r10t,6)}\n"
-            writer.add_scalars('Recall Epoch', {'R1i': r1i}, idx_epoch)
-            writer.add_scalars('Recall Epoch', {'R5i': r5i}, idx_epoch)
-            writer.add_scalars('Recall Epoch', {'R10i': r10i}, idx_epoch)
-            writer.add_scalars('Recall Epoch', {'R1t': r1t}, idx_epoch)
-            writer.add_scalars('Recall Epoch', {'R5t': r5t}, idx_epoch)
-            writer.add_scalars('Recall Epoch', {'R10t': r10t}, idx_epoch)
-            writer.add_scalars('Recall Epoch', {'LoRe': loss_rall}, idx_epoch)
+           
 
             info_txt += f"--------\n"
 
-            writer.add_scalars('Loss Epoch', {'TrAll': loss_tr_all}, idx_epoch)
-            writer.add_scalars('Loss Epoch', {'TrNLL': loss_tr_nll}, idx_epoch)
-            writer.add_scalars('Loss Epoch', {'TrITM': loss_tr_itm}, idx_epoch)
 
             if count_change_loss >= self.early_stop:
                 print(f'Early stopping: {count_change_loss} epoch not decrease the loss')
@@ -552,7 +548,6 @@ class Controller(nn.Module):
             write_to_file(f"{save_dir}/TrainReport.log", info_txt)
             print(info_txt)
             
-        writer.close()
         
     def count_parameters(self, trainable=True):
         total = 0

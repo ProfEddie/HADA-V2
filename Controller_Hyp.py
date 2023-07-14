@@ -1,5 +1,4 @@
 import torch.optim as optim
-from tensorboardX import SummaryWriter
 import time
 from Models import *
 from Utils import *
@@ -8,10 +7,7 @@ from pathlib import Path
 import torch.nn.functional as F
 from torch.optim.lr_scheduler import ReduceLROnPlateau, StepLR, CosineAnnealingLR, CosineAnnealingWarmRestarts
 import torch.nn as nn
-import itertools
-import random
 from hyptorch.math import dist_matrix
-import os
 import wandb
 from tqdm import tqdm
 class Controller(nn.Module):
@@ -84,9 +80,8 @@ class Controller(nn.Module):
                               ft_trans=self.ft_trans, ft_gcn=self.ft_gcn, ft_com=self.ft_com,
                               n_heads=self.n_heads, type_gcn=self.type_gcn, skip=self.skip,
                               batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func)
-        self.discriminator = Discriminator(ft_in=self.ft_com[-1], ft_out=self.ft_itm,
+        self.discriminator = HypDiscriminator(ft_in=self.ft_com[-1], ft_out=self.ft_itm,
                                            batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func)
-        # self.discriminator = Discriminator_2(ft_in=self.ft_com[-1])
         self.img_encoder_m = MH_V2(f1_in=self.f1_in, f2_in=self.f2_in, f1_out=self.f1_out, f2_out=self.f2_out,
                                 ft_trans=self.ft_trans, ft_gcn=self.ft_gcn, ft_com=self.ft_com,
                                 n_heads=self.n_heads, type_gcn=self.type_gcn, skip=self.skip,
@@ -143,10 +138,10 @@ class Controller(nn.Module):
         self.dataset_name = config['dataset_name']
         self.config_path = config['config_path']
         self.config_name = self.config_path.split('/')[-1]
-        self.log_enable = False
+        self.log_enable = True 
         if self.log_enable:
             wandb.init(
-                name='HADA-Hyp-v1',
+                name='Hyperbolic-v1',
                 project='HADA-V2',  
                 config={
                     "dataset": self.dataset_name,
@@ -325,7 +320,7 @@ class Controller(nn.Module):
                   'loss_nll': loss_nll, 'loss_itm': loss_itm}
         return result
     
-    def train_epoch(self, dataloader, epochID=0, writer=None):
+    def train_epoch(self, dataloader, epochID=0):
         self.train_mode()
         loss_all_report = 0
         loss_nll_report = 0
@@ -382,13 +377,14 @@ class Controller(nn.Module):
         dataset.set_branch(branch='txt')
         dataloader_txt = make_dataloader(dataset, branch='txt', batch_size=int(self.config['batch_size']/2), shuffle=False)
         cap_enc, cap_enc_ori_1, cap_enc_ori_2 = self.eval_encode(dataloader_txt, branch='txt')
+        dist_f = lambda x, y: -dist_matrix(x, y, c=0.1)
         with torch.no_grad():
             if apply_temp:
-                sims = img_enc @ cap_enc.T / self.temp_para
-                sims_ori_1 = img_enc_ori_1 @ cap_enc_ori_1.T / self.temp_para
+                sims = dist_f(img_enc , cap_enc.T) / self.temp_para
+                sims_ori_1 = dist_f(img_enc_ori_1 , cap_enc_ori_1.T) / self.temp_para
             else:
-                sims = img_enc @ cap_enc.T 
-                sims_ori_1 = img_enc_ori_1 @ cap_enc_ori_1.T 
+                sims = dist_f(img_enc , cap_enc.T) 
+                sims_ori_1 = dist_f(img_enc_ori_1 , cap_enc_ori_1.T) 
             sims = (1-self.weight_1)*sims + self.weight_1 * sims_ori_1
             # sims = img_enc_ori_1 @ cap_enc_ori_1.T # for BLIP
             # sims = img_enc_ori_2 @ cap_enc_ori_2.T # for CLIP
@@ -419,7 +415,6 @@ class Controller(nn.Module):
         timestampTime = time.strftime("%H%M%S")
         timestampDate = time.strftime("%d%m%Y")
         timestampLaunch = timestampDate + '-' + timestampTime
-        writer = SummaryWriter(f"{save_dir}/{timestampLaunch}/")
         
         count_change_loss = 0
         
@@ -442,7 +437,7 @@ class Controller(nn.Module):
         best_epoch = 0
         
         for idx_epoch in tqdm(range(num_epoch)):
-            loss_tr_dict = self.train_epoch(dataloader_train, idx_epoch, writer)
+            loss_tr_dict = self.train_epoch(dataloader_train, idx_epoch)
             self.log(loss_tr_dict)
             loss_tr_all, loss_tr_nll, loss_tr_itm = loss_tr_dict['all'], loss_tr_dict['nll'], loss_tr_dict['itm']
 
@@ -476,6 +471,7 @@ class Controller(nn.Module):
                             'Rt': np.round(r1t+r5t+r10t, 6),
                             'Rall': np.round(r1i+r5i+r10i+r1t+r5t+r10t, 6),
                             'Ctemp_para': self.temp_para.item(),
+                            'eval_loss': loss_rall 
                             }
                 if self.use_weighted_retrieval:
                     metrics['weight_1'] = self.weight_1.item()
@@ -519,28 +515,14 @@ class Controller(nn.Module):
             info_txt += f"R1t: {np.round(r1t,6)}\nR5t: {np.round(r5t,6)}\nR10t: {np.round(r10t,6)}\n"
             info_txt += f"Ri: {np.round(r1i+r5i+r10i,6)}\nRt: {np.round(r1t+r5t+r10t,6)}\n"
             info_txt += f"Rall: {np.round(r1i+r5i+r10i+r1t+r5t+r10t,6)}\n"
-            writer.add_scalars('Recall Epoch', {'R1i': r1i}, idx_epoch)
-            writer.add_scalars('Recall Epoch', {'R5i': r5i}, idx_epoch)
-            writer.add_scalars('Recall Epoch', {'R10i': r10i}, idx_epoch)
-            writer.add_scalars('Recall Epoch', {'R1t': r1t}, idx_epoch)
-            writer.add_scalars('Recall Epoch', {'R5t': r5t}, idx_epoch)
-            writer.add_scalars('Recall Epoch', {'R10t': r10t}, idx_epoch)
-            writer.add_scalars('Recall Epoch', {'LoRe': loss_rall}, idx_epoch)
-
-            info_txt += f"--------\n"
-
-            writer.add_scalars('Loss Epoch', {'TrAll': loss_tr_all}, idx_epoch)
-            writer.add_scalars('Loss Epoch', {'TrNLL': loss_tr_nll}, idx_epoch)
-            writer.add_scalars('Loss Epoch', {'TrITM': loss_tr_itm}, idx_epoch)
+  
 
             if count_change_loss >= self.early_stop:
                 print(f'Early stopping: {count_change_loss} epoch not decrease the loss')
                 info_txt += "[EARLY STOPPING]\n"
                 break
-            write_to_file(f"{save_dir}/TrainReport.log", info_txt)
             print(info_txt)
             
-        writer.close()
         
     def count_parameters(self, trainable=True):
         total = 0

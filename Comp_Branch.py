@@ -71,6 +71,7 @@ class HypEnLiFu(nn.Module):
             ball_dim=ft_gcn[-1],
             riemannian=False,
             clip_r=2.3,
+            train_x=True,
         )
         self.lin = HypSeqLinear(2*ft_gcn[-1]+f1_out+f2_out, ft_out=ft_com, batch_norm=batch_norm, 
                              dropout=dropout, act_func=act_func)
@@ -79,6 +80,7 @@ class HypEnLiFu(nn.Module):
         
         # x_cls = torch.cat((x_cls_albef, x_cls_dot), dim=1)
         x_enc = torch.cat((g_cls_1, x_cls_1, x_cls_2, g_cls_2),dim=1)
+        x_enc = self.to_poincare(x_enc)
         x_enc = self.lin(x_enc)
         return x_enc
 

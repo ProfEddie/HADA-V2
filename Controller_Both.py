@@ -1,5 +1,4 @@
 import torch.optim as optim
-from tensorboardX import SummaryWriter
 import time
 from Models import *
 from Utils import *
@@ -333,7 +332,7 @@ class Controller(nn.Module):
                   'loss_nll': loss_nll, 'loss_itm': loss_itm}
         return result
     
-    def train_epoch(self, dataloader, epochID=0, writer=None):
+    def train_epoch(self, dataloader, epochID=0):
         self.train_mode()
         loss_all_report = 0
         loss_nll_report = 0
@@ -380,31 +379,6 @@ class Controller(nn.Module):
             loss_itm_report += loss_itm.item()
           
             
-            if writer is not None:
-                wit = int(self.n_iters / 100)
-                if (idx+1) % wit == 0 or idx == 0:
-                    if self.use_weighted_retrieval:
-                        writer.add_scalars('LearnPara', {'w0': self.weight_0.item()}, epochID * np.floor(numb_iter/wit) + np.floor((idx+1)/wit))
-                        writer.add_scalars('LearnPara', {'w1': self.weight_1.item()}, epochID * np.floor(numb_iter/wit) + np.floor((idx+1)/wit))
-                        writer.add_scalars('LearnPara', {'w2': self.weight_2.item()}, epochID * np.floor(numb_iter/wit) + np.floor((idx+1)/wit))
-                    if self.temp > 0:
-                        writer.add_scalars('LearnPara', {'temp': self.temp_para.item()}, epochID * np.floor(numb_iter/wit) + np.floor((idx+1)/wit))
-                    writer.add_scalars('Training Iter', {'All': loss_all_report/(idx+1)}, epochID * np.floor(numb_iter/wit) + np.floor((idx+1)/wit))
-                    writer.add_scalars('Training Iter', {'NLL': loss_nll_report/(idx+1)}, epochID * np.floor(numb_iter/wit) + np.floor((idx+1)/wit))
-                    writer.add_scalars('Training Iter', {'ITM': loss_itm_report/(idx+1)}, epochID * np.floor(numb_iter/wit) + np.floor((idx+1)/wit))
-                    writer.add_scalars('Training Iter', {'CNLL': loss_nll.item()}, epochID * np.floor(numb_iter/wit) + np.floor((idx+1)/wit))
-                    writer.add_scalars('Training Iter', {'CITM': loss_itm.item()}, epochID * np.floor(numb_iter/wit) + np.floor((idx+1)/wit))
-
-                    for inn, n in enumerate(ie_l):
-                        writer.add_scalars('GF-AvgIMG', {n: ie_av[inn]}, epochID * np.floor(numb_iter/wit) + np.floor((idx+1)/wit))
-                    for inn, n in enumerate(ce_l):
-                        writer.add_scalars('GF-AvgCAP', {n: ce_av[inn]}, epochID * np.floor(numb_iter/wit) + np.floor((idx+1)/wit))
-                    for inn, n in enumerate(dc_l):
-                        writer.add_scalars('GF-AvgDC', {n: dc_av[inn]}, epochID * np.floor(numb_iter/wit) + np.floor((idx+1)/wit))
-            
-                if self.Tmax > 0 or self.T0 > 0:
-                    current_lr = self.scheduler.get_last_lr()
-                    writer.add_scalars('Learning Rate', {'lr': current_lr}, epochID * np.floor(numb_iter/wit) + np.floor((idx+1)/wit))
                     
             if self.Tmax > 0: 
                 self.scheduler.step()
@@ -466,7 +440,6 @@ class Controller(nn.Module):
         timestampTime = time.strftime("%H%M%S")
         timestampDate = time.strftime("%d%m%Y")
         timestampLaunch = timestampDate + '-' + timestampTime
-        writer = SummaryWriter(f"{save_dir}/{timestampLaunch}/")
         
         count_change_loss = 0
         
@@ -488,7 +461,7 @@ class Controller(nn.Module):
         progress_bar = tqdm(range(num_epoch))
         
         for idx_epoch in range(num_epoch):
-            loss_tr_dict = self.train_epoch(dataloader_train, idx_epoch, writer)
+            loss_tr_dict = self.train_epoch(dataloader_train, idx_epoch)
             wandb.log(loss_tr_dict)
             loss_tr_all, loss_tr_nll, loss_tr_itm = loss_tr_dict['all'], loss_tr_dict['nll'], loss_tr_dict['itm']
 
@@ -572,20 +545,9 @@ class Controller(nn.Module):
             info_txt += f"R1t: {np.round(r1t,6)}\nR5t: {np.round(r5t,6)}\nR10t: {np.round(r10t,6)}\n"
             info_txt += f"Ri: {np.round(r1i+r5i+r10i,6)}\nRt: {np.round(r1t+r5t+r10t,6)}\n"
             info_txt += f"Rall: {np.round(r1i+r5i+r10i+r1t+r5t+r10t,6)}\n"
-            print('got here')
-            writer.add_scalars('Recall Epoch', {'R1i': r1i}, idx_epoch)
-            writer.add_scalars('Recall Epoch', {'R5i': r5i}, idx_epoch)
-            writer.add_scalars('Recall Epoch', {'R10i': r10i}, idx_epoch)
-            writer.add_scalars('Recall Epoch', {'R1t': r1t}, idx_epoch)
-            writer.add_scalars('Recall Epoch', {'R5t': r5t}, idx_epoch)
-            writer.add_scalars('Recall Epoch', {'R10t': r10t}, idx_epoch)
-            writer.add_scalars('Recall Epoch', {'LoRe': loss_rall}, idx_epoch)
 
             info_txt += f"--------\n"
 
-            writer.add_scalars('Loss Epoch', {'TrAll': loss_tr_all}, idx_epoch)
-            writer.add_scalars('Loss Epoch', {'TrNLL': loss_tr_nll}, idx_epoch)
-            writer.add_scalars('Loss Epoch', {'TrITM': loss_tr_itm}, idx_epoch)
 
             if count_change_loss >= self.early_stop:
                 print(f'Early stopping: {count_change_loss} epoch not decrease the loss')
@@ -595,8 +557,6 @@ class Controller(nn.Module):
             print(info_txt)
             progress_bar.update(1)
             
-        writer.close()
-        
     def count_parameters(self, trainable=True):
         total = 0
         if trainable:

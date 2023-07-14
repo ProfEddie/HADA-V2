@@ -1,5 +1,5 @@
 from Comp_Branch import EnLiFu, HypEnLiFu 
-from Comp_Basic import SeqLinear
+from Comp_Basic import SeqLinear, HypSeqLinear
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -38,6 +38,16 @@ class Discriminator(nn.Module):
     def __init__(self, ft_in=512, ft_out=[128,1], dropout=0.5, batch_norm=True, act_func='relu'):
         super(Discriminator, self).__init__()
         self.disc = SeqLinear(ft_in=ft_in*4, ft_out=ft_out,
+                              batch_norm=batch_norm, dropout=dropout, act_func=act_func)
+    def forward(self, feat1, feat2):
+        dist = torch.abs(feat1-feat2)
+        mul = torch.mul(feat1, feat2)
+        return torch.sigmoid(self.disc(torch.cat([feat1, feat2, dist, mul], dim=1)))
+
+class HypDiscriminator(nn.Module):
+    def __init__(self, ft_in=512, ft_out=[128,1], dropout=0.5, batch_norm=True, act_func='relu'):
+        super(HypDiscriminator, self).__init__()
+        self.disc = HypSeqLinear(ft_in=ft_in*4, ft_out=ft_out,
                               batch_norm=batch_norm, dropout=dropout, act_func=act_func)
     def forward(self, feat1, feat2):
         dist = torch.abs(feat1-feat2)
