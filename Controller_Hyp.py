@@ -37,6 +37,7 @@ class Controller(nn.Module):
         self.distill = config['distill']
         self.queue_size = config['queue_size']
         self.momentum = config['momentum']
+        self.curv = config['curvature']
         
         self.optimizer_choice = config['optimizer_choice']
         self.weight_decay = config['weight_decay']
@@ -75,21 +76,21 @@ class Controller(nn.Module):
         self.img_encoder = MH_V2(f1_in=self.f1_in, f2_in=self.f2_in, f1_out=self.f1_out, f2_out=self.f2_out,
                               ft_trans=self.ft_trans, ft_gcn=self.ft_gcn, ft_com=self.ft_com,
                               n_heads=self.n_heads, type_gcn=self.type_gcn, skip=self.skip,
-                              batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func)
+                              batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func, c=self.curv)
         self.cap_encoder = MH_V2(f1_in=self.f1_in, f2_in=self.f2_in, f1_out=self.f1_out, f2_out=self.f2_out,
                               ft_trans=self.ft_trans, ft_gcn=self.ft_gcn, ft_com=self.ft_com,
                               n_heads=self.n_heads, type_gcn=self.type_gcn, skip=self.skip,
-                              batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func)
+                              batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func, c=self.curv)
         self.discriminator = HypDiscriminator(ft_in=self.ft_com[-1], ft_out=self.ft_itm,
-                                           batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func)
+                                           batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func, c=self.curv)
         self.img_encoder_m = MH_V2(f1_in=self.f1_in, f2_in=self.f2_in, f1_out=self.f1_out, f2_out=self.f2_out,
                                 ft_trans=self.ft_trans, ft_gcn=self.ft_gcn, ft_com=self.ft_com,
                                 n_heads=self.n_heads, type_gcn=self.type_gcn, skip=self.skip,
-                                batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func)
+                                batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func, c=self.curv)
         self.cap_encoder_m = MH_V2(f1_in=self.f1_in, f2_in=self.f2_in, f1_out=self.f1_out, f2_out=self.f2_out,
                                 ft_trans=self.ft_trans, ft_gcn=self.ft_gcn, ft_com=self.ft_com,
                                 n_heads=self.n_heads, type_gcn=self.type_gcn, skip=self.skip,
-                                batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func)
+                                batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func, c=self.curv)
         self.img_encoder = self.img_encoder.to(self.device)
         self.cap_encoder = self.cap_encoder.to(self.device)
         self.discriminator = self.discriminator.to(self.device)
@@ -138,7 +139,7 @@ class Controller(nn.Module):
         self.dataset_name = config['dataset_name']
         self.config_path = config['config_path']
         self.config_name = self.config_path.split('/')[-1]
-        self.log_enable = True 
+        self.log_enable = False 
         if self.log_enable:
             wandb.init(
                 name='Hyperbolic-v1',

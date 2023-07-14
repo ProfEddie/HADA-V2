@@ -61,3 +61,4 @@ device: cpu
 # device: cuda 
 # Other
 out_dir: Output
+curvature: 0.1
