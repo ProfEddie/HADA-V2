@@ -415,9 +415,7 @@ def _mobius_addition_batch(x, y, c):
     y = y.T
     xy = _tensor_dot(x, y)  # B x C
     x2 = x.pow(2).sum(-1, keepdim=True)  # B x 1
-    # print(x2.shape)
     y2 = y.pow(2).sum(-1, keepdim=True)  # C x 1
-    # print(y2.shape)
     num = 1 + 2 * c * xy + c * y2.permute(1, 0)  # B x C
     num = num.unsqueeze(2) * x.unsqueeze(1)
     num = num + (1 - c * x2).unsqueeze(2) * y  # B x C x D
@@ -426,6 +424,8 @@ def _mobius_addition_batch(x, y, c):
     denom = denom_part1 + denom_part2
     res = num / (denom.unsqueeze(2) + 1e-5)
     return res
+
+
 
 
 def _hyperbolic_softmax(X, A, P, c):

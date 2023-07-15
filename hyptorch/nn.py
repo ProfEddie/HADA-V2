@@ -5,6 +5,8 @@ import torch.nn as nn
 import torch.nn.init as init
 
 import hyptorch.math as pmath
+from geoopt import PoincareBall 
+
 
 
 class HyperbolicMLR(nn.Module):

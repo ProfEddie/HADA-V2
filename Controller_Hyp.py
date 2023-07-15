@@ -139,10 +139,10 @@ class Controller(nn.Module):
         self.dataset_name = config['dataset_name']
         self.config_path = config['config_path']
         self.config_name = self.config_path.split('/')[-1]
-        self.log_enable = False 
+        self.log_enable = True 
         if self.log_enable:
             wandb.init(
-                name='Hyperbolic-v1',
+                name='Hyperbolic-v2-train-manifold',
                 project='HADA-V2',  
                 config={
                     "dataset": self.dataset_name,
