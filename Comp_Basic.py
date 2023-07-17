@@ -7,6 +7,8 @@ from torch_geometric.nn.norm import BatchNorm, LayerNorm
 from torch_geometric.utils import dropout_adj
 from hyptorch.nn import HypLinear
 
+
+
 def get_activate_func(act_func=None):
     if act_func is None or act_func.lower() == 'id':
         return nn.Identity()
@@ -203,3 +205,93 @@ class GraphLayer(nn.Module):
             # edge_index, edge_attr = dropout_adj(edge_index, edge_attr, p=self.p, training=self.training)
             
         return x, edge_index, edge_attr # (num_nodes in a batch, hidden_channel)  
+
+        
+
+
+
+class HypGraphLayer(nn.Module):
+    def __init__(self, in_channels, hidden_channels=[32], type_model='GCN', n_heads=4, 
+                 skip=False, concat=False, dropout=0.5, batch_norm=True, act_func='relu'):
+        super().__init__()
+        assert type_model in ['GCN', 'GATv2', 'TGCN']
+        self.use_batch_norm = batch_norm
+        self.type_model = type_model
+        self.conv = []
+        self.conv_lin = []
+        self.norm = []
+        self.act = []
+        self.p = dropout
+        self.concat = concat
+        self.n_heads = n_heads
+        if len(hidden_channels) > 1 and skip:
+            self.skip = skip
+        else:
+            self.skip = False
+        # self.dropout = []
+        for idx in range(len(hidden_channels)):
+            graph_layer = select_graph_layer(self.type_model)
+            if idx == 0:
+                if self.type_model in ['GATv2', 'TGCN']:
+                    if self.concat:
+                        self.conv.append(graph_layer(in_channels, hidden_channels[idx], heads=n_heads, 
+                                                     concat=self.concat, edge_dim=1, dropout=self.p))
+                        self.conv_lin.append(HypSeqLinear(self.n_heads*hidden_channels[idx], 
+                                                       [hidden_channels[idx]], 
+                                                       dropout, batch_norm, act_func))
+                    else:
+                        self.conv.append(graph_layer(in_channels, hidden_channels[idx], heads=n_heads, 
+                                                     concat=self.concat, edge_dim=1, dropout=self.p))
+                else:
+                    self.conv.append(graph_layer(in_channels, hidden_channels[idx], 
+                                                 add_self_loops=False))
+            else:
+                if self.type_model in ['GATv2', 'TGCN']:
+                    self.conv.append(graph_layer(hidden_channels[idx-1], hidden_channels[idx], heads=n_heads, 
+                                                               concat=self.concat, edge_dim=1, dropout=self.p))
+                    self.conv_lin.append(HypSeqLinear(self.n_heads*hidden_channels[idx], 
+                                                   [hidden_channels[idx]], 
+                                                   dropout, batch_norm, act_func))
+                else:
+                    self.conv.append(graph_layer(hidden_channels[idx-1], hidden_channels[idx], 
+                                                add_self_loops=False))
+            if idx != len(hidden_channels)-1:
+                if batch_norm:
+                    # self.norm.append(nn.BatchNorm1d(hidden_channels[idx]))
+                    self.norm.append(LayerNorm(hidden_channels[idx]))
+                else:
+                    self.norm.append(nn.Identity())
+                self.act.append(get_activate_func(act_func))
+                # self.dropout.append(nn.Dropout(p=dropout))
+            
+        self.conv = nn.ModuleList(self.conv)
+        self.norm = nn.ModuleList(self.norm)
+        # self.dropout = nn.ModuleList(self.dropout)
+        self.act = nn.ModuleList(self.act)
+        self.conv_lin = nn.ModuleList(self.conv_lin)
+        
+    def forward(self, x, edge_index, edge_attr=None, batch_index=None):
+        # x.shape (num_nodes in a batch, ft)
+        # edge_index (2, total edges)
+        # batch (num_nodes in a batch, )
+        if self.type_model in ['GATv2', 'TGCN'] and edge_attr is not None:
+            edge_attr = edge_attr.view(-1,1)
+        for idx in range(len(self.conv)):
+            if edge_attr is not None:
+                xout = self.conv[idx](x, edge_index, edge_attr)
+            else:
+                xout = self.conv[idx](x, edge_index)
+            if self.concat and self.type_model in ['GATv2', 'TGCN']:
+                xout = self.conv_lin[idx](xout)
+            if self.skip:
+                x = x + xout
+            else:
+                x = xout
+            if idx != (len(self.conv)-1):
+                x = self.act[idx](x)
+                x = self.norm[idx](x, batch_index)
+            # x = self.dropout[idx](x)
+            # edge_index, edge_attr = dropout_adj(edge_index, edge_attr, p=self.p, training=self.training)
+            
+        return x, edge_index, edge_attr # (num_nodes in a batch, hidden_channel)  
+ 

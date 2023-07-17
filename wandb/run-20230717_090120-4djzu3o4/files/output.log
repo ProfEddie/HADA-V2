@@ -1,0 +1,145 @@
+Trainable Paras: 9988097
+TRAIN FROM SCRATCH
+0.0
+  0%|                                                                    | 0/20 [00:00<?, ?it/s]/home/nmduy/HADA/chau/HADA-LAVIS/hyptorch/math.py:403: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:493.)
+  res = torch.where(cond, res_0, res_c)                                | 0/3625 [00:00<?, ?it/s]
+  0%|                                                        | 1/3625 [00:04<4:04:19,  4.05s/it]
+
+  offset = -low * scale                                      | 1/3625 [00:04<4:04:19,  4.05s/it]
+0.00027586206896551725
+current loss: 11.735057830810547
+                                                                                                /home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/processors/randaugment.py:40: RuntimeWarning: overflow encountered in scalar negative
+  offset = -low * scale                                      | 2/3625 [00:08<4:20:33,  4.32s/it]
+0.0005517241379310345
+current loss: 11.63400650024414
+  0%|                                                        | 3/3625 [00:11<3:29:40,  3.47s/it]
+0.0008275862068965517
+
+
+  0%|                                                        | 5/3625 [00:15<2:53:05,  2.87s/it]
+0.001103448275862069
+current loss: 11.451499938964844
+0.001379310344827586
+
+  0%|                                                        | 6/3625 [00:18<2:45:13,  2.74s/it]
+0.0016551724137931034
+
+  0%|                                                        | 7/3625 [00:20<2:40:33,  2.66s/it]
+0.0019310344827586207
+
+  0%|                                                        | 8/3625 [00:23<2:37:20,  2.61s/it]
+0.002206896551724138
+
+  0%|▏                                                       | 9/3625 [00:25<2:34:50,  2.57s/it]
+0.0024827586206896553
+
+  0%|▏                                                      | 10/3625 [00:28<2:33:16,  2.54s/it]
+0.002758620689655172
+
+  0%|▏                                                      | 11/3625 [00:30<2:32:28,  2.53s/it]
+0.0030344827586206895
+
+
+  0%|▏                                                      | 13/3625 [00:36<2:32:18,  2.53s/it]
+0.003310344827586207
+current loss: 10.849675178527832
+0.003586206896551724
+
+  0%|▏                                                      | 14/3625 [00:38<2:31:28,  2.52s/it]
+0.0038620689655172414
+
+  0%|▏                                                      | 15/3625 [00:41<2:31:46,  2.52s/it]
+0.004137931034482759
+
+
+  0%|▎                                                      | 17/3625 [00:46<2:30:48,  2.51s/it]
+0.004413793103448276
+current loss: 10.696098327636719
+0.004689655172413793
+
+  0%|▎                                                      | 18/3625 [00:48<2:30:36,  2.51s/it]
+0.004965517241379311
+
+  1%|▎                                                      | 19/3625 [00:51<2:30:43,  2.51s/it]
+0.005241379310344828
+
+
+  1%|▎                                                      | 21/3625 [00:56<2:30:32,  2.51s/it]
+0.005517241379310344
+current loss: 10.710561752319336
+0.005793103448275862
+
+  1%|▎                                                      | 22/3625 [00:58<2:30:21,  2.50s/it]
+0.006068965517241379
+
+  1%|▎                                                      | 23/3625 [01:01<2:30:02,  2.50s/it]
+0.006344827586206896
+
+
+  1%|▍                                                      | 25/3625 [01:06<2:29:45,  2.50s/it]
+0.006620689655172414
+Traceback (most recent call last):                          | 25/3625 [01:06<2:29:45,  2.50s/it]
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/main_hyp.py", line 127, in <module>
+    run_train(args)
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/main_hyp.py", line 73, in run_train
+    controller.train(dataset_train=train_dataset,  dataset_val=val_dataset,
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller_Hyp.py", line 446, in train
+    loss_tr_dict = self.train_epoch(dataloader_train, idx_epoch)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller_Hyp.py", line 336, in train_epoch
+    for idx, batch in enumerate(dataloader):
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 633, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 677, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Utils.py", line 295, in __getitem__
+    text_output_1 = extract_features(self.model_1, sample_1, mode='text', is_clip='clip' in self.model_1_name)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Utils.py", line 142, in extract_features
+    text_output = model.text_encoder(
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/med.py", line 974, in forward
+    encoder_outputs = self.encoder(
+                      ^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/med.py", line 592, in forward
+    layer_outputs = layer_module(
+                    ^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/med.py", line 437, in forward
+    self_attention_outputs = self.attention(
+                             ^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/med.py", line 346, in forward
+    self_outputs = self.self(
+                   ^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/med.py", line 211, in forward
+    key_layer = self.transpose_for_scores(self.key(hidden_states))
+                                          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

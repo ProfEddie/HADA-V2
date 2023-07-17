@@ -35,7 +35,7 @@ weight_decay: 0.02
 # Train
 mode_train: both
 batch_size: 40 
-num_epoch: 100
+num_epoch: 20
 early_stop: 5
 thres_loss: 0.001
 temp: 0.07

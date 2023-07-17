@@ -10,6 +10,9 @@ import torch.nn as nn
 from hyptorch.math import dist_matrix
 import wandb
 from tqdm import tqdm
+from geoopt import PoincareBall
+
+
 class Controller(nn.Module):
     def __init__(self, config):
         super(Controller, self).__init__()
@@ -134,6 +137,7 @@ class Controller(nn.Module):
         self.text_queue = F.normalize(self.text_queue, dim=0).to(self.device)
         self.image_queue_ori_1 = F.normalize(self.image_queue_ori_1, dim=0).to(self.device)
         self.text_queue_ori_1 = F.normalize(self.text_queue_ori_1, dim=0).to(self.device)
+        self.poincareBall= PoincareBall(c=self.curv)
         
         ## Add wandb 
         self.dataset_name = config['dataset_name']
@@ -282,8 +286,9 @@ class Controller(nn.Module):
             
             img_enc_ori_1_all = torch.cat([img_enc_ori_1.t(),self.image_queue_ori_1.clone().detach()],dim=1) 
             cap_enc_ori_1_all = torch.cat([cap_enc_ori_1.t(),self.text_queue_ori_1.clone().detach()],dim=1)
-            dist_f = lambda x, y: -dist_matrix(x, y, c=0.1)
+            # dist_f = lambda x, y: -dist_matrix(x, y, c=0.1)
             # dist_f = lambda x, y: x @ y 
+            dist_f = lambda x, y: self.poincareBall.mobius_matvec(y.T, x)
 
             if self.distill:               
 
