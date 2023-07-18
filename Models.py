@@ -54,18 +54,3 @@ class HypDiscriminator(nn.Module):
         mul = torch.mul(feat1, feat2)
         return torch.sigmoid(self.disc(torch.cat([feat1, feat2, dist, mul], dim=1)))
     
-class Discriminator_2(nn.Module):
-    def __init__(self, ft_in=512, dropout=0.5):
-        super(Discriminator_2, self).__init__()
-        self.p1 = nn.Parameter(torch.ones(ft_in))
-        self.p2 = nn.Parameter(torch.ones(ft_in))
-        self.do1 = nn.Dropout(p=dropout)
-        self.do2 = nn.Dropout(p=dropout)
-    def forward(self, feat1, feat2):
-        f1n = self.do1(self.p1) * feat1
-        f2n = self.do2(self.p2) * feat2
-        f1n = F.normalize(f1n, dim=1)
-        f2n = F.normalize(f2n, dim=1)
-        dp = f1n @ f2n.T
-        dpd = torch.sigmoid(dp.diag().view(-1,1))
-        return dpd

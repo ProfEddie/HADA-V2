@@ -254,6 +254,8 @@ class Retrieval_Dataset(Dataset):
             img_ft_proj_1 = image_output_1['image_embeds_proj'][:,0,:]
             img_ft_2 = image_output_2['image_embeds']
             img_ft_proj_2 = image_output_2['image_embeds_proj']
+            img_ft_1 = F.normalize(img_ft_1, dim=-1)
+            img_ft_2 = F.normalize(img_ft_2, dim=-1)
             img_ft_proj_1_ori = F.normalize(img_ft_proj_1, dim=-1)
             img_ft_proj_2_ori = F.normalize(img_ft_proj_2, dim=-1)
             # IMAGE GRAPH

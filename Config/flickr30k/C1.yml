@@ -61,4 +61,4 @@ use_weighted_retrieval: False
 device: cuda 
 # Other
 out_dir: Output
-curvature: 0.1
+curvature: 1
