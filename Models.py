@@ -1,4 +1,4 @@
-from Comp_Branch import EnLiFu, HypEnLiFu 
+from Comp_Branch import EnLiFu, HypEnLiFu, HypWithOutGraphEnLiFu
 from Comp_Basic import SeqLinear, HypSeqLinear
 import torch
 import torch.nn as nn
@@ -33,6 +33,16 @@ class MH_V2(nn.Module):
                      batch_index=data['batch_index'], 
                      x_cls_1=data['ft_proj_1'], x_cls_2=data['ft_proj_2']) # (batch, ft_com[-1])
         return x
+
+class MH_V3(nn.Module):
+    def __init__(self, f1_in=768, f2_in=768, ft_com=[512, 256, 128], batch_norm=True, dropout=0.2, act_func='relu', c=0.1):
+        super(MH_V3, self).__init__()
+        self.enc = HypWithOutGraphEnLiFu(f1_in=f1_in, f2_in=f2_in,
+                          ft_com=ft_com, batch_norm=batch_norm, dropout=dropout, act_func=act_func, c=c)
+    def forward(self, data):
+        x = self.enc(x_cls_1=data['ft_proj_1'], x_cls_2=data['ft_proj_2']) # (batch, ft_com[-1])
+        return x
+
 
 class Discriminator(nn.Module):
     def __init__(self, ft_in=512, ft_out=[128,1], dropout=0.5, batch_norm=True, act_func='relu'):

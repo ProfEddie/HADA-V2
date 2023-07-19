@@ -15,6 +15,7 @@ from geoopt.optim import RiemannianAdam
 from geoopt import ManifoldParameter
 
 
+
 def get_param(model):
     no_decay = ['bias', 'scale']
     optimizer_grouped_parameters = [{
@@ -23,7 +24,7 @@ def get_param(model):
                 nd in n
                 for nd in no_decay) and not isinstance(p, ManifoldParameter)
         ],
-        'weight_decay': 0.0 
+        'weight_decay': 0.0, 
     }, {
         'params': [
             p for n, p in model.named_parameters() if p.requires_grad and any(
@@ -98,24 +99,24 @@ class Controller(nn.Module):
             self.weight_1 = 0
             
         # MODEL
-        self.img_encoder = Lorentz_MH(f1_in=self.f1_in, f2_in=self.f2_in, f1_out=self.f1_out, f2_out=self.f2_out,
+        self.img_encoder = Lorentz_MH(self.manifold, f1_in=self.f1_in, f2_in=self.f2_in, f1_out=self.f1_out, f2_out=self.f2_out,
                               ft_trans=self.ft_trans, ft_gcn=self.ft_gcn, ft_com=self.ft_com,
-                              n_heads=self.n_heads, type_gcn=self.type_gcn, skip=self.skip,
-                              batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func, c=self.curv)
-        self.cap_encoder = Lorentz_MH(f1_in=self.f1_in, f2_in=self.f2_in, f1_out=self.f1_out, f2_out=self.f2_out,
+                              type_gcn=self.type_gcn, skip=self.skip,
+                              batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func)
+        self.cap_encoder = Lorentz_MH(self.manifold, f1_in=self.f1_in, f2_in=self.f2_in, f1_out=self.f1_out, f2_out=self.f2_out,
                               ft_trans=self.ft_trans, ft_gcn=self.ft_gcn, ft_com=self.ft_com,
-                              n_heads=self.n_heads, type_gcn=self.type_gcn, skip=self.skip,
-                              batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func, c=self.curv)
-        self.discriminator = Lorentz_Discriminator(ft_in=self.ft_com[-1], ft_out=self.ft_itm,
-                                           batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func, c=self.curv)
-        self.img_encoder_m = Lorentz_MH(f1_in=self.f1_in, f2_in=self.f2_in, f1_out=self.f1_out, f2_out=self.f2_out,
+                              type_gcn=self.type_gcn, skip=self.skip,
+                              batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func)
+        self.discriminator = Lorentz_Discriminator(self.manifold, ft_in=self.ft_com[-1], ft_out=self.ft_itm,
+                                           batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func)
+        self.img_encoder_m = Lorentz_MH(self.manifold, f1_in=self.f1_in, f2_in=self.f2_in, f1_out=self.f1_out, f2_out=self.f2_out,
                                 ft_trans=self.ft_trans, ft_gcn=self.ft_gcn, ft_com=self.ft_com,
-                                n_heads=self.n_heads, type_gcn=self.type_gcn, skip=self.skip,
-                                batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func, c=self.curv)
-        self.cap_encoder_m = Lorentz_MH(f1_in=self.f1_in, f2_in=self.f2_in, f1_out=self.f1_out, f2_out=self.f2_out,
+                                type_gcn=self.type_gcn, skip=self.skip,
+                                batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func)
+        self.cap_encoder_m = Lorentz_MH(self.manifold, f1_in=self.f1_in, f2_in=self.f2_in, f1_out=self.f1_out, f2_out=self.f2_out,
                                 ft_trans=self.ft_trans, ft_gcn=self.ft_gcn, ft_com=self.ft_com,
-                                n_heads=self.n_heads, type_gcn=self.type_gcn, skip=self.skip,
-                                batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func, c=self.curv)
+                                type_gcn=self.type_gcn, skip=self.skip,
+                                batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func)
         self.img_encoder = self.img_encoder.to(self.device)
         self.cap_encoder = self.cap_encoder.to(self.device)
         self.discriminator = self.discriminator.to(self.device)
@@ -133,16 +134,13 @@ class Controller(nn.Module):
         self.params += get_param(self.discriminator) 
         self.params += get_param(self.img_encoder_m) 
         self.params += get_param(self.cap_encoder_m) 
-        if self.use_weighted_retrieval:
-            self.params += [self.weight_1] 
+        # if self.use_weighted_retrieval:
+            # self.params += [self.weight_1] 
         
-        if self.temp > 0:
-            self.params += [self.temp_para]
-        no_decay = ['bias', 'scale']
+        # if self.temp > 0:
+            # self.params += [{'temp':self.temp_para}]
 
-        self.optimizer = RiemannianAdam(params=self.params,
-                                lr=self.learning_rate,
-                                stabilize=10)
+        self.optimizer = RiemannianAdam(params=self.params, lr=self.learning_rate, stabilize=10)
         self.lr_scheduler = torch.optim.lr_scheduler.StepLR(self.optimizer,
                                                    step_size=int(3625),
                                                    gamma=float(0.5)) 
@@ -164,7 +162,7 @@ class Controller(nn.Module):
         self.dataset_name = config['dataset_name']
         self.config_path = config['config_path']
         self.config_name = self.config_path.split('/')[-1]
-        self.log_enable = False 
+        self.log_enable = True 
         if self.log_enable:
             wandb.init(
                 name='Lorentz',
@@ -306,7 +304,7 @@ class Controller(nn.Module):
             cap_enc_ori_1_all = torch.cat([cap_enc_ori_1.t(),self.text_queue_ori_1.clone().detach()],dim=1)
             # dist_f = lambda x, y: -dist_matrix(x, y, c=0.1)
             # dist_f = lambda x, y: x @ y 
-            dist_f = lambda x, y: - self.manifold.dist(x, y.T)
+            dist_f = lambda x, y: - self.manifold.dist_batch(x, y.T)
 
             if self.distill:               
 
@@ -315,10 +313,6 @@ class Controller(nn.Module):
 
                 sim_i2t_targets = self.alpha*F.softmax(sim_i2t_m, dim=1)+(1-self.alpha)*sim_targets
                 sim_t2i_targets = self.alpha*F.softmax(sim_t2i_m, dim=1)+(1-self.alpha)*sim_targets 
-        # print(img_enc.shape)
-        # print(cap_enc.shape)
-        # print(img_enc_all.shape)
-        # print(cap_enc_all.shape)
         
         sim_i2t = dist_f(img_enc, cap_enc_all) / self.temp_para
         sim_t2i = dist_f(cap_enc, img_enc_all) / self.temp_para 
@@ -377,7 +371,7 @@ class Controller(nn.Module):
             self.optimizer.zero_grad()
             all_loss.backward()
             self.optimizer.step()
-            self.scheduler.step()
+            self.lr_scheduler.step()
             loss_all_report += all_loss.item()
             loss_nll_report += loss_nll.item()
             loss_itm_report += loss_itm.item()

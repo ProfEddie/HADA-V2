@@ -53,8 +53,7 @@ class LorentzSeqLinear(nn.Module):
             if idx == 0:
                 self.linear.append(LorentzLinear(manifold, ft_in , ft_out[idx], 1, dropout=dropout, nonlin=None))
             else:
-                self.linear.append(LorentzLinear(manifold, ft_in , ft_out[idx], 1, dropout=dropout, nonlin=get_activate_func(act_func)))
-            self.dropout.append(nn.Dropout(p=dropout))
+                self.linear.append(LorentzLinear(manifold, ft_out[idx-1] , ft_out[idx], 1, dropout=dropout, nonlin=get_activate_func(act_func)))
             
         self.linear = nn.ModuleList(self.linear)
         
@@ -68,15 +67,13 @@ class LorentzSeqLinear(nn.Module):
 
 
 class LorentzGraphLayer(nn.Module):
-    def __init__(self, manifold ,in_channels, hidden_channels=[128], type_model='GCN', n_heads=4, 
-                 dropout=0.4, act_func='relu'):
+    def __init__(self, manifold ,in_channels, hidden_channels=[128], type_model='GCN', skip=False, dropout=0.4, act_func='relu'):
         super().__init__()
         assert type_model in ['GCN', 'GATv2', 'TGCN']
         self.type_model = type_model
         self.conv = []
         self.manifold = manifold
-        self.n_heads = n_heads
-        # self.dropout = []
+        self.skip = skip
         act_func = get_activate_func(act_func=act_func)
         for idx in range(len(hidden_channels)):
             if idx == 0:
@@ -84,8 +81,8 @@ class LorentzGraphLayer(nn.Module):
                     manifold=manifold,
                     in_features=in_channels, 
                     out_features=hidden_channels[idx], 
-                    local_agg=True,
-                    use_att=True, 
+                    local_agg=False,
+                    use_att=False, 
                     use_bias=True,
                     dropout=dropout,
                     nonlin=act_func
@@ -96,8 +93,8 @@ class LorentzGraphLayer(nn.Module):
                     manifold=manifold,
                     in_features=hidden_channels[idx-1], 
                     out_features=hidden_channels[idx], 
-                    local_agg=True,
-                    use_att=True, 
+                    local_agg=False,
+                    use_att=False, 
                     use_bias=True,
                     dropout=dropout,
                     nonlin=act_func
@@ -105,34 +102,29 @@ class LorentzGraphLayer(nn.Module):
             
         self.conv = nn.ModuleList(self.conv)
         
-    def forward(self, x, edge_index, edge_attr=None):
+    def forward(self, x, edge_index):
         for idx in range(len(self.conv)):
-            if edge_attr is not None:
-                xout = self.conv[idx](x, edge_index, edge_attr)
-            else:
-                xout = self.conv[idx](x, edge_index)
+            xout, adj = self.conv[idx](x, edge_index)
             if self.skip:
                 x = x + xout
             else: x = xout
             
-        return x, edge_index, edge_attr # (num_nodes in a batch, hidden_channel)  
+        return x, adj # (num_nodes in a batch, hidden_channel)  
 
 
 class LorentzLiFu(nn.Module):
     def __init__(self, manifold, f1_in=768, f2_in=768, ft_trans=[768, 768], ft_gcn=[768, 512], type_graph='GCN', 
                  skip=False, batch_norm=True, dropout=0.5, act_func='relu'):
         super(LorentzLiFu, self).__init__()
-        self.trans_1 = LorentzSeqLinear(manifold, f1_in, ft_out=ft_trans, 
-                                 batch_norm=batch_norm, dropout=0, act_func=act_func)
-        self.trans_2 = LorentzSeqLinear(manifold, f2_in, ft_out=ft_trans, 
-                                 batch_norm=batch_norm, dropout=0, act_func=act_func)
+        self.trans_1 = LorentzSeqLinear(manifold, f1_in, ft_out=ft_trans, dropout=0.0, act_func=act_func)
+        self.trans_2 = LorentzSeqLinear(manifold, f2_in, ft_out=ft_trans, dropout=0.0, act_func=act_func)
         self.gcn = LorentzGraphLayer(manifold, in_channels=ft_trans[-1], hidden_channels=ft_gcn, type_model=type_graph, 
-                              skip=skip, batch_norm=batch_norm, dropout=dropout, act_func=act_func)
-    def forward(self,x_1, x_2, n_1, n_2, edge_index, edge_attr):
+                              skip=skip, dropout=dropout, act_func=act_func)
+    def forward(self,x_1, x_2, n_1, n_2, edge_index ):
         x_1 = self.trans_1(x_1) # total n_albef, ft
         x_2 = self.trans_2(x_2) # total n_dot, ft
         x_concat = concat_node(x_1, x_2, n_1, n_2)
-        x, edge_index, edge_attr = self.gcn(x_concat, edge_index, edge_attr )
+        x, edge_index = self.gcn(x_concat, edge_index)
         x_cls_1, x_cls_2 = unconcat_node(x, n_1, n_2)
         return x_cls_1, x_cls_2
 
@@ -155,16 +147,19 @@ class LorentzEnLiFu(nn.Module):
             dropout=dropout, 
             act_func=act_func
         )
-        self.lin = LorentzLinear(manifold, 2*ft_gcn[-1]+f1_out+f2_out, ft_out=ft_com,
-                             dropout=dropout, act_func=act_func)
-    def forward(self, x_1, x_2, n_1, n_2, edge_index, edge_attr,  x_cls_1, x_cls_2):
+        self.lin = LorentzSeqLinear(
+            manifold, 
+            ft_in=2*ft_gcn[-1]+f1_out+f2_out, 
+            ft_out=ft_com,
+            dropout=dropout, 
+            act_func=act_func
+        )
+    def forward(self, x_1, x_2, n_1, n_2, edge_index, x_cls_1, x_cls_2):
         x_1 = self.manifold.expmap0(x_1)
         x_2 = self.manifold.expmap0(x_2)
-        n_1 = self.manifold.expmap0(n_1)
-        n_2 = self.manifold.expmap0(n_2)
         x_cls_1 = self.manifold.expmap0(x_cls_1)
         x_cls_2 = self.manifold.expmap0(x_cls_2)
-        g_cls_1, g_cls_2 = self.gcn(x_1, x_2, n_1, n_2, edge_index, edge_attr)
+        g_cls_1, g_cls_2 = self.gcn(x_1, x_2, n_1, n_2, edge_index )
         x_enc = torch.cat((g_cls_1, x_cls_1, x_cls_2, g_cls_2),dim=1)
         x_enc = self.lin(x_enc)
         return x_enc

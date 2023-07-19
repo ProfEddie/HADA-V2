@@ -94,6 +94,12 @@ class Controller(nn.Module):
                                 ft_trans=self.ft_trans, ft_gcn=self.ft_gcn, ft_com=self.ft_com,
                                 n_heads=self.n_heads, type_gcn=self.type_gcn, skip=self.skip,
                                 batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func, c=self.curv)
+        # self.img_encoder = MH_V3(f1_in=self.f1_out, f2_in=self.f2_out, ft_com=self.ft_com ,c=self.curv )
+        # self.cap_encoder = MH_V3(f1_in=self.f1_out, f2_in=self.f2_out,c=self.curv, ft_com=self.ft_com)
+        # self.discriminator = HypDiscriminator(ft_in=self.ft_com[-1], ft_out=self.ft_itm,
+        #                                    batch_norm=self.batch_norm, dropout=self.dropout, act_func=self.act_func, c=self.curv)
+        # self.img_encoder_m = MH_V3(f1_in=self.f1_out, f2_in=self.f2_out, c=self.curv, ft_com=self.ft_com)
+        # self.cap_encoder_m = MH_V3(f1_in=self.f1_out, f2_in=self.f2_out, c=self.curv, ft_com=self.ft_com)
         self.img_encoder = self.img_encoder.to(self.device)
         self.cap_encoder = self.cap_encoder.to(self.device)
         self.discriminator = self.discriminator.to(self.device)
@@ -143,14 +149,15 @@ class Controller(nn.Module):
         self.dataset_name = config['dataset_name']
         self.config_path = config['config_path']
         self.config_name = self.config_path.split('/')[-1]
-        self.log_enable = True 
+        self.log_enable = False 
         if self.log_enable:
             wandb.init(
-                name='Hyperbolic-v2-train-manifold',
+                name='Hyperbolic with out graph',
                 project='HADA-V2',  
                 config={
                     "dataset": self.dataset_name,
-                    "manifold": 'hyperbolic'
+                    "manifold": 'hyperbolic',
+                    "curvature": self.curv,
                 }
             )
         # if experiment is None:
@@ -281,14 +288,13 @@ class Controller(nn.Module):
                 img_enc_m = F.normalize(img_enc_m, dim=1)
                 cap_enc_m = F.normalize(cap_enc_m, dim=1)
             
+            
             img_enc_all = torch.cat([img_enc_m.t(),self.image_queue.clone().detach()],dim=1) 
             cap_enc_all = torch.cat([cap_enc_m.t(),self.text_queue.clone().detach()],dim=1)
             
             img_enc_ori_1_all = torch.cat([img_enc_ori_1.t(),self.image_queue_ori_1.clone().detach()],dim=1) 
             cap_enc_ori_1_all = torch.cat([cap_enc_ori_1.t(),self.text_queue_ori_1.clone().detach()],dim=1)
-            # dist_f = lambda x, y: -dist_matrix(x, y, c=0.1)
-            # dist_f = lambda x, y: x @ y 
-            dist_f = lambda x, y: self.poincareBall.mobius_matvec(y.T, x)
+            dist_f = lambda x, y: -dist_matrix(x, y, c=self.curv)
 
             if self.distill:               
 
@@ -383,7 +389,7 @@ class Controller(nn.Module):
         dataset.set_branch(branch='txt')
         dataloader_txt = make_dataloader(dataset, branch='txt', batch_size=int(self.config['batch_size']/2), shuffle=False)
         cap_enc, cap_enc_ori_1, cap_enc_ori_2 = self.eval_encode(dataloader_txt, branch='txt')
-        dist_f = lambda x, y: -dist_matrix(x, y, c=0.1)
+        dist_f = lambda x, y: -dist_matrix(x, y, c=self.curv)
         with torch.no_grad():
             if apply_temp:
                 sims = dist_f(img_enc , cap_enc.T) / self.temp_para

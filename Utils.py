@@ -254,10 +254,8 @@ class Retrieval_Dataset(Dataset):
             img_ft_proj_1 = image_output_1['image_embeds_proj'][:,0,:]
             img_ft_2 = image_output_2['image_embeds']
             img_ft_proj_2 = image_output_2['image_embeds_proj']
-            img_ft_1 = F.normalize(img_ft_1, dim=-1)
-            img_ft_2 = F.normalize(img_ft_2, dim=-1)
-            img_ft_proj_1_ori = F.normalize(img_ft_proj_1, dim=-1)
-            img_ft_proj_2_ori = F.normalize(img_ft_proj_2, dim=-1)
+            # img_ft_proj_1_ori = F.normalize(img_ft_proj_1, dim=-1)
+            # img_ft_proj_2_ori = F.normalize(img_ft_proj_2, dim=-1)
             # IMAGE GRAPH
             n_1 = img_ft_1.shape[0]
             n_2 = img_ft_2.shape[0]
@@ -290,8 +288,8 @@ class Retrieval_Dataset(Dataset):
                                   'ft_proj_2': img_ft_proj_2,
                                   'edge_attr': img_edge_attr,
                                   'edge_index': img_edge_index,
-                                  'ft_proj_ori_1': img_ft_proj_1_ori, 
-                                  'ft_proj_ori_2': img_ft_proj_2_ori} 
+                                  'ft_proj_ori_1': img_ft_proj_1, 
+                                  'ft_proj_ori_2': img_ft_proj_2} 
             
         if text_raw is not None:
             text_output_1 = extract_features(self.model_1, sample_1, mode='text', is_clip='clip' in self.model_1_name) 
@@ -300,8 +298,8 @@ class Retrieval_Dataset(Dataset):
             txt_ft_proj_1 = text_output_1['text_embeds_proj'][:,0,:]
             txt_ft_2 = text_output_2['text_embeds']
             txt_ft_proj_2 = text_output_2['text_embeds_proj']
-            txt_ft_proj_1_ori = F.normalize(txt_ft_proj_1, dim=-1)
-            txt_ft_proj_2_ori = F.normalize(txt_ft_proj_2, dim=-1)
+            # txt_ft_proj_1_ori = F.normalize(txt_ft_proj_1, dim=-1)
+            # txt_ft_proj_2_ori = F.normalize(txt_ft_proj_2, dim=-1)
             # TXT GRAPH
             n_1 = txt_ft_1.shape[0]
             n_2 = txt_ft_2.shape[0]
@@ -334,8 +332,8 @@ class Retrieval_Dataset(Dataset):
                                   'ft_proj_2': txt_ft_proj_2,
                                   'edge_attr': txt_edge_attr,
                                   'edge_index': txt_edge_index,
-                                  'ft_proj_ori_1': txt_ft_proj_1_ori, 
-                                  'ft_proj_ori_2': txt_ft_proj_2_ori}
+                                  'ft_proj_ori_1': txt_ft_proj_1, 
+                                  'ft_proj_ori_2': txt_ft_proj_2}
         return dict_return
 
     

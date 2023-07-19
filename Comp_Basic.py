@@ -294,4 +294,5 @@ class HypGraphLayer(nn.Module):
             # edge_index, edge_attr = dropout_adj(edge_index, edge_attr, p=self.p, training=self.training)
             
         return x, edge_index, edge_attr # (num_nodes in a batch, hidden_channel)  
- 
+
+

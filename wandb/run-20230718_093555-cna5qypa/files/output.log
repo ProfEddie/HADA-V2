@@ -1,0 +1,94 @@
+Trainable Paras: 9988097
+TRAIN FROM SCRATCH
+0.0
+current loss: 9.069318771362305
+  0%|                                                                                                                                                                        | 0/20 [00:00<?, ?it/s]/home/nmduy/HADA/chau/HADA-LAVIS/RandAugment.py:31: RuntimeWarning: overflow encountered in scalar negative
+  offset = -low * scale                                                                                                                                                    | 0/3625 [00:00<?, ?it/s]
+/home/nmduy/HADA/chau/HADA-LAVIS/hyptorch/math.py:403: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:493.)
+  res = torch.where(cond, res_0, res_c)
+                                                                                                                                                                                                    /home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/processors/randaugment.py:40: RuntimeWarning: overflow encountered in scalar negative
+  offset = -low * scale                                                                                                                                          | 1/3625 [00:03<3:15:54,  3.24s/it]
+  0%|                                                                                                                                                            | 2/3625 [00:05<2:51:01,  2.83s/it]
+0.00027586206896551725
+current loss: 9.071455001831055
+0.0005517241379310345
+
+  0%|▏                                                                                                                                                           | 3/3625 [00:08<2:41:15,  2.67s/it]
+0.0008275862068965517
+
+  0%|▏                                                                                                                                                           | 4/3625 [00:10<2:36:56,  2.60s/it]
+0.001103448275862069
+
+
+  0%|▎                                                                                                                                                           | 6/3625 [00:15<2:33:53,  2.55s/it]
+0.001379310344827586
+current loss: 9.06619644165039
+0.0016551724137931034
+
+  0%|▎                                                                                                                                                           | 7/3625 [00:18<2:32:56,  2.54s/it]
+0.0019310344827586207
+
+  0%|▎                                                                                                                                                           | 8/3625 [00:20<2:32:31,  2.53s/it]
+0.002206896551724138
+
+
+  0%|▍                                                                                                                                                          | 10/3625 [00:25<2:32:05,  2.52s/it]
+0.0024827586206896553
+current loss: 9.063310623168945
+0.002758620689655172
+
+  0%|▍                                                                                                                                                          | 11/3625 [00:28<2:31:46,  2.52s/it]
+0.0030344827586206895
+
+  0%|▌                                                                                                                                                          | 12/3625 [00:30<2:31:19,  2.51s/it]
+0.003310344827586207
+
+
+  0%|▌                                                                                                                                                          | 14/3625 [00:35<2:32:01,  2.53s/it]
+0.003586206896551724
+current loss: 9.051777839660645
+0.0038620689655172414
+
+  0%|▋                                                                                                                                                          | 15/3625 [00:38<2:32:42,  2.54s/it]
+0.004137931034482759
+
+Traceback (most recent call last):                                                                                                                              | 17/3625 [00:43<2:32:29,  2.54s/it]
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/main_hyp.py", line 127, in <module>
+    run_train(args)
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/main_hyp.py", line 73, in run_train
+    controller.train(dataset_train=train_dataset,  dataset_val=val_dataset,
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller_Hyp.py", line 445, in train
+    loss_tr_dict = self.train_epoch(dataloader_train, idx_epoch)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller_Hyp.py", line 335, in train_epoch
+    for idx, batch in enumerate(dataloader):
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 633, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 677, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Utils.py", line 297, in __getitem__
+    text_output_1 = extract_features(self.model_1, sample_1, mode='text', is_clip='clip' in self.model_1_name)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Utils.py", line 139, in extract_features
+    text = model.tokenizer(caption, return_tensors="pt", padding=True).to(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/transformers/utils/import_utils.py", line 1017, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 758, in to
+    self.data = {k: v.to(device=device) for k, v in self.data.items()}
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/transformers/tokenization_utils_base.py", line 758, in <dictcomp>
+    self.data = {k: v.to(device=device) for k, v in self.data.items()}
+                    ^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+0.004413793103448276
+current loss: 9.064739227294922

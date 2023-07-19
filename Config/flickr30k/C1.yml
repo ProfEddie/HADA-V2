@@ -9,7 +9,7 @@ f2_in: 768
 f2_out: 768
 ft_trans: [512]
 ft_gcn: [512]
-ft_com: [512]
+ft_com: [512,512]
 ft_itm: [1]
 type_gcn: GATv2
 concat: False # for TGCN and GATv2
@@ -42,7 +42,7 @@ temp: 0.07
 # momentum
 alpha: 0.4
 distill: False
-queue_size: 64000
+queue_size: 64000 
 momentum: 0.995
 # plateau scheduler
 min_lr: 0.00001
@@ -57,8 +57,8 @@ Tmax: -1
 weight_nll_loss: 1
 weight_itm_loss: 1
 use_weighted_retrieval: False
-# device: cpu 
-device: cuda 
+device: cpu 
+# device: cuda 
 # Other
 out_dir: Output
-curvature: 1
+curvature: 0.1

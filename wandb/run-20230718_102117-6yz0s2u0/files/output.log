@@ -1,0 +1,142 @@
+Trainable Paras: 1579009
+TRAIN FROM SCRATCH
+0.0
+m torch.Size([40, 512])
+queue torch.Size([512, 4400])
+current loss: 9.556180000305176
+  0%|                                                                                                                                                                        | 0/20 [00:00<?, ?it/s]/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/processors/randaugment.py:40: RuntimeWarning: overflow encountered in scalar negative
+  offset = -low * scale                                                                                                                                                    | 0/3625 [00:00<?, ?it/s]
+/home/nmduy/HADA/chau/HADA-LAVIS/hyptorch/math.py:403: UserWarning: where received a uint8 condition tensor. This behavior is deprecated and will be removed in a future version of PyTorch. Use a boolean condition instead. (Triggered internally at ../aten/src/ATen/native/TensorCompare.cpp:493.)
+  res = torch.where(cond, res_0, res_c)
+                                                                                                                                                                                                    /home/nmduy/HADA/chau/HADA-LAVIS/RandAugment.py:31: RuntimeWarning: overflow encountered in scalar negative
+  offset = -low * scale                                                                                                                                          | 1/3625 [00:03<3:06:27,  3.09s/it]
+0.00027586206896551725
+m torch.Size([40, 512])
+queue torch.Size([512, 4400])
+current loss: 9.509199142456055
+
+  0%|▏                                                                                                                                                           | 3/3625 [00:07<2:34:29,  2.56s/it]
+0.0005517241379310345
+m torch.Size([40, 512])
+queue torch.Size([512, 4400])
+current loss: 9.536171913146973
+0.0008275862068965517
+m torch.Size([40, 512])
+queue torch.Size([512, 4400])
+
+  0%|▏                                                                                                                                                           | 4/3625 [00:10<2:30:19,  2.49s/it]
+0.001103448275862069
+m torch.Size([40, 512])
+queue torch.Size([512, 4400])
+
+  0%|▏                                                                                                                                                           | 5/3625 [00:12<2:28:18,  2.46s/it]
+0.001379310344827586
+m torch.Size([40, 512])
+queue torch.Size([512, 4400])
+
+  0%|▎                                                                                                                                                           | 6/3625 [00:15<2:27:15,  2.44s/it]
+0.0016551724137931034
+m torch.Size([40, 512])
+queue torch.Size([512, 4400])
+
+
+  0%|▎                                                                                                                                                           | 8/3625 [00:19<2:25:58,  2.42s/it]
+0.0019310344827586207
+m torch.Size([40, 512])
+queue torch.Size([512, 4400])
+current loss: 9.345197677612305
+0.002206896551724138
+m torch.Size([40, 512])
+queue torch.Size([512, 4400])
+
+  0%|▍                                                                                                                                                           | 9/3625 [00:22<2:25:25,  2.41s/it]
+0.0024827586206896553
+m torch.Size([40, 512])
+queue torch.Size([512, 4400])
+
+  0%|▍                                                                                                                                                          | 10/3625 [00:24<2:25:00,  2.41s/it]
+0.002758620689655172
+m torch.Size([40, 512])
+queue torch.Size([512, 4400])
+
+  0%|▍                                                                                                                                                          | 11/3625 [00:27<2:24:55,  2.41s/it]
+0.0030344827586206895
+m torch.Size([40, 512])
+queue torch.Size([512, 4400])
+
+
+  0%|▌                                                                                                                                                          | 13/3625 [00:31<2:25:07,  2.41s/it]
+0.003310344827586207
+m torch.Size([40, 512])
+queue torch.Size([512, 4400])
+current loss: 8.880884170532227
+0.003586206896551724
+m torch.Size([40, 512])
+queue torch.Size([512, 4400])
+
+  0%|▌                                                                                                                                                          | 14/3625 [00:34<2:25:18,  2.41s/it]
+0.0038620689655172414
+m torch.Size([40, 512])
+queue torch.Size([512, 4400])
+
+  0%|▋                                                                                                                                                          | 15/3625 [00:36<2:24:52,  2.41s/it]
+0.004137931034482759
+m torch.Size([40, 512])
+queue torch.Size([512, 4400])
+
+Traceback (most recent call last):                                                                                                                              | 16/3625 [00:39<2:25:53,  2.43s/it]
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/main_hyp.py", line 127, in <module>
+    run_train(args)
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/main_hyp.py", line 73, in run_train
+    controller.train(dataset_train=train_dataset,  dataset_val=val_dataset,
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller_Hyp.py", line 455, in train
+    loss_tr_all, loss_tr_nll, loss_tr_itm = loss_tr_dict['all'], loss_tr_dict['nll'], loss_tr_dict['itm']
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller_Hyp.py", line 345, in train_epoch
+    # if idx > 10: # DEBUG
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 633, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 677, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Utils.py", line 298, in __getitem__
+    text_output_2 = extract_features(self.model_2, sample_2, mode='text', is_clip='clip' in self.model_2_name)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Utils.py", line 135, in extract_features
+    text_embeds = model.encode_text(text)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/clip_models/model.py", line 560, in encode_text
+    x = self.transformer(x, attn_mask=self.attn_mask)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/clip_models/model.py", line 304, in forward
+    x = r(x, attn_mask=attn_mask)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/clip_models/model.py", line 283, in forward
+    x = x + self.attention(self.ln_1(x), attn_mask=attn_mask)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/clip_models/model.py", line 280, in attention
+    return self.attn(x, x, x, need_weights=False, attn_mask=attn_mask)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/activation.py", line 1205, in forward
+    attn_output, attn_output_weights = F.multi_head_attention_forward(
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/functional.py", line 5376, in multi_head_attention_forward
+    attn_output = linear(attn_output, out_proj_weight, out_proj_bias)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

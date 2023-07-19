@@ -12,6 +12,7 @@ from Controller_Both import Controller as Ctr_Both
 from lavis.models import load_model_and_preprocess, load_model, load_preprocess
 from lavis.datasets.builders import load_dataset
 
+
 # mlflow.set_tracking_uri('http://localhost:1409')
 
 DATASET_NAME = 'flickr30k'

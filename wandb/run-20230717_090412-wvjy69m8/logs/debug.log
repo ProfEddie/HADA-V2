@@ -24,3 +24,4 @@ config: {'dataset': 'flickr30k', 'manifold': 'hyperbolic'}
 2023-07-17 09:04:16,819 INFO    MainThread:558335 [wandb_run.py:_redirect():2072] Wrapping output streams.
 2023-07-17 09:04:16,819 INFO    MainThread:558335 [wandb_run.py:_redirect():2097] Redirects installed.
 2023-07-17 09:04:16,819 INFO    MainThread:558335 [wandb_init.py:init():830] run started, returning control to user process
+2023-07-18 09:31:50,948 WARNING MsgRouterThr:558335 [router.py:message_loop():77] message_loop has been closed

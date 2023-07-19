@@ -6,7 +6,29 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.nn.init as init
 from torch.nn.modules.module import Module
-from att_layers import DenseAtt
+from torch_geometric.nn import MessagePassing
+from torch_geometric.utils import add_self_loops, degree
+class DenseAtt(nn.Module):
+    def __init__(self, in_features, dropout):
+        super(DenseAtt, self).__init__()
+        self.dropout = dropout
+        self.linear = nn.Linear(2 * in_features, 1, bias=True)
+        self.in_features = in_features
+
+    def forward (self, x, adj):
+        n = x.size(0)
+        # n x 1 x d
+        x_left = torch.unsqueeze(x, 1)
+        x_left = x_left.expand(-1, n, -1)
+        # 1 x n x d
+        x_right = torch.unsqueeze(x, 0)
+        x_right = x_right.expand(n, -1, -1)
+
+        x_cat = torch.cat((x_left, x_right), dim=2)
+        att_adj = self.linear(x_cat).squeeze()
+        att_adj = F.sigmoid(att_adj)
+        att_adj = torch.mul(adj.to_dense(), att_adj)
+        return att_adj
 
 
 def get_dim_act_curv(args):
@@ -64,13 +86,53 @@ class LorentzGraphConvolution(nn.Module):
         self.linear = LorentzLinear(manifold, in_features, out_features, use_bias, dropout, nonlin=nonlin)
         self.agg = LorentzAgg(manifold, out_features, dropout, use_att, local_agg)
 
-    def forward(self, input):
-        x, adj = input
+    def forward(self, x, adj):
         h = self.linear(x)
         h = self.agg(h, adj)
         output = h, adj
         return output
 
+
+class LorentzGCN(MessagePassing):
+    def __init__(self, manifold, in_features, out_features, use_bias, dropout, use_att, local_agg, nonlin=None):
+        super().__init__(aggr='add')  # "Add" aggregation (Step 5).
+        self.linear = LorentzLinear(manifold, in_features, out_features, use_bias, dropout, nonlin=nonlin)
+
+        self.reset_parameters()
+
+    def reset_parameters(self):
+        self.lin.reset_parameters()
+        self.bias.data.zero_()
+
+    def forward(self, x, edge_index):
+        # x has shape [N, in_channels]
+        # edge_index has shape [2, E]
+
+        # Step 1: Add self-loops to the adjacency matrix.
+        edge_index, _ = add_self_loops(edge_index, num_nodes=x.size(0))
+
+        # Step 2: Linearly transform node feature matrix.
+        x = self.lin(x)
+
+        # Step 3: Compute normalization.
+        row, col = edge_index
+        deg = degree(col, x.size(0), dtype=x.dtype)
+        deg_inv_sqrt = deg.pow(-0.5)
+        deg_inv_sqrt[deg_inv_sqrt == float('inf')] = 0
+        norm = deg_inv_sqrt[row] * deg_inv_sqrt[col]
+
+        # Step 4-5: Start propagating messages.
+        out = self.propagate(edge_index, x=x, norm=norm)
+
+        # Step 6: Apply a final bias vector.
+
+        return out
+
+    def message(self, x_j, norm):
+        # x_j has shape [E, out_channels]
+
+        # Step 4: Normalize node features.
+        return norm.view(-1, 1) * x_j
 
 class LorentzLinear(nn.Module):
     def __init__(self,
@@ -88,8 +150,7 @@ class LorentzLinear(nn.Module):
         self.in_features = in_features
         self.out_features = out_features
         self.bias = bias
-        self.weight = nn.Linear(
-            self.in_features, self.out_features, bias=bias)
+        self.weight = nn.Linear(self.in_features, self.out_features, bias=bias)
         self.reset_parameters()
         self.dropout = nn.Dropout(dropout)
         self.scale = nn.Parameter(torch.ones(()) * math.log(scale), requires_grad=not fixscale)

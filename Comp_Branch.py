@@ -8,6 +8,10 @@ def concat_node(x1, x2, n_x1, n_x2):
     x_concat = torch.tensor(()).to(x1.device)
     count1 = 0
     count2 = 0
+    print(x1)
+    print(x2)
+    print(n_x1)
+    print(n_x2)
     for idx in range(len(n_x1)):
         x_concat = torch.cat((x_concat, x1[count1:count1+n_x1[idx]], x2[count2:count2+n_x2[idx]]), dim=0)
         count1 += n_x1[idx]
@@ -84,6 +88,27 @@ class HypEnLiFu(nn.Module):
         x_enc = self.lin(x_enc)
         x_enc = self.to_poincare(x_enc)
         return x_enc
+
+
+class HypWithOutGraphEnLiFu(nn.Module):
+    def __init__(self, f1_in=768, f2_in=768, ft_com=[512, 512], batch_norm=True, dropout=0.1, act_func='relu', c=0.1):
+        super(HypWithOutGraphEnLiFu, self).__init__()
+        self.to_poincare = hypnn.ToPoincare(
+            c=c,
+            ball_dim=f1_in+f2_in,
+            riemannian=True,
+            clip_r=2.3,
+            train_x=False,
+        )
+        self.lin = HypSeqLinear(f1_in+f2_in, ft_out=ft_com, batch_norm=batch_norm, 
+                             dropout=dropout, act_func=act_func)
+    def forward(self, x_cls_1, x_cls_2):
+        x_enc = torch.cat((x_cls_1, x_cls_2),dim=1)
+        x_enc = self.to_poincare(x_enc)
+        x_enc = self.lin(x_enc)
+        return x_enc
+
+
 
 
 
