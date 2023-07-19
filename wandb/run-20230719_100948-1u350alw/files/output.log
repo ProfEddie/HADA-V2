@@ -1,0 +1,29 @@
+Trainable Paras: 4725772
+TRAIN FROM SCRATCH
+0.0
+  0%|                                                           | 0/20 [00:00<?, ?it/s]/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/processors/randaugment.py:40: RuntimeWarning: overflow encountered in scalar negative
+  offset = -low * scale                                       | 0/3625 [00:00<?, ?it/s]
+/home/nmduy/HADA/chau/HADA-LAVIS/RandAugment.py:31: RuntimeWarning: overflow encountered in scalar negative
+  offset = -low * scale
+  0%|                                                           | 0/20 [00:05<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/main_lorentz.py", line 127, in <module>
+    run_train(args)
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/main_lorentz.py", line 73, in run_train
+    controller.train(dataset_train=train_dataset,  dataset_val=val_dataset,
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller_Lorentz.py", line 448, in train
+    loss_tr_dict = self.train_epoch(dataloader_train, idx_epoch)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller_Lorentz.py", line 364, in train_epoch
+    br = self.forward_batch(batch)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller_Lorentz.py", line 317, in forward_batch
+    sim_i2t = dist_f(img_enc, cap_enc_all) / self.temp_para
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller_Lorentz.py", line 307, in <lambda>
+    dist_f = lambda x, y: - self.manifold.dist_batch(x, y.T)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/hyptorch/lorentz/manifold.py", line 58, in dist_batch
+    out.append(self.sqdist(x[i], y, k=self.k, keepdim=keepdim, dim=dim).unsqueeze_(0))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Lorentz.sqdist() got an unexpected keyword argument 'k'

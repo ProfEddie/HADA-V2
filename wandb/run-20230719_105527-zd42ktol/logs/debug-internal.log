@@ -1,0 +1,728 @@
+2023-07-19 10:55:27,710 INFO    StreamThr :1009561 [internal.py:wandb_internal():86] W&B internal server running at pid: 1009561, started at: 2023-07-19 10:55:27.710051
+2023-07-19 10:55:27,711 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status
+2023-07-19 10:55:27,713 INFO    WriterThread:1009561 [datastore.py:open_for_write():85] open: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/run-zd42ktol.wandb
+2023-07-19 10:55:27,713 DEBUG   SenderThread:1009561 [sender.py:send():369] send: header
+2023-07-19 10:55:27,714 DEBUG   SenderThread:1009561 [sender.py:send():369] send: run
+2023-07-19 10:55:28,299 INFO    SenderThread:1009561 [dir_watcher.py:__init__():211] watching files in: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files
+2023-07-19 10:55:28,299 INFO    SenderThread:1009561 [sender.py:_start_run_threads():1100] run started: zd42ktol with start time 1689760527.709555
+2023-07-19 10:55:28,300 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:55:28,300 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:55:28,303 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: check_version
+2023-07-19 10:55:28,303 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: check_version
+2023-07-19 10:55:28,451 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: run_start
+2023-07-19 10:55:28,453 DEBUG   HandlerThread:1009561 [system_info.py:__init__():31] System info init
+2023-07-19 10:55:28,453 DEBUG   HandlerThread:1009561 [system_info.py:__init__():46] System info init done
+2023-07-19 10:55:28,453 INFO    HandlerThread:1009561 [system_monitor.py:start():181] Starting system monitor
+2023-07-19 10:55:28,453 INFO    SystemMonitor:1009561 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-07-19 10:55:28,454 INFO    SystemMonitor:1009561 [interfaces.py:start():190] Started cpu monitoring
+2023-07-19 10:55:28,454 INFO    SystemMonitor:1009561 [interfaces.py:start():190] Started disk monitoring
+2023-07-19 10:55:28,454 INFO    SystemMonitor:1009561 [interfaces.py:start():190] Started gpu monitoring
+2023-07-19 10:55:28,455 INFO    SystemMonitor:1009561 [interfaces.py:start():190] Started memory monitoring
+2023-07-19 10:55:28,455 INFO    HandlerThread:1009561 [system_monitor.py:probe():201] Collecting system info
+2023-07-19 10:55:28,456 INFO    SystemMonitor:1009561 [interfaces.py:start():190] Started network monitoring
+2023-07-19 10:55:28,478 DEBUG   HandlerThread:1009561 [system_info.py:probe():195] Probing system
+2023-07-19 10:55:28,479 DEBUG   HandlerThread:1009561 [system_info.py:_probe_git():180] Probing git
+2023-07-19 10:55:28,482 DEBUG   HandlerThread:1009561 [system_info.py:_probe_git():188] Probing git done
+2023-07-19 10:55:28,482 DEBUG   HandlerThread:1009561 [system_info.py:probe():240] Probing system done
+2023-07-19 10:55:28,482 DEBUG   HandlerThread:1009561 [system_monitor.py:probe():210] {'os': 'Linux-5.15.0-76-generic-x86_64-with-glibc2.31', 'python': '3.11.4', 'heartbeatAt': '2023-07-19T09:55:28.478849', 'startedAt': '2023-07-19T09:55:27.700563', 'docker': None, 'cuda': None, 'args': ('-cp', 'Config/flickr30k/C1.yml', '-rm', 'train'), 'state': 'running', 'program': '/home/nmduy/HADA/chau/HADA-LAVIS/main_lorentz.py', 'codePath': 'main_lorentz.py', 'git': {'remote': 'https://github.com/m2man/HADA-LAVIS.git', 'commit': '6f5057f8b82737e04a0cce699a1558e28398ee7a'}, 'email': 'nmduy881994@gmail.com', 'root': '/home/nmduy/HADA/chau/HADA-LAVIS', 'host': 'jarvis', 'username': 'nmduy', 'executable': '/home/jarvis/anaconda3/envs/hada-v2/bin/python', 'cpu_count': 8, 'cpu_count_logical': 16, 'cpu_freq': {'current': 3.657875000000001, 'min': 800.0, 'max': 5000.0}, 'cpu_freq_per_core': [{'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 4.172, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}, {'current': 3.954, 'min': 800.0, 'max': 5000.0}, {'current': 3.6, 'min': 800.0, 'max': 5000.0}], 'disk': {'total': 903.6142044067383, 'used': 853.3214378356934}, 'gpu': 'NVIDIA GeForce RTX 3080 Ti', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 3080 Ti', 'memory_total': 12639338496}], 'memory': {'total': 62.703285217285156}}
+2023-07-19 10:55:28,482 INFO    HandlerThread:1009561 [system_monitor.py:probe():211] Finished collecting system info
+2023-07-19 10:55:28,482 INFO    HandlerThread:1009561 [system_monitor.py:probe():214] Publishing system info
+2023-07-19 10:55:28,482 DEBUG   HandlerThread:1009561 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-07-19 10:55:28,483 DEBUG   HandlerThread:1009561 [system_info.py:_save_pip():67] Saving pip packages done
+2023-07-19 10:55:28,483 DEBUG   HandlerThread:1009561 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-07-19 10:55:29,300 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_created():272] file/dir created: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:55:29,300 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_created():272] file/dir created: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/requirements.txt
+2023-07-19 10:55:29,301 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_created():272] file/dir created: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/conda-environment.yaml
+2023-07-19 10:55:32,833 DEBUG   HandlerThread:1009561 [system_info.py:_save_conda():86] Saving conda packages done
+2023-07-19 10:55:32,833 INFO    HandlerThread:1009561 [system_monitor.py:probe():216] Finished publishing system info
+2023-07-19 10:55:32,834 DEBUG   SenderThread:1009561 [sender.py:send():369] send: files
+2023-07-19 10:55:32,834 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-metadata.json with policy now
+2023-07-19 10:55:32,835 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:55:32,838 DEBUG   SenderThread:1009561 [sender.py:send():369] send: telemetry
+2023-07-19 10:55:32,840 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-19 10:55:32,840 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: stop_status
+2023-07-19 10:55:33,050 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: log_artifact
+2023-07-19 10:55:33,050 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: log_artifact
+2023-07-19 10:55:33,092 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:55:33,300 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/conda-environment.yaml
+2023-07-19 10:55:33,300 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_created():272] file/dir created: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-metadata.json
+2023-07-19 10:55:33,300 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_created():272] file/dir created: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:55:33,354 INFO    wandb-upload_0:1009561 [upload_job.py:push():133] Uploaded file /tmp/tmpc7nztplqwandb/6h4v3bti-wandb-metadata.json
+2023-07-19 10:55:34,459 INFO    wandb-upload_0:1009561 [upload_job.py:push():91] Uploaded file /home/nmduy/.local/share/wandb/artifacts/staging/tmpheptaaok
+2023-07-19 10:55:35,301 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:55:35,401 INFO    SenderThread:1009561 [sender.py:send_request_log_artifact():1414] logged artifact run-zd42ktol-C1.yml - {'id': 'QXJ0aWZhY3Q6NTE2NjgwMzk1', 'digest': '43272f2783351af1a42678644d7db76e', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjg0MTUwNTcw', 'latestArtifact': None}, 'version': 'latest'}
+2023-07-19 10:55:35,402 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:55:35,402 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:55:35,402 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:55:36,301 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:55:37,301 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:55:38,122 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:55:38,301 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:55:38,436 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:55:38,436 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:55:38,436 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:55:38,437 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:55:39,302 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:55:39,302 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:55:40,302 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:55:41,973 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:55:41,974 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:55:41,974 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:55:41,975 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:55:42,302 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:55:43,196 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:55:43,302 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:55:44,303 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:55:45,303 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:55:45,500 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:55:45,501 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:55:45,501 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:55:45,502 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:55:46,303 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:55:47,303 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:55:47,837 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-19 10:55:47,838 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: stop_status
+2023-07-19 10:55:48,304 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:55:49,046 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:55:49,047 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:55:49,047 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:55:49,047 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:55:49,048 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:55:49,304 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:55:49,304 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:55:51,304 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:55:52,305 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:55:52,573 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:55:52,573 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:55:52,574 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:55:52,574 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:55:53,305 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:55:53,305 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:55:54,305 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:55:54,789 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:55:55,305 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:55:56,069 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:55:56,069 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:55:56,070 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:55:56,070 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:55:56,305 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:55:56,306 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:55:57,306 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:55:58,306 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:55:59,571 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:55:59,572 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:55:59,572 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:55:59,572 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:55:59,795 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:56:00,306 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/config.yaml
+2023-07-19 10:56:00,307 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:56:01,307 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:02,307 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:02,838 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-19 10:56:02,838 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: stop_status
+2023-07-19 10:56:03,105 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:56:03,105 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:56:03,105 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:56:03,106 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:56:03,307 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:56:03,307 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:04,307 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:05,308 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:05,328 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:56:06,308 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:06,648 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:56:06,648 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:56:06,648 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:56:06,649 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:56:07,308 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:56:07,308 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:08,308 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:09,309 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:10,183 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:56:10,183 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:56:10,184 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:56:10,184 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:56:10,309 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:56:10,405 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:56:11,309 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:12,309 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:13,685 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:56:13,685 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:56:13,685 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:56:13,686 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:56:14,310 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:56:15,310 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:15,908 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:56:16,310 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:17,197 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:56:17,198 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:56:17,198 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:56:17,198 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:56:17,311 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:56:17,311 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:17,837 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-19 10:56:17,838 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: stop_status
+2023-07-19 10:56:19,311 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:20,311 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:20,721 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:56:20,721 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:56:20,721 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:56:20,722 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:56:20,944 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:56:21,312 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:56:21,312 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:23,312 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:24,266 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:56:24,267 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:56:24,267 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:56:24,267 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:56:24,312 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:56:24,312 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:25,312 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:26,313 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:26,490 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:56:27,811 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:56:27,812 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:56:27,812 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:56:27,812 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:56:28,313 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:56:28,456 DEBUG   SystemMonitor:1009561 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-07-19 10:56:28,457 DEBUG   SenderThread:1009561 [sender.py:send():369] send: stats
+2023-07-19 10:56:29,313 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:30,314 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:31,308 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:56:31,309 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:56:31,309 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:56:31,309 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:56:31,314 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:56:31,532 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:56:32,837 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-19 10:56:32,838 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: stop_status
+2023-07-19 10:56:33,314 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:34,315 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:34,846 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:56:34,847 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:56:34,847 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:56:34,848 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:56:35,315 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:56:35,315 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:37,070 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:56:37,315 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:38,315 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:38,330 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:56:38,331 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:56:38,331 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:56:38,331 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:56:39,316 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:56:39,316 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:40,316 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:41,917 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:56:41,918 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:56:41,918 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:56:41,918 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:56:42,140 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:56:42,316 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:56:43,316 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:44,317 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:45,465 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:56:45,465 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:56:45,466 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:56:45,466 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:56:46,317 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:56:47,317 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:47,688 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:56:47,839 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-19 10:56:47,839 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: stop_status
+2023-07-19 10:56:48,317 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:49,001 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:56:49,001 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:56:49,002 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:56:49,002 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:56:49,318 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:56:49,318 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:50,318 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:51,318 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:52,597 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:56:52,598 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:56:52,598 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:56:52,598 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:56:52,820 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:56:53,319 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:56:53,319 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:54,319 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:55,319 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:56,151 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:56:56,151 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:56:56,151 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:56:56,152 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:56:56,319 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:56:57,320 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:58,320 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:56:58,375 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:56:58,457 DEBUG   SenderThread:1009561 [sender.py:send():369] send: stats
+2023-07-19 10:56:59,717 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:56:59,718 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:56:59,718 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:56:59,718 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:57:00,320 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:57:01,321 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:02,321 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:02,839 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-19 10:57:02,840 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: stop_status
+2023-07-19 10:57:03,233 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:57:03,234 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:57:03,234 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:57:03,234 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:57:03,321 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:57:03,321 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:03,456 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:57:05,322 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:06,322 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:06,797 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:57:06,798 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:57:06,798 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:57:06,798 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:57:07,322 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:57:07,322 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:08,323 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:09,020 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:57:09,323 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:10,365 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:57:10,365 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:57:10,366 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:57:10,366 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:57:11,323 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:57:11,323 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:12,323 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:13,324 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:13,938 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:57:13,938 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:57:13,939 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:57:13,939 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:57:14,161 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:57:14,324 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:57:15,324 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:16,324 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:17,707 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:57:17,707 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:57:17,707 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:57:17,708 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:57:17,839 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-19 10:57:17,839 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: stop_status
+2023-07-19 10:57:18,325 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:57:19,325 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:19,985 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:57:20,325 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:21,251 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:57:21,252 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:57:21,252 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:57:21,252 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:57:21,326 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:57:21,326 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:23,326 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:24,326 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:24,820 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:57:24,821 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:57:24,821 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:57:24,821 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:57:25,044 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:57:25,327 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:57:25,327 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:26,327 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:27,327 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:28,388 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:57:28,388 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:57:28,388 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:57:28,389 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:57:28,457 DEBUG   SenderThread:1009561 [sender.py:send():369] send: stats
+2023-07-19 10:57:29,328 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:57:29,328 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:30,328 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:30,611 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:57:31,328 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:31,951 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:57:31,952 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:57:31,952 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:57:31,952 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:57:32,328 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:57:32,839 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-19 10:57:32,839 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: stop_status
+2023-07-19 10:57:33,329 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:34,329 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:35,501 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:57:35,501 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:57:35,502 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:57:35,502 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:57:35,725 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:57:36,329 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:57:37,329 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:38,330 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:39,066 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:57:39,067 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:57:39,067 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:57:39,067 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:57:39,330 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:57:39,330 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:40,330 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:41,290 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:57:41,330 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:42,590 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:57:42,590 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:57:42,590 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:57:42,591 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:57:43,331 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:57:43,331 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:44,331 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:45,332 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:46,200 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:57:46,201 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:57:46,201 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:57:46,201 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:57:46,332 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:57:46,422 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:57:47,332 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:47,839 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-19 10:57:47,840 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: stop_status
+2023-07-19 10:57:48,332 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:49,766 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:57:49,767 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:57:49,767 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:57:49,768 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:57:50,333 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:57:51,333 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:51,990 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:57:52,333 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:53,333 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:57:53,334 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:57:53,334 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:57:53,335 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:57:54,335 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:57:55,335 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:56,335 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:56,864 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:57:56,865 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:57:56,865 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:57:56,865 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:57:57,087 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:57:57,335 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:57:57,336 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:57:58,458 DEBUG   SenderThread:1009561 [sender.py:send():369] send: stats
+2023-07-19 10:57:59,336 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:00,336 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:00,435 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:58:00,436 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:58:00,436 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:58:00,438 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:58:01,336 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:58:01,336 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:02,337 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:02,658 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:58:02,839 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-19 10:58:02,840 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: stop_status
+2023-07-19 10:58:03,337 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:03,978 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:58:03,979 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:58:03,979 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:58:03,979 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:58:04,337 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:58:05,337 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:06,337 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:07,571 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:58:07,572 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:58:07,572 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:58:07,572 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:58:07,794 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:58:08,338 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:58:09,338 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:10,339 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:11,134 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:58:11,135 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:58:11,135 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:58:11,135 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:58:11,339 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:58:11,339 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:13,339 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:13,357 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:58:14,340 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:14,649 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:58:14,649 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:58:14,649 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:58:14,650 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:58:15,340 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:58:15,340 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:16,340 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:17,341 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:17,840 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-19 10:58:17,840 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: stop_status
+2023-07-19 10:58:18,224 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:58:18,225 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:58:18,225 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:58:18,225 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:58:18,341 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:58:18,448 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:58:19,341 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:20,341 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:21,746 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:58:21,747 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:58:21,747 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:58:21,748 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:58:22,342 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:58:23,342 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:23,970 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:58:24,342 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:25,298 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:58:25,298 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:58:25,299 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:58:25,299 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:58:25,343 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:58:25,343 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:27,343 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:28,343 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:28,459 DEBUG   SenderThread:1009561 [sender.py:send():369] send: stats
+2023-07-19 10:58:28,866 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:58:28,867 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:58:28,867 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:58:28,868 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:58:29,089 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:58:29,343 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:58:29,344 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:31,344 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:32,344 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:32,486 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:58:32,487 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:58:32,487 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:58:32,488 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:58:32,841 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-19 10:58:32,841 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: stop_status
+2023-07-19 10:58:33,344 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:58:33,344 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:34,345 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:35,002 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:58:35,345 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:36,021 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:58:36,022 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:58:36,022 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:58:36,022 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:58:36,345 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:58:37,345 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:38,345 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:39,590 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:58:39,590 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:58:39,591 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:58:39,591 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:58:40,346 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:58:40,813 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:58:41,346 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:42,347 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:43,129 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:58:43,130 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:58:43,130 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:58:43,130 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:58:43,347 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:58:43,347 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:45,347 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:46,348 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:46,679 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:58:46,679 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:58:46,679 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:58:46,679 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:58:46,680 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:58:47,348 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:58:47,348 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:47,841 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-19 10:58:47,841 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: stop_status
+2023-07-19 10:58:48,348 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:49,348 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:50,297 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:58:50,298 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:58:50,298 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:58:50,298 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:58:50,348 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:58:51,349 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:52,349 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:52,520 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:58:53,842 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:58:53,842 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:58:53,843 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:58:53,844 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:58:54,350 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:58:55,350 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:56,350 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:58:57,596 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:58:57,597 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:58:57,597 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:58:57,597 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:58:57,598 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:58:58,351 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:58:58,459 DEBUG   SenderThread:1009561 [sender.py:send():369] send: stats
+2023-07-19 10:58:59,351 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:59:00,351 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:59:01,484 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:59:01,485 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:59:01,485 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:59:01,485 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:59:02,352 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:59:02,709 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:59:02,841 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-19 10:59:02,841 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: stop_status
+2023-07-19 10:59:03,352 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:59:04,352 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:59:05,239 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:59:05,240 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:59:05,240 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:59:05,240 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:59:05,352 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:59:05,353 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:59:07,353 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:59:07,969 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:59:08,353 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:59:08,964 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:59:08,964 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:59:08,964 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:59:08,965 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:59:09,353 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:59:09,354 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:59:11,354 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:59:12,354 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:59:12,716 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: partial_history
+2023-07-19 10:59:12,717 DEBUG   SenderThread:1009561 [sender.py:send():369] send: history
+2023-07-19 10:59:12,717 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: summary_record
+2023-07-19 10:59:12,717 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:59:13,354 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:59:13,355 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:59:13,940 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:59:14,355 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:59:15,345 DEBUG   SenderThread:1009561 [sender.py:send():369] send: exit
+2023-07-19 10:59:15,345 INFO    SenderThread:1009561 [sender.py:send_exit():574] handling exit code: 255
+2023-07-19 10:59:15,345 INFO    SenderThread:1009561 [sender.py:send_exit():576] handling runtime: 226
+2023-07-19 10:59:15,345 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:59:15,345 INFO    SenderThread:1009561 [sender.py:send_exit():582] send defer
+2023-07-19 10:59:15,345 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: defer
+2023-07-19 10:59:15,345 INFO    HandlerThread:1009561 [handler.py:handle_request_defer():170] handle defer: 0
+2023-07-19 10:59:15,346 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: defer
+2023-07-19 10:59:15,346 INFO    SenderThread:1009561 [sender.py:send_request_defer():598] handle sender defer: 0
+2023-07-19 10:59:15,346 INFO    SenderThread:1009561 [sender.py:transition_state():602] send defer: 1
+2023-07-19 10:59:15,346 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: defer
+2023-07-19 10:59:15,346 INFO    HandlerThread:1009561 [handler.py:handle_request_defer():170] handle defer: 1
+2023-07-19 10:59:15,346 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: defer
+2023-07-19 10:59:15,346 INFO    SenderThread:1009561 [sender.py:send_request_defer():598] handle sender defer: 1
+2023-07-19 10:59:15,346 INFO    SenderThread:1009561 [sender.py:transition_state():602] send defer: 2
+2023-07-19 10:59:15,346 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: defer
+2023-07-19 10:59:15,346 INFO    HandlerThread:1009561 [handler.py:handle_request_defer():170] handle defer: 2
+2023-07-19 10:59:15,346 INFO    HandlerThread:1009561 [system_monitor.py:finish():190] Stopping system monitor
+2023-07-19 10:59:15,347 INFO    HandlerThread:1009561 [interfaces.py:finish():202] Joined cpu monitor
+2023-07-19 10:59:15,347 DEBUG   SystemMonitor:1009561 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-07-19 10:59:15,347 INFO    HandlerThread:1009561 [interfaces.py:finish():202] Joined disk monitor
+2023-07-19 10:59:15,347 DEBUG   SystemMonitor:1009561 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-07-19 10:59:15,355 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:59:15,355 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:59:15,392 INFO    HandlerThread:1009561 [interfaces.py:finish():202] Joined gpu monitor
+2023-07-19 10:59:15,392 INFO    HandlerThread:1009561 [interfaces.py:finish():202] Joined memory monitor
+2023-07-19 10:59:15,392 INFO    HandlerThread:1009561 [interfaces.py:finish():202] Joined network monitor
+2023-07-19 10:59:15,392 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: defer
+2023-07-19 10:59:15,392 INFO    SenderThread:1009561 [sender.py:send_request_defer():598] handle sender defer: 2
+2023-07-19 10:59:15,392 INFO    SenderThread:1009561 [sender.py:transition_state():602] send defer: 3
+2023-07-19 10:59:15,392 DEBUG   SenderThread:1009561 [sender.py:send():369] send: stats
+2023-07-19 10:59:15,393 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: defer
+2023-07-19 10:59:15,393 INFO    HandlerThread:1009561 [handler.py:handle_request_defer():170] handle defer: 3
+2023-07-19 10:59:15,393 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: defer
+2023-07-19 10:59:15,393 INFO    SenderThread:1009561 [sender.py:send_request_defer():598] handle sender defer: 3
+2023-07-19 10:59:15,393 INFO    SenderThread:1009561 [sender.py:transition_state():602] send defer: 4
+2023-07-19 10:59:15,393 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: defer
+2023-07-19 10:59:15,393 INFO    HandlerThread:1009561 [handler.py:handle_request_defer():170] handle defer: 4
+2023-07-19 10:59:15,393 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: defer
+2023-07-19 10:59:15,393 INFO    SenderThread:1009561 [sender.py:send_request_defer():598] handle sender defer: 4
+2023-07-19 10:59:15,393 INFO    SenderThread:1009561 [sender.py:transition_state():602] send defer: 5
+2023-07-19 10:59:15,393 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: defer
+2023-07-19 10:59:15,394 INFO    HandlerThread:1009561 [handler.py:handle_request_defer():170] handle defer: 5
+2023-07-19 10:59:15,394 DEBUG   SenderThread:1009561 [sender.py:send():369] send: summary
+2023-07-19 10:59:15,394 INFO    SenderThread:1009561 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-07-19 10:59:15,394 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: defer
+2023-07-19 10:59:15,394 INFO    SenderThread:1009561 [sender.py:send_request_defer():598] handle sender defer: 5
+2023-07-19 10:59:15,394 INFO    SenderThread:1009561 [sender.py:transition_state():602] send defer: 6
+2023-07-19 10:59:15,394 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: defer
+2023-07-19 10:59:15,394 INFO    HandlerThread:1009561 [handler.py:handle_request_defer():170] handle defer: 6
+2023-07-19 10:59:15,395 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: defer
+2023-07-19 10:59:15,395 INFO    SenderThread:1009561 [sender.py:send_request_defer():598] handle sender defer: 6
+2023-07-19 10:59:15,395 INFO    SenderThread:1009561 [sender.py:transition_state():602] send defer: 7
+2023-07-19 10:59:15,395 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: status_report
+2023-07-19 10:59:15,395 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: defer
+2023-07-19 10:59:15,395 INFO    HandlerThread:1009561 [handler.py:handle_request_defer():170] handle defer: 7
+2023-07-19 10:59:15,395 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: defer
+2023-07-19 10:59:15,395 INFO    SenderThread:1009561 [sender.py:send_request_defer():598] handle sender defer: 7
+2023-07-19 10:59:16,344 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: poll_exit
+2023-07-19 10:59:16,355 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:59:17,480 INFO    SenderThread:1009561 [sender.py:transition_state():602] send defer: 8
+2023-07-19 10:59:17,480 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: poll_exit
+2023-07-19 10:59:17,480 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: defer
+2023-07-19 10:59:17,480 INFO    HandlerThread:1009561 [handler.py:handle_request_defer():170] handle defer: 8
+2023-07-19 10:59:17,480 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: defer
+2023-07-19 10:59:17,480 INFO    SenderThread:1009561 [sender.py:send_request_defer():598] handle sender defer: 8
+2023-07-19 10:59:17,481 INFO    SenderThread:1009561 [job_builder.py:build():240] Attempting to build job artifact
+2023-07-19 10:59:17,481 INFO    SenderThread:1009561 [job_builder.py:build():264] is repo sourced job
+2023-07-19 10:59:17,481 INFO    SenderThread:1009561 [job_builder.py:build():305] adding wandb-job metadata file
+2023-07-19 10:59:17,491 INFO    SenderThread:1009561 [sender.py:transition_state():602] send defer: 9
+2023-07-19 10:59:17,491 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: defer
+2023-07-19 10:59:17,492 INFO    HandlerThread:1009561 [handler.py:handle_request_defer():170] handle defer: 9
+2023-07-19 10:59:17,492 DEBUG   SenderThread:1009561 [sender.py:send():369] send: artifact
+2023-07-19 10:59:18,356 INFO    Thread-12 :1009561 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:59:19,144 INFO    SenderThread:1009561 [sender.py:send_artifact():1450] sent artifact job-https___github.com_m2man_HADA-LAVIS.git_main_lorentz.py - {'id': 'QXJ0aWZhY3Q6NTE2NjUzNjk4', 'digest': '7030d174ffe13e618dc73bf9ef07d26b', 'state': 'COMMITTED', 'aliases': [{'artifactCollectionName': 'job-https___github.com_m2man_HADA-LAVIS.git_main_lorentz.py', 'alias': 'latest'}, {'artifactCollectionName': 'job-https___github.com_m2man_HADA-LAVIS.git_main_lorentz.py', 'alias': 'v2'}], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjg0MTMzMjIy', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NTE2NjUzNjk4', 'versionIndex': 2}}, 'version': 'v2'}
+2023-07-19 10:59:19,145 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: defer
+2023-07-19 10:59:19,145 INFO    SenderThread:1009561 [sender.py:send_request_defer():598] handle sender defer: 9
+2023-07-19 10:59:19,145 INFO    SenderThread:1009561 [dir_watcher.py:finish():359] shutting down directory watcher
+2023-07-19 10:59:19,357 INFO    SenderThread:1009561 [dir_watcher.py:finish():389] scan: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files
+2023-07-19 10:59:19,358 INFO    SenderThread:1009561 [dir_watcher.py:finish():403] scan save: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/conda-environment.yaml conda-environment.yaml
+2023-07-19 10:59:19,358 INFO    SenderThread:1009561 [dir_watcher.py:finish():403] scan save: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log output.log
+2023-07-19 10:59:19,359 INFO    SenderThread:1009561 [dir_watcher.py:finish():403] scan save: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json wandb-summary.json
+2023-07-19 10:59:19,370 INFO    SenderThread:1009561 [dir_watcher.py:finish():403] scan save: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/requirements.txt requirements.txt
+2023-07-19 10:59:19,371 INFO    SenderThread:1009561 [dir_watcher.py:finish():403] scan save: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/config.yaml config.yaml
+2023-07-19 10:59:19,372 INFO    SenderThread:1009561 [dir_watcher.py:finish():403] scan save: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-metadata.json wandb-metadata.json
+2023-07-19 10:59:19,372 INFO    SenderThread:1009561 [sender.py:transition_state():602] send defer: 10
+2023-07-19 10:59:19,373 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: defer
+2023-07-19 10:59:19,373 INFO    HandlerThread:1009561 [handler.py:handle_request_defer():170] handle defer: 10
+2023-07-19 10:59:19,380 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: defer
+2023-07-19 10:59:19,380 INFO    SenderThread:1009561 [sender.py:send_request_defer():598] handle sender defer: 10
+2023-07-19 10:59:19,380 INFO    SenderThread:1009561 [file_pusher.py:finish():159] shutting down file pusher
+2023-07-19 10:59:19,823 INFO    wandb-upload_0:1009561 [upload_job.py:push():133] Uploaded file /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/output.log
+2023-07-19 10:59:19,872 INFO    wandb-upload_1:1009561 [upload_job.py:push():133] Uploaded file /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/conda-environment.yaml
+2023-07-19 10:59:20,047 INFO    wandb-upload_4:1009561 [upload_job.py:push():133] Uploaded file /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/config.yaml
+2023-07-19 10:59:20,094 INFO    wandb-upload_2:1009561 [upload_job.py:push():133] Uploaded file /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/wandb-summary.json
+2023-07-19 10:59:20,155 INFO    wandb-upload_3:1009561 [upload_job.py:push():133] Uploaded file /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/files/requirements.txt
+2023-07-19 10:59:20,356 INFO    Thread-11 (_thread_body):1009561 [sender.py:transition_state():602] send defer: 11
+2023-07-19 10:59:20,356 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: defer
+2023-07-19 10:59:20,357 INFO    HandlerThread:1009561 [handler.py:handle_request_defer():170] handle defer: 11
+2023-07-19 10:59:20,357 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: defer
+2023-07-19 10:59:20,358 INFO    SenderThread:1009561 [sender.py:send_request_defer():598] handle sender defer: 11
+2023-07-19 10:59:20,358 INFO    SenderThread:1009561 [file_pusher.py:join():164] waiting for file pusher
+2023-07-19 10:59:20,358 INFO    SenderThread:1009561 [sender.py:transition_state():602] send defer: 12
+2023-07-19 10:59:20,358 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: defer
+2023-07-19 10:59:20,359 INFO    HandlerThread:1009561 [handler.py:handle_request_defer():170] handle defer: 12
+2023-07-19 10:59:20,359 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: defer
+2023-07-19 10:59:20,360 INFO    SenderThread:1009561 [sender.py:send_request_defer():598] handle sender defer: 12
+2023-07-19 10:59:21,164 INFO    SenderThread:1009561 [sender.py:transition_state():602] send defer: 13
+2023-07-19 10:59:21,164 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: defer
+2023-07-19 10:59:21,165 INFO    HandlerThread:1009561 [handler.py:handle_request_defer():170] handle defer: 13
+2023-07-19 10:59:21,165 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: defer
+2023-07-19 10:59:21,165 INFO    SenderThread:1009561 [sender.py:send_request_defer():598] handle sender defer: 13
+2023-07-19 10:59:21,165 INFO    SenderThread:1009561 [sender.py:transition_state():602] send defer: 14
+2023-07-19 10:59:21,165 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: defer
+2023-07-19 10:59:21,165 INFO    HandlerThread:1009561 [handler.py:handle_request_defer():170] handle defer: 14
+2023-07-19 10:59:21,166 DEBUG   SenderThread:1009561 [sender.py:send():369] send: final
+2023-07-19 10:59:21,166 DEBUG   SenderThread:1009561 [sender.py:send():369] send: footer
+2023-07-19 10:59:21,166 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: defer
+2023-07-19 10:59:21,166 INFO    SenderThread:1009561 [sender.py:send_request_defer():598] handle sender defer: 14
+2023-07-19 10:59:21,166 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: poll_exit
+2023-07-19 10:59:21,167 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: poll_exit
+2023-07-19 10:59:21,167 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: server_info
+2023-07-19 10:59:21,168 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: get_summary
+2023-07-19 10:59:21,168 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: sampled_history
+2023-07-19 10:59:21,168 DEBUG   SenderThread:1009561 [sender.py:send_request():396] send_request: server_info
+2023-07-19 10:59:21,299 INFO    MainThread:1009561 [wandb_run.py:_footer_history_summary_info():3464] rendering history
+2023-07-19 10:59:21,299 INFO    MainThread:1009561 [wandb_run.py:_footer_history_summary_info():3496] rendering summary
+2023-07-19 10:59:21,300 INFO    MainThread:1009561 [wandb_run.py:_footer_sync_info():3423] logging synced files
+2023-07-19 10:59:21,301 DEBUG   HandlerThread:1009561 [handler.py:handle_request():144] handle_request: shutdown
+2023-07-19 10:59:21,301 INFO    HandlerThread:1009561 [handler.py:finish():854] shutting down handler
+2023-07-19 10:59:22,168 INFO    WriterThread:1009561 [datastore.py:close():298] close: /home/nmduy/HADA/chau/HADA-LAVIS/wandb/run-20230719_105527-zd42ktol/run-zd42ktol.wandb
+2023-07-19 10:59:22,299 INFO    SenderThread:1009561 [sender.py:finish():1526] shutting down sender
+2023-07-19 10:59:22,299 INFO    SenderThread:1009561 [file_pusher.py:finish():159] shutting down file pusher
+2023-07-19 10:59:22,299 INFO    SenderThread:1009561 [file_pusher.py:join():164] waiting for file pusher

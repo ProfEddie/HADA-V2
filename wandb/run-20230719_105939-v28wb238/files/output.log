@@ -1,0 +1,105 @@
+Trainable Paras: 4725772
+TRAIN FROM SCRATCH
+0.0
+  0%|                                                                                                                                                                        | 0/20 [00:00<?, ?it/s]
+  0%|                                                                                                                                                                      | 0/3625 [00:00<?, ?it/s]
+
+
+  offset = -low * scale                                                                                                                                          | 1/3625 [00:05<5:42:03,  5.66s/it]
+0.00027586206896551725
+current loss: 49.723575592041016
+  0%|                                                                                                                                                            | 2/3625 [00:09<4:26:24,  4.41s/it]
+0.0005517241379310345
+
+  0%|▏                                                                                                                                                           | 3/3625 [00:12<4:02:10,  4.01s/it]
+0.0008275862068965517
+
+  0%|▏                                                                                                                                                           | 4/3625 [00:16<3:50:51,  3.83s/it]
+
+  0%|▏                                                                                                                                                           | 5/3625 [00:19<3:44:35,  3.72s/it]
+current loss: 47.89149856567383
+0.001379310344827586
+
+  0%|▎                                                                                                                                                           | 6/3625 [00:23<3:40:16,  3.65s/it]
+0.0016551724137931034
+
+  offset = -low * scale                                                                                                                                          | 7/3625 [00:26<3:38:08,  3.62s/it]
+0.0019310344827586207
+current loss: 46.10603332519531
+  0%|▎                                                                                                                                                           | 8/3625 [00:30<3:37:31,  3.61s/it]
+0.002206896551724138
+
+  0%|▍                                                                                                                                                           | 9/3625 [00:34<3:36:25,  3.59s/it]
+0.0024827586206896553
+
+  0%|▍                                                                                                                                                          | 10/3625 [00:37<3:37:09,  3.60s/it]
+0.002758620689655172
+
+  0%|▍                                                                                                                                                          | 11/3625 [00:41<3:35:19,  3.57s/it]
+0.0030344827586206895
+
+  0%|▌                                                                                                                                                          | 12/3625 [00:44<3:39:06,  3.64s/it]
+0.003310344827586207
+
+Traceback (most recent call last):                                                                                                                              | 13/3625 [00:48<3:42:02,  3.69s/it]
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/main_lorentz.py", line 127, in <module>
+    run_train(args)
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/main_lorentz.py", line 73, in run_train
+    controller.train(dataset_train=train_dataset,  dataset_val=val_dataset,
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller_Lorentz.py", line 448, in train
+    loss_tr_dict = self.train_epoch(dataloader_train, idx_epoch)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller_Lorentz.py", line 348, in train_epoch
+    for idx, batch in enumerate(dataloader):
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 633, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 677, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Utils.py", line 252, in __getitem__
+    image_output_2 = extract_features(self.model_2, sample_2, mode='image', is_clip='clip' in self.model_2_name)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Utils.py", line 120, in extract_features
+    image_embeds = model.encode_image(image)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/clip_models/model.py", line 553, in encode_image
+    return self.visual(image)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/clip_models/model.py", line 367, in forward
+    x = self.transformer(x)
+        ^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/clip_models/model.py", line 304, in forward
+    x = r(x, attn_mask=attn_mask)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/clip_models/model.py", line 283, in forward
+    x = x + self.attention(self.ln_1(x), attn_mask=attn_mask)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/clip_models/model.py", line 280, in attention
+    return self.attn(x, x, x, need_weights=False, attn_mask=attn_mask)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/activation.py", line 1205, in forward
+    attn_output, attn_output_weights = F.multi_head_attention_forward(
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/functional.py", line 5288, in multi_head_attention_forward
+    v = v.view(v.shape[0], bsz * num_heads, head_dim).transpose(0, 1)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

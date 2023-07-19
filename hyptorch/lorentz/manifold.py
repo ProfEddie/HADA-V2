@@ -55,7 +55,7 @@ class Lorentz(LorentzOri):
     ) -> torch.Tensor:
         out = []
         for i in range(x.shape[0]):
-            out.append(dist(x[i], y, k=self.k, keepdim=keepdim, dim=dim).unsqueeze_(0))
+            out.append(self.dist(x[i], y).unsqueeze_(0))
         return  torch.cat(out,dim=0)
 
     

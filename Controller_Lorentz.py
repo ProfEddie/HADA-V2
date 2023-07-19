@@ -87,6 +87,7 @@ class Controller(nn.Module):
         self.out_dir = config['out_dir']
         self.pretrained_path = config['pretrained_path']
         self.temp = config['temp']
+        self.dist_f = lambda x, y: -self.manifold.dist_batch(x, y.T)
         if self.temp > 0:
             self.temp_para = nn.Parameter(torch.ones([]) * self.temp)
             # self.temp_para = self.temp_para.to(self.device)
@@ -134,11 +135,11 @@ class Controller(nn.Module):
         self.params += get_param(self.discriminator) 
         self.params += get_param(self.img_encoder_m) 
         self.params += get_param(self.cap_encoder_m) 
-        # if self.use_weighted_retrieval:
-            # self.params += [self.weight_1] 
+        if self.use_weighted_retrieval:
+            self.params += [{'params':self.weight_1}] 
         
-        # if self.temp > 0:
-            # self.params += [{'temp':self.temp_para}]
+        if self.temp > 0:
+            self.params += [{'params':self.temp_para}]
 
         self.optimizer = RiemannianAdam(params=self.params, lr=self.learning_rate, stabilize=10)
         self.lr_scheduler = torch.optim.lr_scheduler.StepLR(self.optimizer,
@@ -304,20 +305,19 @@ class Controller(nn.Module):
             cap_enc_ori_1_all = torch.cat([cap_enc_ori_1.t(),self.text_queue_ori_1.clone().detach()],dim=1)
             # dist_f = lambda x, y: -dist_matrix(x, y, c=0.1)
             # dist_f = lambda x, y: x @ y 
-            dist_f = lambda x, y: - self.manifold.dist_batch(x, y.T)
 
             if self.distill:               
 
-                sim_i2t_m = dist_f(img_enc_m, cap_enc_all) / self.temp_para
-                sim_t2i_m = dist_f(cap_enc_m, img_enc_all) / self.temp_para   
+                sim_i2t_m = self.dist_f(img_enc_m, cap_enc_all) / self.temp_para
+                sim_t2i_m = self.dist_f(cap_enc_m, img_enc_all) / self.temp_para   
 
                 sim_i2t_targets = self.alpha*F.softmax(sim_i2t_m, dim=1)+(1-self.alpha)*sim_targets
                 sim_t2i_targets = self.alpha*F.softmax(sim_t2i_m, dim=1)+(1-self.alpha)*sim_targets 
         
-        sim_i2t = dist_f(img_enc, cap_enc_all) / self.temp_para
-        sim_t2i = dist_f(cap_enc, img_enc_all) / self.temp_para 
-        sim_i2t_ori_1 = dist_f(img_enc_ori_1, cap_enc_ori_1_all) / self.temp_para
-        sim_t2i_ori_1 = dist_f(cap_enc_ori_1, img_enc_ori_1_all) / self.temp_para 
+        sim_i2t = self.dist_f(img_enc, cap_enc_all) / self.temp_para
+        sim_t2i = self.dist_f(cap_enc, img_enc_all) / self.temp_para 
+        sim_i2t_ori_1 = self.dist_f(img_enc_ori_1, cap_enc_ori_1_all) / self.temp_para
+        sim_t2i_ori_1 = self.dist_f(cap_enc_ori_1, img_enc_ori_1_all) / self.temp_para 
         
         sim_i2t_combine = (1-self.weight_1)*sim_i2t + self.weight_1*sim_i2t_ori_1
         sim_t2i_combine = (1-self.weight_1)*sim_t2i + self.weight_1*sim_t2i_ori_1
@@ -391,14 +391,16 @@ class Controller(nn.Module):
         dataset.set_branch(branch='txt')
         dataloader_txt = make_dataloader(dataset, branch='txt', batch_size=int(self.config['batch_size']/2), shuffle=False)
         cap_enc, cap_enc_ori_1, cap_enc_ori_2 = self.eval_encode(dataloader_txt, branch='txt')
-        dist_f = lambda x, y: -dist_matrix(x, y, c=0.1)
+       
         with torch.no_grad():
             if apply_temp:
-                sims = dist_f(img_enc , cap_enc.T) / self.temp_para
-                sims_ori_1 = dist_f(img_enc_ori_1 , cap_enc_ori_1.T) / self.temp_para
+                print(img_enc)
+                print(cap_enc)
+                sims = self.dist_f(img_enc , cap_enc.T) / self.temp_para
+                sims_ori_1 = self.dist_f(img_enc_ori_1 , cap_enc_ori_1.T) / self.temp_para
             else:
-                sims = dist_f(img_enc , cap_enc.T) 
-                sims_ori_1 = dist_f(img_enc_ori_1 , cap_enc_ori_1.T) 
+                sims = self.dist_f(img_enc , cap_enc.T) 
+                sims_ori_1 = self.dist_f(img_enc_ori_1 , cap_enc_ori_1.T) 
             sims = (1-self.weight_1)*sims + self.weight_1 * sims_ori_1
             # sims = img_enc_ori_1 @ cap_enc_ori_1.T # for BLIP
             # sims = img_enc_ori_2 @ cap_enc_ori_2.T # for CLIP
@@ -538,9 +540,9 @@ class Controller(nn.Module):
     
     def eval_encode(self, dataloader, branch='img'):
         self.eval_mode()
-        list_enc = torch.tensor(())
-        list_enc_ori_1 = torch.tensor(())
-        list_enc_ori_2 = torch.tensor(())
+        list_enc = torch.tensor(()).to(self.device)
+        list_enc_ori_1 = torch.tensor(()).to(self.device)
+        list_enc_ori_2 = torch.tensor(()).to(self.device)
         with torch.no_grad():
             for idx, batch in enumerate(dataloader):
                 x_dict,_ = batch
@@ -554,9 +556,9 @@ class Controller(nn.Module):
                 x_enc_ori_2 = x_dict['ft_proj_ori_2']
                 if self.l2_norm:
                     x_enc = F.normalize(x_enc, dim=1)
-                list_enc = torch.cat((list_enc, x_enc.detach().cpu()), 0)
-                list_enc_ori_1 = torch.cat((list_enc_ori_1, x_enc_ori_1.detach().cpu()), 0)
-                list_enc_ori_2 = torch.cat((list_enc_ori_2, x_enc_ori_2.detach().cpu()), 0)
+                list_enc = torch.cat((list_enc, x_enc), 0)
+                list_enc_ori_1 = torch.cat((list_enc_ori_1, x_enc_ori_1), 0)
+                list_enc_ori_2 = torch.cat((list_enc_ori_2, x_enc_ori_2), 0)
         return list_enc, list_enc_ori_1, list_enc_ori_2
     
     @torch.no_grad()    

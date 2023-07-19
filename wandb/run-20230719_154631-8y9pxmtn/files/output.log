@@ -1,0 +1,59 @@
+LOADED PRETRAINED MODEL AT Output/flickr30k/C1/best.pth.tar
+Set dataset branch to [img]
+Traceback (most recent call last):
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/main_lorentz.py", line 130, in <module>
+    run_evaluate(args)
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/main_lorentz.py", line 107, in run_evaluate
+    r, loss_rall = controller.evaluate_multimodal(test_dataset, apply_temp, return_sim=False)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller_Lorentz.py", line 389, in evaluate_multimodal
+    img_enc, img_enc_ori_1, img_enc_ori_2 = self.eval_encode(dataloader_img, branch='img')
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller_Lorentz.py", line 545, in eval_encode
+    for idx, batch in enumerate(dataloader):
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 633, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 677, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Utils.py", line 251, in __getitem__
+    image_output_1 = extract_features(self.model_1, sample_1, mode='image', is_clip='clip' in self.model_1_name)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Utils.py", line 124, in extract_features
+    image_embeds = model.visual_encoder.forward_features(image)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/vit.py", line 527, in forward_features
+    return super().forward(x, register_blk)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/vit.py", line 278, in forward
+    x = blk(x, register_blk == i)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/vit.py", line 157, in forward
+    x = x + self.drop_path(self.mlp(self.norm2(x)))
+                           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/fairscale/nn/checkpoint/checkpoint_activations.py", line 170, in _checkpointed_forward
+    return original_forward(module, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/LAVIS/lavis/models/vit.py", line 46, in forward
+    x = self.fc1(x)
+        ^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

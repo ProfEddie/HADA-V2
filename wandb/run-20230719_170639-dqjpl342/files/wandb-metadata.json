@@ -1,0 +1,130 @@
+{
+    "os": "Linux-5.15.0-76-generic-x86_64-with-glibc2.31",
+    "python": "3.11.4",
+    "heartbeatAt": "2023-07-19T16:06:40.458235",
+    "startedAt": "2023-07-19T16:06:39.874825",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "-cp",
+        "Config/flickr30k/C1.yml",
+        "-rm",
+        "train"
+    ],
+    "state": "running",
+    "program": "/home/nmduy/HADA/chau/HADA-LAVIS/main_lorentz.py",
+    "codePath": "main_lorentz.py",
+    "git": {
+        "remote": "https://github.com/m2man/HADA-LAVIS.git",
+        "commit": "6f5057f8b82737e04a0cce699a1558e28398ee7a"
+    },
+    "email": "nmduy881994@gmail.com",
+    "root": "/home/nmduy/HADA/chau/HADA-LAVIS",
+    "host": "jarvis",
+    "username": "nmduy",
+    "executable": "/home/jarvis/anaconda3/envs/hada-v2/bin/python",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 3.5038750000000007,
+        "min": 800.0,
+        "max": 5000.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 2.062,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.6,
+            "min": 800.0,
+            "max": 5000.0
+        }
+    ],
+    "disk": {
+        "total": 903.6142044067383,
+        "used": 853.334098815918
+    },
+    "gpu": "NVIDIA GeForce RTX 3080 Ti",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 3080 Ti",
+            "memory_total": 12639338496
+        }
+    ],
+    "memory": {
+        "total": 62.703285217285156
+    }
+}
