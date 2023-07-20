@@ -36,6 +36,9 @@ class PoincareBall(Manifold):
         )
         dist = dist_c * 2 / sqrt_c
         return dist ** 2
+    
+    def sqdist_batch(self, p1, p2):
+        return dist_matrix(p1, p2, c=self.c)
 
     def _lambda_x(self, x):
         x_sqnorm = torch.sum(x.data.pow(2), dim=-1, keepdim=True)
@@ -88,6 +91,7 @@ class PoincareBall(Manifold):
         p_norm = p.norm(dim=-1, p=2, keepdim=True).clamp_min(self.min_norm)
         scale = 1. / sqrt_c * artanh(sqrt_c * p_norm) / p_norm
         return scale * p
+    
 
     def mobius_add(self, x, y, dim=-1):
         x2 = x.pow(2).sum(dim=dim, keepdim=True)
@@ -107,6 +111,7 @@ class PoincareBall(Manifold):
         res_0 = torch.zeros(1, dtype=res_c.dtype, device=res_c.device)
         res = torch.where(cond, res_0, res_c)
         return res
+
 
     def init_weights(self, w, irange=1e-5):
         w.data.uniform_(-irange, irange)

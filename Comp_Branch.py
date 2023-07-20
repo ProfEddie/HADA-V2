@@ -8,10 +8,6 @@ def concat_node(x1, x2, n_x1, n_x2):
     x_concat = torch.tensor(()).to(x1.device)
     count1 = 0
     count2 = 0
-    print(x1)
-    print(x2)
-    print(n_x1)
-    print(n_x2)
     for idx in range(len(n_x1)):
         x_concat = torch.cat((x_concat, x1[count1:count1+n_x1[idx]], x2[count2:count2+n_x2[idx]]), dim=0)
         count1 += n_x1[idx]
@@ -41,6 +37,7 @@ class LiFu(nn.Module):
         x_2 = self.trans_2(x_2) # total n_dot, ft
         # concat x_albef + x_dot
         x_concat = concat_node(x_1, x_2, n_1, n_2)
+        
         x, edge_index, edge_attr = self.gcn(x_concat, edge_index, edge_attr, batch_index)
         x_cls_1, x_cls_2 = unconcat_node(x, n_1, n_2)
         return x_cls_1, x_cls_2

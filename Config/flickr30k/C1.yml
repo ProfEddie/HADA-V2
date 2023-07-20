@@ -57,8 +57,9 @@ Tmax: -1
 weight_nll_loss: 1
 weight_itm_loss: 1
 use_weighted_retrieval: False
-# device: cpu 
-device: cuda 
+device: cpu 
+# device: cuda 
 # Other
 out_dir: Output
 curvature: 0.1
+log_enable: False
