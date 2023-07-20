@@ -394,8 +394,6 @@ class Controller(nn.Module):
        
         with torch.no_grad():
             if apply_temp:
-                print(img_enc)
-                print(cap_enc)
                 sims = self.dist_f(img_enc , cap_enc.T) / self.temp_para
                 sims_ori_1 = self.dist_f(img_enc_ori_1 , cap_enc_ori_1.T) / self.temp_para
             else:

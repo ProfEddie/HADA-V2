@@ -10,7 +10,7 @@ import torch.nn as nn
 from hyptorch.math import dist_matrix
 import wandb
 from tqdm import tqdm
-from geoopt import PoincareBall
+from hyptorch.poincare.manifold import PoincareBall
 
 
 class Controller(nn.Module):

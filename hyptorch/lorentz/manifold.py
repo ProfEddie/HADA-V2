@@ -84,6 +84,9 @@ class Lorentz(LorentzOri):
 
     def lorentz_to_poincare(self, x):
         return lorentz_to_poincare(x, self.k)
+    
+    def poincare_to_lorentz(self,x):
+        return poincare_to_lorentz(x, self.k)
 
     def norm(self, u: torch.Tensor, *, keepdim=False, dim=-1) -> torch.Tensor:
         return norm(u, keepdim=keepdim, dim=dim)
