@@ -6,7 +6,7 @@ import torch.nn.init as init
 
 import hyptorch.math as pmath
 
-import torch.functional as F
+import torch.nn.functional as F
 
 
 class DenseAtt(nn.Module):
@@ -99,7 +99,7 @@ class HNNLayer(nn.Module):
 
     def __init__(self, manifold, in_features, out_features, dropout, act, use_bias):
         super(HNNLayer, self).__init__()
-        self.linear = HypLinear(manifold, in_features, out_features, dropout, use_bias)
+        self.linear = HypLinear(manifold, in_features, out_features,  dropout, use_bias)
         self.hyp_act = HypAct(manifold, manifold, act)
 
     def forward(self, x):
@@ -127,22 +127,6 @@ class HyperbolicGraphConvolution(nn.Module):
         output = h, adj
         return output
 
-class ConcatHypLayer(nn.Module):
-    def __init__(self, manifold ,d1, d2, d_out, c):
-        super(ConcatHypLayer, self).__init__()
-        self.d1 = d1
-        self.d2 = d2
-        self.d_out = d_out
-        self.manifold = manifold
-
-        self.l1 = HypLinear(manifold, d1, d_out, use_bias=False, dropout=0.0)
-        self.l2 = HypLinear(manifold, d2, d_out, use_bias=False, dropout=0.0)
-
-    def forward(self, x1, x2):
-        return self.manifold.mobius_add(self.l1(x1), self.l2(x2))
-
-    def extra_repr(self):
-        return "dims {} and {} ---> dim {}".format(self.d1, self.d2, self.d_out)
 
 
 class HypLinear(nn.Module):
@@ -244,4 +228,3 @@ class HypAct(nn.Module):
         return 'c_in={}, c_out={}'.format(
             self.manifold_in.c, self.manifold_out.c
         )
-

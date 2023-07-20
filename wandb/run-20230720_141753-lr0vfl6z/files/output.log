@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/main_poincare.py", line 130, in <module>
+    run_evaluate(args)
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/main_poincare.py", line 102, in run_evaluate
+    controller.load_model(save_path)
+  File "/home/nmduy/HADA/chau/HADA-LAVIS/Controller_Poincare.py", line 200, in load_model
+    self.img_encoder.load_state_dict(modelCheckpoint['img_encoder'])
+  File "/home/jarvis/anaconda3/envs/hada-v2/lib/python3.11/site-packages/torch/nn/modules/module.py", line 2041, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+RuntimeError: Error(s) in loading state_dict for Poincare_MH:
+	Missing key(s) in state_dict: "enc.gcn.trans_1.linear.0.weight", "enc.gcn.trans_1.linear.0.bias", "enc.gcn.trans_2.linear.0.weight", "enc.gcn.trans_2.linear.0.bias", "enc.gcn.gcn.conv.0.linear.bias", "enc.gcn.gcn.conv.0.linear.weight", "enc.lin.linear.0.linear.bias", "enc.lin.linear.0.linear.weight", "enc.lin.linear.1.linear.bias", "enc.lin.linear.1.linear.weight", "enc.cat_layer_1.l1.bias", "enc.cat_layer_1.l1.weight", "enc.cat_layer_1.l2.bias", "enc.cat_layer_1.l2.weight", "enc.cat_layer_2.l1.bias", "enc.cat_layer_2.l1.weight", "enc.cat_layer_2.l2.bias", "enc.cat_layer_2.l2.weight", "enc.cat_layer_all.l1.bias", "enc.cat_layer_all.l1.weight", "enc.cat_layer_all.l2.bias", "enc.cat_layer_all.l2.weight".
+	Unexpected key(s) in state_dict: "enc.manifold.k", "enc.gcn.trans_1.linear.0.scale", "enc.gcn.trans_1.linear.0.manifold.k", "enc.gcn.trans_2.linear.0.scale", "enc.gcn.trans_2.linear.0.manifold.k", "enc.gcn.gcn.manifold.k", "enc.gcn.gcn.conv.0.linear.scale", "enc.gcn.gcn.conv.0.linear.manifold.k", "enc.gcn.gcn.conv.0.agg.manifold.k", "enc.lin.linear.0.scale", "enc.lin.linear.0.manifold.k", "enc.lin.linear.0.weight.weight", "enc.lin.linear.0.weight.bias", "enc.lin.linear.1.scale", "enc.lin.linear.1.manifold.k", "enc.lin.linear.1.weight.weight", "enc.lin.linear.1.weight.bias".

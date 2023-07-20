@@ -63,7 +63,7 @@ class Controller(nn.Module):
         self.distill = config['distill']
         self.queue_size = config['queue_size']
         self.momentum = config['momentum']
-        self.manifold = PoincareBall(c=config['curvature'], clip_r=2.5 ,learnable=False)
+        self.manifold = PoincareBall(c=config['curvature'], clip_r=2.3 ,learnable=False)
         
         self.optimizer_choice = config['optimizer_choice']
         self.weight_decay = config['weight_decay']
@@ -87,7 +87,7 @@ class Controller(nn.Module):
         self.out_dir = config['out_dir']
         self.pretrained_path = config['pretrained_path']
         self.temp = config['temp']
-        self.dist_f = lambda x, y: -self.manifold.sqdist_batch(x, y.T)
+        self.dist_f = lambda x, y: self.manifold.sqdist_batch(x, y)
         if self.temp > 0:
             self.temp_para = nn.Parameter(torch.ones([]) * self.temp)
             # self.temp_para = self.temp_para.to(self.device)
@@ -143,7 +143,7 @@ class Controller(nn.Module):
 
         self.optimizer = RiemannianAdam(params=self.params, lr=self.learning_rate, stabilize=10)
         self.lr_scheduler = torch.optim.lr_scheduler.StepLR(self.optimizer,
-                                                   step_size=int(3625),
+                                                   step_size=int(1500),
                                                    gamma=float(0.5)) 
             
         # create the queue
@@ -166,7 +166,7 @@ class Controller(nn.Module):
         self.log_enable = config['log_enable'] 
         if self.log_enable:
             wandb.init(
-                name='Lorentz',
+                name='Poincare',
                 project='HADA-V2',  
                 config={
                     "dataset": self.dataset_name,
@@ -538,9 +538,9 @@ class Controller(nn.Module):
     
     def eval_encode(self, dataloader, branch='img'):
         self.eval_mode()
-        list_enc = torch.tensor(()).to(self.device)
-        list_enc_ori_1 = torch.tensor(()).to(self.device)
-        list_enc_ori_2 = torch.tensor(()).to(self.device)
+        list_enc = torch.tensor(())
+        list_enc_ori_1 = torch.tensor(())
+        list_enc_ori_2 = torch.tensor(())
         with torch.no_grad():
             for idx, batch in enumerate(dataloader):
                 x_dict,_ = batch
@@ -554,9 +554,9 @@ class Controller(nn.Module):
                 x_enc_ori_2 = x_dict['ft_proj_ori_2']
                 if self.l2_norm:
                     x_enc = F.normalize(x_enc, dim=1)
-                list_enc = torch.cat((list_enc, x_enc), 0)
-                list_enc_ori_1 = torch.cat((list_enc_ori_1, x_enc_ori_1), 0)
-                list_enc_ori_2 = torch.cat((list_enc_ori_2, x_enc_ori_2), 0)
+                list_enc = torch.cat((list_enc, x_enc.detach().cpu()), 0)
+                list_enc_ori_1 = torch.cat((list_enc_ori_1, x_enc_ori_1.detach().cpu()), 0)
+                list_enc_ori_2 = torch.cat((list_enc_ori_2, x_enc_ori_2.detach().cpu()), 0)
         return list_enc, list_enc_ori_1, list_enc_ori_2
     
     @torch.no_grad()    

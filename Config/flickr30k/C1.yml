@@ -37,12 +37,12 @@ mode_train: both
 batch_size: 40 
 num_epoch: 20
 early_stop: 5
-thres_loss: 0.001
+thres_loss: 0.0001
 temp: 0.07
 # momentum
 alpha: 0.4
 distill: False
-queue_size: 64000 
+queue_size: 4400 
 momentum: 0.995
 # plateau scheduler
 min_lr: 0.00001
@@ -57,9 +57,9 @@ Tmax: -1
 weight_nll_loss: 1
 weight_itm_loss: 1
 use_weighted_retrieval: False
-device: cpu 
-# device: cuda 
+# device: cpu 
+device: cuda 
 # Other
 out_dir: Output
 curvature: 0.1
-log_enable: False
+log_enable: True 

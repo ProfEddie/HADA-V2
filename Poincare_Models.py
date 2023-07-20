@@ -1,5 +1,5 @@
 from Comp_Poincare import PoincareEnLiFu, get_activate_func
-from hyptorch.nn import HNNLayer
+from hyptorch.nn import HNNLayer, HypLinear, ConcatPoincareLayer
 from hyptorch.poincare.manifold import PoincareBall 
 import torch
 import torch.nn as nn
@@ -48,18 +48,18 @@ class Poincare_Discriminator(nn.Module):
         self.manifold = manifold
         for idx in range(len(ft_out)):
             if idx == 0:
-                self.linear.append(HNNLayer(manifold, ft_in , ft_out[idx], dropout=dropout, act=get_activate_func(act_func), use_bias=True))
-            elif idx == len(ft_out - 1):
-                self.linear.append(HNNLayer(manifold, ft_out[idx-1] , ft_out[idx], dropout=dropout, act=get_activate_func('sigmoid'), use_bias=True))
+                self.linear.append(HNNLayer(manifold, ft_in*2 , ft_out[idx], dropout=dropout, act=get_activate_func(act_func), use_bias=True))
+            elif idx == len(ft_out)-1:
+                self.linear.append(HypLinear(manifold, ft_out[idx-1] , ft_out[idx], dropout=dropout, use_bias=True))
         self.disc = nn.ModuleList(self.linear)
+        self.concat_layer = ConcatPoincareLayer(manifold, ft_in, ft_in, ft_in *2)
 
     def forward(self, feat1, feat2):
-        dist = self.manifold.logmap0(self.manifold.sqdist(feat1, feat2))
-        mul = self.manifold.logmap0(self.manifold.mobius_matvec(feat1, feat2))
-        feat1 = self.manifold.logmap0(feat1)
-        feat2 = self.manifold.logmap0(feat2)
-        feat = torch.cat([feat1,feat2, dist, mul], dim=1) 
-        self.manifold.from_euclid_to_poincare(feat)
-        return self.disc(feat)
+        feat = self.concat_layer(feat1, feat2)
+
+        for layer in self.disc:
+            feat = layer(feat) 
+
+        return torch.sigmoid(self.manifold.logmap0(feat))
 
 

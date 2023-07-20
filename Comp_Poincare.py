@@ -1,9 +1,10 @@
 import torch
 from Utils import MemoryEfficientSwish
-from hyptorch.nn import HypLinear
+from hyptorch.nn import HypLinear, ConcatPoincareLayer
 import torch.nn as nn
 from hyptorch.nn import HNNLayer, HypAct, HypAgg, HyperbolicGraphConvolution, HypLinear 
 from hyptorch.poincare.manifold import PoincareBall
+from Comp_Basic import *
 
 def concat_node(x1, x2, n_x1, n_x2):
     x_concat = torch.tensor(()).to(x1.device)
@@ -51,7 +52,7 @@ class PoincareSeqLinear(nn.Module):
             if idx == 0:
                 self.linear.append(HNNLayer(manifold, ft_in , ft_out[idx], dropout=dropout, act=get_activate_func(act_func), use_bias=True))
             else:
-                self.linear.append(HNNLayer(manifold, ft_out[idx-1] , ft_out[idx], dropout=dropout, act=None, use_bias=True))
+                self.linear.append(HNNLayer(manifold, ft_out[idx-1] , ft_out[idx], dropout=dropout, act=get_activate_func(act_func), use_bias=True))
             
         self.linear = nn.ModuleList(self.linear)
         
@@ -60,18 +61,9 @@ class PoincareSeqLinear(nn.Module):
             x = self.linear[idx](x)
         return x  
     
-        self.linear = []
-        for idx in range(len(ft_out)):
-            if idx == 0:
-                self.linear.append(HNNLayer(manifold, ft_in , ft_out[idx], dropout=dropout, act=get_activate_func(act_func), use_bias=True))
-            else:
-                self.linear.append(HNNLayer(manifold, ft_out[idx-1] , ft_out[idx], dropout=dropout, act=None, use_bias=True))
-            
-        self.linear = nn.ModuleList(self.linear)
+ 
 
-
-
-class LorentzGraphLayer(nn.Module):
+class PoincareGraphLayer(nn.Module):
     def __init__(self, manifold ,in_channels, hidden_channels=[128], type_model='GCN', skip=False, dropout=0.4, act_func='relu'):
         super().__init__()
         assert type_model in ['GCN', 'GATv2', 'TGCN']
@@ -122,19 +114,21 @@ class PoincareLiFu(nn.Module):
                  skip=False, dropout=0.5, act_func='relu'):
         super(PoincareLiFu, self).__init__()
         self.manifold = manifold
-        self.trans_1 = PoincareSeqLinear(manifold, f1_in, ft_out=ft_trans, dropout=0.0, act_func=act_func)
-        self.trans_2 = PoincareSeqLinear(manifold, f2_in, ft_out=ft_trans, dropout=0.0, act_func=act_func)
-        self.gcn = LorentzGraphLayer(manifold, in_channels=ft_trans[-1], hidden_channels=ft_gcn, type_model=type_graph, 
+        self.trans_1 = SeqLinear(f1_in, ft_out=ft_trans, 
+                                 batch_norm=True, dropout=0, act_func=act_func)
+        self.trans_2 = SeqLinear(f2_in, ft_out=ft_trans, 
+                                 batch_norm=True, dropout=0, act_func=act_func)
+        self.gcn = PoincareGraphLayer(manifold, in_channels=ft_trans[-1], hidden_channels=ft_gcn, type_model=type_graph, 
                               skip=skip, dropout=dropout, act_func=act_func)
     def forward(self,x_1, x_2, n_1, n_2, edge_index ):
-        x_1 = self.manifold.from_euclid_to_poincare(x_1)
-        x_2 = self.manifold.from_euclid_to_poincare(x_2)
-        x_1 = self.manifold.logmap0(self.trans_1(x_1)) # total n_albef, ft
-        x_2 = self.manifold.logmap0(self.trans_2(x_2)) # total n_dot, ft
+        x_1 = self.trans_1(x_1) # total n_albef, ft
+        x_2 = self.trans_2(x_2) # total n_dot, ft
 
         x_concat = self.manifold.from_euclid_to_poincare(concat_node(x_1, x_2, n_1, n_2))
         x, edge_index = self.gcn(x_concat, edge_index)
-        x_cls_1, x_cls_2 = self.manifold.from_euclid_to_poincare(unconcat_node(self.manifold.logmap0(x), n_1, n_2))
+        x_cls_1, x_cls_2 = unconcat_node(self.manifold.logmap0(x), n_1, n_2)
+        x_cls_1 = self.manifold.from_euclid_to_poincare(x_cls_1)
+        x_cls_2 = self.manifold.from_euclid_to_poincare(x_cls_2)
         return x_cls_1, x_cls_2
 
 
@@ -162,11 +156,15 @@ class PoincareEnLiFu(nn.Module):
             dropout=dropout, 
             act_func=act_func
         )
+        self.cat_layer_1 = ConcatPoincareLayer(manifold, f1_out, ft_gcn[-1], ft_gcn[-1]+f1_out) 
+        self.cat_layer_2 = ConcatPoincareLayer(manifold, f2_out, ft_gcn[-1], ft_gcn[-1]+f2_out) 
+        self.cat_layer_all = ConcatPoincareLayer(manifold, f1_out +ft_gcn[-1], f2_out + ft_gcn[-1], 2*ft_gcn[-1]+f1_out+f2_out) 
     def forward(self, x_1, x_2, n_1, n_2, edge_index, x_cls_1, x_cls_2):
         g_cls_1, g_cls_2 = self.gcn(x_1, x_2, n_1, n_2, edge_index )
-        g_cls_1 = self.manifold.logmap0(g_cls_1) 
-        g_cls_2 = self.manifold.logmap0(g_cls_2) 
-        x_enc = torch.cat((g_cls_1, x_cls_1, x_cls_2, g_cls_2),dim=1)
-        g_cls_2 = self.manifold.from_euclid_to_poincare(x_enc) 
+        x_cls_1 = self.manifold.from_euclid_to_poincare(x_cls_1) 
+        x_cls_2 = self.manifold.from_euclid_to_poincare(x_cls_2) 
+        x_g_cls_1 = self.cat_layer_1(x_cls_1, g_cls_1)
+        x_g_cls_2 = self.cat_layer_2(x_cls_2, g_cls_2)
+        x_enc = self.cat_layer_all(x_g_cls_1, x_g_cls_2)
         x_enc = self.lin(x_enc)
         return x_enc
